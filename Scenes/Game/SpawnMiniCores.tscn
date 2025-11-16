@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://468l7pe0g1m0"]
+
+[ext_resource type="Script" uid="uid://dyhqel6tpysut" path="res://Scripts/MainGame/SpawnMiniCores.cs" id="1_pihk5"]
+[ext_resource type="PackedScene" uid="uid://di3fbc26anm46" path="res://Scenes/MiniCore/PositiveCore.tscn" id="2_nulrp"]
+[ext_resource type="PackedScene" uid="uid://w2rahq7m5ans" path="res://Scenes/MiniCore/NegativeCore.tscn" id="3_idt5a"]
+
+[node name="SpawnMiniCores" type="Node" node_paths=PackedStringArray("SpawnTimer")]
+script = ExtResource("1_pihk5")
+PositiveCore = ExtResource("2_nulrp")
+NegativeCore = ExtResource("3_idt5a")
+SpawnTimer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="SpawnRandomMiniCore"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cchgr6twawbib"]
+
+[ext_resource type="Texture2D" uid="uid://c666fxqcm0kme" path="res://Sprites/SlotsUpgrade/POSITIVE_SLOT_UPGRADE.png" id="1_c6l52"]
+[ext_resource type="Script" uid="uid://bpgbyxn3uqdb4" path="res://Scripts/UI/ShopPositiveUpgradeSlotUi.cs" id="1_i42d0"]
+
+[node name="ShopPositiveUpgradeSlotUi" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+texture_normal = ExtResource("1_c6l52")
+stretch_mode = 5
+script = ExtResource("1_i42d0")

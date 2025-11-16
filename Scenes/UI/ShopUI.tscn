@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=3 uid="uid://0ytqrnv7hmbw"]
+
+[ext_resource type="Texture2D" uid="uid://d1huwx2dlb481" path="res://Sprites/SlotsUpgrade/MINI_CORE_UPGRADE_TEXT.png" id="1_jp4kd"]
+[ext_resource type="PackedScene" uid="uid://cchgr6twawbib" path="res://Scenes/UI/ShopPositiveUpgradeSlotUI.tscn" id="1_wb0up"]
+[ext_resource type="PackedScene" uid="uid://ch0cfjn67s6hu" path="res://Scenes/UI/ShopNegativeUpgradeSlotUI.tscn" id="2_jp4kd"]
+[ext_resource type="Texture2D" uid="uid://0yld7br68qt4" path="res://Sprites/SlotsUpgrade/MAINI_CORE_UPGRADE_TEXT.png" id="4_beo0j"]
+[ext_resource type="PackedScene" uid="uid://dw3fcc77ewupw" path="res://Scenes/UI/ShopMainCoreTurretUpgradeSlotUI.tscn" id="4_vlp6y"]
+
+[node name="ShopUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+texture = ExtResource("1_jp4kd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="PositiveUpgrades" type="VBoxContainer" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopPositiveUpgradeSlotUi" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer/PositiveUpgrades" instance=ExtResource("1_wb0up")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopPositiveUpgradeSlotUi2" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer/PositiveUpgrades" instance=ExtResource("1_wb0up")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 1
+
+[node name="ShopPositiveUpgradeSlotUi3" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer/PositiveUpgrades" instance=ExtResource("1_wb0up")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 2
+
+[node name="ShopPositiveUpgradeSlotUi4" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer/PositiveUpgrades" instance=ExtResource("1_wb0up")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 3
+
+[node name="ShopPositiveUpgradeSlotUi5" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer/PositiveUpgrades" instance=ExtResource("1_wb0up")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 3
+
+[node name="NegativeUpgrades" type="VBoxContainer" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopNegativeUpgradeSlotUi" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer/NegativeUpgrades" instance=ExtResource("2_jp4kd")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopNegativeUpgradeSlotUi2" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer/NegativeUpgrades" instance=ExtResource("2_jp4kd")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 1
+
+[node name="ShopNegativeUpgradeSlotUi3" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer/NegativeUpgrades" instance=ExtResource("2_jp4kd")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 2
+
+[node name="ShopNegativeUpgradeSlotUi4" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer/NegativeUpgrades" instance=ExtResource("2_jp4kd")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 3
+
+[node name="ShopNegativeUpgradeSlotUi5" parent="TextureRect/HBoxContainer/VBoxContainer/HBoxContainer/NegativeUpgrades" instance=ExtResource("2_jp4kd")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+texture = ExtResource("4_beo0j")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="NegativeUpgrades" type="VBoxContainer" parent="TextureRect/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ShopMainCoreTurretUpgradeSlotUi" parent="TextureRect/HBoxContainer/VBoxContainer2/NegativeUpgrades" instance=ExtResource("4_vlp6y")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopMainCoreTurretUpgradeSlotUi2" parent="TextureRect/HBoxContainer/VBoxContainer2/NegativeUpgrades" instance=ExtResource("4_vlp6y")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 1
+
+[node name="ShopMainCoreTurretUpgradeSlotUi3" parent="TextureRect/HBoxContainer/VBoxContainer2/NegativeUpgrades" instance=ExtResource("4_vlp6y")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 2
+
+[node name="ShopMainCoreTurretUpgradeSlotUi4" parent="TextureRect/HBoxContainer/VBoxContainer2/NegativeUpgrades" instance=ExtResource("4_vlp6y")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 3
+
+[node name="ShopMainCoreTurretUpgradeSlotUi5" parent="TextureRect/HBoxContainer/VBoxContainer2/NegativeUpgrades" instance=ExtResource("4_vlp6y")]
+layout_mode = 2
+size_flags_vertical = 3
+IndexSlot = 3

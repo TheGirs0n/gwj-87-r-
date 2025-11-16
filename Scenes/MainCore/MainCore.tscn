@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://81jpjo61homb"]
+
+[ext_resource type="Script" uid="uid://d4f5f7im7tg0o" path="res://Scripts/MainCore/MainCore.cs" id="1_n1loq"]
+[ext_resource type="Texture2D" uid="uid://h3q485p71upd" path="res://Sprites/MainCore/MAIN_CORE_DAY.png" id="2_51ihd"]
+[ext_resource type="PackedScene" uid="uid://bgpbaqcciylf" path="res://Scenes/MainCore/MainCoreTurret.tscn" id="2_n8cjy"]
+[ext_resource type="Texture2D" uid="uid://ryhavjgtw4un" path="res://Sprites/MainCore/MAIN_CORE_NIGHT.png" id="3_dcaak"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n8cjy"]
+radius = 40.0
+
+[node name="MainCore" type="Node2D" node_paths=PackedStringArray("_mainCoreTurretPool", "_scoreLabel", "MainCoreSprite")]
+script = ExtResource("1_n1loq")
+_mainCoreTurretPool = NodePath("MainCoreTurretPool")
+_scoreLabel = NodePath("RichTextLabel")
+MainCoreSprite = NodePath("Sprite2D")
+MainCoreDaySprite = ExtResource("2_51ihd")
+MainCoreNightSprite = ExtResource("3_dcaak")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_n8cjy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_51ihd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainCoreTurretPool" type="Node" parent="."]
+
+[node name="MainCoreTurret" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
+
+[node name="MainCoreTurret2" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
+
+[node name="MainCoreTurret3" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
+
+[node name="MainCoreTurret4" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
+
+[node name="MainCoreTurret5" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]

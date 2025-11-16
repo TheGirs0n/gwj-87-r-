@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch0cfjn67s6hu"]
+
+[ext_resource type="Script" uid="uid://c2gkvx4kvq2rn" path="res://Scripts/UI/ShopNegativeUpgradeSlotUi.cs" id="1_os4nx"]
+[ext_resource type="Texture2D" uid="uid://juvyo6e5udmn" path="res://Sprites/SlotsUpgrade/NEGATIVE_SLOT_UPGRADE.png" id="1_um2hf"]
+
+[node name="ShopNegativeUpgradeSlotUi" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+texture_normal = ExtResource("1_um2hf")
+stretch_mode = 5
+script = ExtResource("1_os4nx")
