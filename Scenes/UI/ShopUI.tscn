@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0ytqrnv7hmbw"]
+[gd_scene load_steps=11 format=3 uid="uid://0ytqrnv7hmbw"]
 
 [ext_resource type="Script" uid="uid://ce44686k0k215" path="res://Scripts/UI/ShopUi.cs" id="1_8mkpq"]
 [ext_resource type="Texture2D" uid="uid://d1huwx2dlb481" path="res://Sprites/SlotsUpgrade/MINI_CORE_UPGRADE_TEXT.png" id="1_jp4kd"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dw3fcc77ewupw" path="res://Scenes/UI/ShopMainCoreTurretUpgradeSlotUI.tscn" id="4_vlp6y"]
 [ext_resource type="Texture2D" uid="uid://d307b8cde7u77" path="res://Sprites/SlotsUpgrade/MODIFIERS_SLOTS_TEXT.png" id="6_l2tbr"]
 [ext_resource type="PackedScene" uid="uid://bs8145b23b7oj" path="res://Scenes/UI/ShopModifiersBuySlot.tscn" id="7_1l2b4"]
+[ext_resource type="Theme" uid="uid://cjs2bqyy6atwx" path="res://Resources/ShopTextTheme.tres" id="9_2yynn"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_beo0j"]
 
@@ -207,6 +208,7 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("9_2yynn")
 text = "Score"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -214,6 +216,7 @@ vertical_alignment = 1
 [node name="RichTextLabel2" type="RichTextLabel" parent="TextureRect/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("9_2yynn")
 text = "asdasd"
 horizontal_alignment = 1
 vertical_alignment = 1

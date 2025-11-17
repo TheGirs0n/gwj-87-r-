@@ -1,39 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://81jpjo61homb"]
+[gd_scene load_steps=9 format=3 uid="uid://81jpjo61homb"]
 
 [ext_resource type="Script" uid="uid://d4f5f7im7tg0o" path="res://Scripts/MainCore/MainCore.cs" id="1_n1loq"]
 [ext_resource type="Texture2D" uid="uid://h3q485p71upd" path="res://Sprites/MainCore/MAIN_CORE_DAY.png" id="2_51ihd"]
 [ext_resource type="PackedScene" uid="uid://bgpbaqcciylf" path="res://Scenes/MainCore/MainCoreTurret.tscn" id="2_n8cjy"]
 [ext_resource type="Texture2D" uid="uid://ryhavjgtw4un" path="res://Sprites/MainCore/MAIN_CORE_NIGHT.png" id="3_dcaak"]
+[ext_resource type="Theme" uid="uid://c22xi6n2330wy" path="res://Resources/MainCoreDayScoreText.tres" id="4_2ujet"]
+[ext_resource type="Theme" uid="uid://cvl53kyqwheed" path="res://Resources/MainCoreNightScoreText.tres" id="5_fgwsc"]
+[ext_resource type="Script" uid="uid://2afiwv0vpg7f" path="res://Scripts/MainCore/MainCoreTurretPool.cs" id="6_fgwsc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8cjy"]
-radius = 40.0
+radius = 90.0
 
-[node name="MainCore" type="Area2D" node_paths=PackedStringArray("_mainCoreTurretPool", "_scoreLabel", "MainCoreSprite")]
+[node name="MainCore" type="Area2D" node_paths=PackedStringArray("_mainCoreTurretPool", "_scoreLabel", "MainCoreSprite", "ScoreLabel")]
+collision_layer = 2
+input_pickable = false
 script = ExtResource("1_n1loq")
 _mainCoreTurretPool = NodePath("MainCoreTurretPool")
 _scoreLabel = NodePath("RichTextLabel")
 MainCoreSprite = NodePath("Sprite2D")
 MainCoreDaySprite = ExtResource("2_51ihd")
 MainCoreNightSprite = ExtResource("3_dcaak")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_n8cjy")
+ScoreLabel = NodePath("RichTextLabel")
+ScoreDayLabelTheme = ExtResource("4_2ujet")
+ScoreNightLabelTheme = ExtResource("5_fgwsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(5, 5)
 texture = ExtResource("2_51ihd")
 
-[node name="MainCoreTurretPool" type="Node" parent="."]
-
-[node name="MainCoreTurret" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
-
-[node name="MainCoreTurret2" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
-
-[node name="MainCoreTurret3" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
-
-[node name="MainCoreTurret4" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
-
-[node name="MainCoreTurret5" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(482, 0)
+limit_left = -100
+limit_top = -250
+limit_right = 800
+limit_bottom = 250
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = 8
@@ -51,4 +51,9 @@ text = "123"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="body_entered" from="." to="." method="EnterCore"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n8cjy")
+
+[node name="MainCoreTurretPool" type="Node" parent="."]
+script = ExtResource("6_fgwsc")
+_turretScene = ExtResource("2_n8cjy")

@@ -5,26 +5,18 @@ public partial class MainGame : Node
 {
     [Export] private Timer _timer;
 
-    public TimeType TimeType;
-
-    public void SetDay()
+    public override void _Ready()
     {
-        TimeType = TimeType.DAY;
+        GlobalContext.MainGameInstance = this;
     }
 
-    public void SetNight()
+    public override void _Process(double delta)
     {
-        TimeType = TimeType.NIGHT;
+        GlobalContext.GlobalUIInstance.MainGameUi.UpdateScoreText((int)_timer.TimeLeft);
     }
 
     public void TimeIsOver()
     {
-        
+        // переход в магазин
     }
-}
-
-public enum TimeType
-{
-    DAY,
-    NIGHT
 }

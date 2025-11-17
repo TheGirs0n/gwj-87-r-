@@ -8,8 +8,6 @@
 radius = 90.0
 
 [node name="MainCoreTurret" type="Node2D" node_paths=PackedStringArray("_turretSprite")]
-process_mode = 4
-visible = false
 script = ExtResource("1_1nnvn")
 _turretSprite = NodePath("Sprite2D")
 _turretDaySprite = ExtResource("2_4ihuq")
@@ -19,6 +17,7 @@ _turretNightSprite = ExtResource("3_t0grq")
 texture = ExtResource("2_4ihuq")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 90)

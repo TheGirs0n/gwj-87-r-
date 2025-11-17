@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-public abstract partial class ShopUpgradeSlotUi : Texture
+public abstract partial class ShopUpgradeSlotUi : TextureButton
 {
     [Export] public int IndexSlot;
     protected bool _isActivated = false;

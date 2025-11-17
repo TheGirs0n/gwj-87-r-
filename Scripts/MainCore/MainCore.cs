@@ -5,66 +5,55 @@ using Godot;
 public partial class MainCore : Node2D
 {
     [ExportGroup("Sub parameters")]
-    [Export] private Node _mainCoreTurretPool;
+    [Export] private MainCoreTurretPool _mainCoreTurretPool;
     [Export] private RichTextLabel _scoreLabel;
-    [Export] public int _score;
+    [Export] public int Score;
 
     [ExportGroup("SpriteSetting")]
     [Export] public Sprite2D MainCoreSprite;
     [Export] public CompressedTexture2D MainCoreDaySprite;
     [Export] public CompressedTexture2D MainCoreNightSprite;
     
+    [ExportGroup("Text")]
+    [Export] public RichTextLabel ScoreLabel;
+    [Export] public Theme ScoreDayLabelTheme;
+    [Export] public Theme ScoreNightLabelTheme;
+    
+    
     public override void _Ready()
     {
         GlobalContext.MainCoreInstance = this;
     }
 
-    public void AddScore(int score)
+    public void UpdateScore(int score)
     {
-        _score += score;    
-    }
+        Score += score;
 
-    public void DecreaseScore(int score)
-    {
-        _score -= score;
-
-        if (_score < 0)
+        if (Score < 0)
         {
-            _score = 0;
+            Score = 0;
         }
     }
 
     public void AddTurretFromPool()
     {
-        _mainCoreTurretPool.GetChildren().First(x => x.ProcessMode == ProcessModeEnum.Disabled).ProcessMode = ProcessModeEnum.Inherit;
+        _mainCoreTurretPool.GetNewTurret();
     }
 
-    public void RebuildForDay()
+    public void RebuildForCurrentTimeType(TimeType timeType)
     {
-        MainCoreSprite.Texture = MainCoreDaySprite;
-    }
-    
-    public void RebuildForNight()
-    {
-        MainCoreSprite.Texture = MainCoreNightSprite;
-    }
-
-    public void EnterCore(Node2D core)
-    {
-        if (core is CoreTemplate coreTemplate)
+        switch (timeType)
         {
-            var score = coreTemplate.ScoreFromEntry;
-
-            if (score > 0)
-            {
-                AddScore(score);
-            }
-            else
-            {
-                DecreaseScore(score);
-            }
-            
-            coreTemplate.QueueFree();
+            case TimeType.DAY:
+                MainCoreSprite.Texture = MainCoreDaySprite;
+                ScoreLabel.Theme = ScoreDayLabelTheme;
+                break;
+            case TimeType.NIGHT:
+                MainCoreSprite.Texture = MainCoreNightSprite;
+                ScoreLabel.Theme = ScoreNightLabelTheme;
+                break;
         }
+
+        _mainCoreTurretPool.RebuildTurrets(timeType);
     }
 }

@@ -1,62 +1,58 @@
 using Godot;
 using System;
 
-public partial class SpawnMiniCores : Area2D
+public partial class SpawnMiniCores : Node
 {
 	[ExportGroup("Mini Cores")]
 	[Export] public PackedScene PositiveCore;
 	[Export] public PackedScene NegativeCore;
+	[Export] public Node NodesPool;
 	
 	[ExportGroup("Parameters")]
-	[Export] public CollisionShape2D SpawnZone;
 	[Export] public Timer SpawnTimer;
+	[Export] public float SpawnOffset = 50.0f; 
+	
+	[ExportGroup("Spawn Area")]
+	[Export] public float MinSpawnHeight = 0.05f; 
+	[Export] public float MaxSpawnHeight = 0.95f; 
+	
+	private Random _random = new Random();
 	
 	public void SpawnRandomMiniCore()
 	{
 		var coreType = Random.Shared.Next(1, 3);
 		PackedScene coreScene = coreType == 1 ? PositiveCore : NegativeCore;
 		
-		var coreInstance = coreScene.Instantiate<Node2D>();
-		GetTree().CurrentScene.AddChild(coreInstance);
+		var coreInstance = coreScene.Instantiate<CoreTemplate>();
+		NodesPool.AddChild(coreInstance);
+		GD.Print(NodesPool.GetChildCount());
 		
-		coreInstance.GlobalPosition = GetRandomPositionOnEdge();
+		coreInstance.GlobalPosition = GetRandomPositionOffScreen();
+		GD.Print("Spawn Core");
 	}
 
-	private Vector2 GetRandomPositionOnEdge()
+	private Vector2 GetRandomPositionOffScreen()
 	{
-		var rectSize = GetViewportRect().Size;
-		var side = Random.Shared.Next(0, 4);
+		var viewport = GetViewport();
+		var viewportSize = viewport.GetVisibleRect().Size;
+    
+		var camera = viewport.GetCamera2D();
+		var cameraCenter = camera?.GlobalPosition ?? Vector2.Zero;
+    
+		var right = cameraCenter.X + viewportSize.X / 2;
+		var top = cameraCenter.Y - viewportSize.Y / 2;
+		var bottom = cameraCenter.Y + viewportSize.Y / 2;
 		
-		var localPosition = Vector2.Zero;
+		var minY = top + viewportSize.Y * MinSpawnHeight;
+		var maxY = top + viewportSize.Y * MaxSpawnHeight;
+		
+		var randomY = minY + _random.NextSingle() * (maxY - minY);
+    
+		var spawnPosition = new Vector2(
+			right + SpawnOffset,
+			randomY
+		);
 
-		switch (side)
-		{
-			case 0:
-				localPosition = new Vector2(
-					Random.Shared.NextSingle() * rectSize.X - rectSize.X / 2,
-					-rectSize.Y / 2
-				);
-				break;
-			case 1:
-				localPosition = new Vector2(
-					rectSize.X / 2,
-					Random.Shared.NextSingle() * rectSize.Y - rectSize.Y / 2
-				);
-				break;
-			case 2:
-				localPosition = new Vector2(
-					Random.Shared.NextSingle() * rectSize.X - rectSize.X / 2,
-					rectSize.Y / 2
-				);
-				break;
-			case 3:
-				localPosition = new Vector2(
-					-rectSize.X / 2,
-					Random.Shared.NextSingle() * rectSize.Y - rectSize.Y / 2
-				);
-				break;
-		}
-		
-		return SpawnZone.GlobalPosition + localPosition;
+		return spawnPosition;
 	}
 }

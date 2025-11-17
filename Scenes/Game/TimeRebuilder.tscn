@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6o7oqf6gdkg4"]
+
+[ext_resource type="Script" uid="uid://b4hqgrxvhmc00" path="res://Scripts/MainGame/TimeRebuilder.cs" id="1_66sft"]
+
+[node name="TimeRebuilder" type="Node"]
+script = ExtResource("1_66sft")

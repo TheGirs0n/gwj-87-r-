@@ -9,19 +9,40 @@ public partial class MainCoreTurret : Node2D
     [Export] private CompressedTexture2D _turretNightSprite;
     
     private bool _canShoot = true;
+    private TimeType _timeType;
 
-    public void DestroyNegativeMiniCore(Node2D target)
+    public void DestroyNegativeEntryMiniCore(Node2D target)
     {
-        //if()
+        if (_timeType == TimeType.DAY)
+        {
+            if (target is NegativeCore negativeCore)
+            {
+                var score = negativeCore.GetPointsFromDestroy();
+                GlobalContext.MainCoreInstance.UpdateScore(score);
+            }
+        }
+        else
+        {
+            if (target is PositiveCore positiveCore)
+            {
+                var score = positiveCore.GetPointsFromDestroy();
+                GlobalContext.MainCoreInstance.UpdateScore(score);
+            } 
+        }
     }
 
-    public void RebuildForDay()
+    public void RebuildForCurrentTimeType(TimeType timeType)
     {
-        _turretSprite.Texture = _turretDaySprite;
-    }
-    
-    public void RebuildForNight()
-    {
-        _turretSprite.Texture = _turretNightSprite;
+        switch (timeType)
+        {
+            case TimeType.DAY:
+                _turretSprite.Texture = _turretDaySprite;
+                _timeType = TimeType.DAY;
+                break;
+            case TimeType.NIGHT:
+                _turretSprite.Texture = _turretNightSprite;
+                _timeType = TimeType.NIGHT;
+                break;
+        }
     }
 }

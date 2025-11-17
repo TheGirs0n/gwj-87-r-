@@ -1,16 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://di3fbc26anm46"]
+[gd_scene load_steps=6 format=3 uid="uid://di3fbc26anm46"]
 
 [ext_resource type="Script" uid="uid://el0d6dqvwj1r" path="res://Scripts/CoreTemplate/PositiveCore.cs" id="1_75438"]
 [ext_resource type="Texture2D" uid="uid://7pwvvwsroe28" path="res://Sprites/MiniCore/POSITIVE_MINI_CORE_DAY.png" id="2_w5vqa"]
 [ext_resource type="Texture2D" uid="uid://dct4r4554f5n1" path="res://Sprites/MiniCore/POSITIVE_MINI_CORE_NIGHT.png" id="3_13i7q"]
 
-[node name="PositiveCore" type="Node2D" node_paths=PackedStringArray("CoreSprite")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5vqa"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_13i7q"]
+radius = 18.0
+
+[node name="PositiveCore" type="CharacterBody2D" node_paths=PackedStringArray("CoreSprite")]
+collision_mask = 2
+input_pickable = true
 script = ExtResource("1_75438")
-ScoreFromEntry = 15
-ScoreFromDestroy = -15
+PositiveScore = 15
+NegativeScore = -15
+CoreDestroyAction = 1
 CoreSprite = NodePath("CoreSprite")
 CoreDaySprite = ExtResource("2_w5vqa")
 CoreNightSprite = ExtResource("3_13i7q")
 
 [node name="CoreSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_w5vqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w5vqa")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_13i7q")
+
+[connection signal="area_entered" from="Area2D" to="." method="EnterCore"]
