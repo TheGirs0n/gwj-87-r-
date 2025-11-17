@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8cjy"]
 radius = 40.0
 
-[node name="MainCore" type="Node2D" node_paths=PackedStringArray("_mainCoreTurretPool", "_scoreLabel", "MainCoreSprite")]
+[node name="MainCore" type="Area2D" node_paths=PackedStringArray("_mainCoreTurretPool", "_scoreLabel", "MainCoreSprite")]
 script = ExtResource("1_n1loq")
 _mainCoreTurretPool = NodePath("MainCoreTurretPool")
 _scoreLabel = NodePath("RichTextLabel")
@@ -16,14 +16,24 @@ MainCoreSprite = NodePath("Sprite2D")
 MainCoreDaySprite = ExtResource("2_51ihd")
 MainCoreNightSprite = ExtResource("3_dcaak")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n8cjy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_51ihd")
+
+[node name="MainCoreTurretPool" type="Node" parent="."]
+
+[node name="MainCoreTurret" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
+
+[node name="MainCoreTurret2" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
+
+[node name="MainCoreTurret3" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
+
+[node name="MainCoreTurret4" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
+
+[node name="MainCoreTurret5" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchors_preset = 8
@@ -37,17 +47,8 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "123"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainCoreTurretPool" type="Node" parent="."]
-
-[node name="MainCoreTurret" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
-
-[node name="MainCoreTurret2" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
-
-[node name="MainCoreTurret3" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
-
-[node name="MainCoreTurret4" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
-
-[node name="MainCoreTurret5" parent="MainCoreTurretPool" instance=ExtResource("2_n8cjy")]
+[connection signal="body_entered" from="." to="." method="EnterCore"]

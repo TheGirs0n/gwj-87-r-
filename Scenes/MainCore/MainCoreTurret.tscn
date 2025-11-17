@@ -1,19 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgpbaqcciylf"]
+[gd_scene load_steps=5 format=3 uid="uid://bgpbaqcciylf"]
 
 [ext_resource type="Script" uid="uid://lvppfis8dala" path="res://Scripts/MainCore/MainCoreTurret.cs" id="1_1nnvn"]
+[ext_resource type="Texture2D" uid="uid://funipw1c3txe" path="res://Sprites/MainCore/MAIN_CORE_TURRET_DAY.png" id="2_4ihuq"]
+[ext_resource type="Texture2D" uid="uid://i62xwkw5tox7" path="res://Sprites/MainCore/MAIN_CORE_TURRET_NIGHT.png" id="3_t0grq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dk4a4"]
+radius = 90.0
 
-[node name="MainCoreTurret" type="Node2D"]
+[node name="MainCoreTurret" type="Node2D" node_paths=PackedStringArray("_turretSprite")]
 process_mode = 4
 visible = false
 script = ExtResource("1_1nnvn")
+_turretSprite = NodePath("Sprite2D")
+_turretDaySprite = ExtResource("2_4ihuq")
+_turretNightSprite = ExtResource("3_t0grq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4ihuq")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 90)
 shape = SubResource("CircleShape2D_dk4a4")
 
 [node name="Timer" type="Timer" parent="."]

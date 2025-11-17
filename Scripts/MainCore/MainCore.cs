@@ -27,6 +27,11 @@ public partial class MainCore : Node2D
     public void DecreaseScore(int score)
     {
         _score -= score;
+
+        if (_score < 0)
+        {
+            _score = 0;
+        }
     }
 
     public void AddTurretFromPool()
@@ -42,5 +47,24 @@ public partial class MainCore : Node2D
     public void RebuildForNight()
     {
         MainCoreSprite.Texture = MainCoreNightSprite;
+    }
+
+    public void EnterCore(Node2D core)
+    {
+        if (core is CoreTemplate coreTemplate)
+        {
+            var score = coreTemplate.ScoreFromEntry;
+
+            if (score > 0)
+            {
+                AddScore(score);
+            }
+            else
+            {
+                DecreaseScore(score);
+            }
+            
+            coreTemplate.QueueFree();
+        }
     }
 }

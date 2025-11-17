@@ -11,24 +11,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_35rqa")
 
-[node name="StartGame" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.1
+anchor_right = 0.75
+anchor_bottom = 0.9
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="StartGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 action_mode = 0
 
-[node name="Settings" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 action_mode = 0
 
-[node name="ExitGame" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="ExitGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 action_mode = 0
 
-[connection signal="pressed" from="StartGame" to="." method="StartGame"]
-[connection signal="pressed" from="Settings" to="." method="Settings"]
-[connection signal="pressed" from="ExitGame" to="." method="ExitGame"]
+[connection signal="pressed" from="VBoxContainer/StartGame" to="." method="StartGame"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="Settings"]
+[connection signal="pressed" from="VBoxContainer/ExitGame" to="." method="ExitGame"]

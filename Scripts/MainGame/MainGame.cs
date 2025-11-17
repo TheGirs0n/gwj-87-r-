@@ -16,6 +16,11 @@ public partial class MainGame : Node
     {
         TimeType = TimeType.NIGHT;
     }
+
+    public void TimeIsOver()
+    {
+        
+    }
 }
 
 public enum TimeType

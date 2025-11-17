@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0ny5d5ja0ujm"]
+
+[ext_resource type="Script" uid="uid://dn355iio3wkh4" path="res://Scripts/UI/GlobalUI.cs" id="1_kw8tm"]
+[ext_resource type="PackedScene" uid="uid://wfticmp1n3cj" path="res://Scenes/UI/MainGameUI.tscn" id="2_l6hbw"]
+[ext_resource type="PackedScene" uid="uid://0ytqrnv7hmbw" path="res://Scenes/UI/ShopUI.tscn" id="3_5ph50"]
+
+[node name="GlobalUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kw8tm")
+
+[node name="MainGameUi" parent="." instance=ExtResource("2_l6hbw")]
+layout_mode = 1
+
+[node name="ShopUi" parent="." instance=ExtResource("3_5ph50")]
+visible = false
+layout_mode = 1

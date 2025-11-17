@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1njvm1i5vqr0" path="res://Scripts/UI/MainGameUI.cs" id="1_mqxno"]
 
-[node name="MainGameUi" type="Control" node_paths=PackedStringArray("_playerLeftTime")]
+[node name="MainGameUi" type="Control" node_paths=PackedStringArray("PlayerLeftTime")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mqxno")
-_playerLeftTime = NodePath("VBox/RichTextLabel2")
+PlayerLeftTime = NodePath("VBox/RichTextLabel2")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -24,6 +24,7 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="VBox"]
 layout_mode = 2
 size_flags_vertical = 3
+text = "TIME LEFT:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
