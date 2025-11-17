@@ -17,7 +17,7 @@ public partial class MainCoreTurret : Node2D
         {
             if (target is NegativeCore negativeCore)
             {
-                var score = negativeCore.GetPointsFromDestroy();
+                var score = negativeCore.ScoreFromDestroy;
                 GlobalContext.MainCoreInstance.UpdateScore(score);
             }
         }
@@ -25,7 +25,7 @@ public partial class MainCoreTurret : Node2D
         {
             if (target is PositiveCore positiveCore)
             {
-                var score = positiveCore.GetPointsFromDestroy();
+                var score = positiveCore.ScoreFromDestroy;
                 GlobalContext.MainCoreInstance.UpdateScore(score);
             } 
         }

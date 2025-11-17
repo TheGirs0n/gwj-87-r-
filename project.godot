@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="GWJ_87(R)"
+run/main_scene="uid://dubpcv52yvbsx"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TimeRebuilder="*res://Scenes/Game/TimeRebuilder.tscn"
+SpawnMiniCores="*res://Scripts/MainGame/SpawnMiniCores.cs"
+
 [display]
 
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

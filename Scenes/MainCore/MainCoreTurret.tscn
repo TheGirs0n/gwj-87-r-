@@ -10,8 +10,8 @@ radius = 90.0
 [node name="MainCoreTurret" type="Node2D" node_paths=PackedStringArray("_turretSprite")]
 script = ExtResource("1_1nnvn")
 _turretSprite = NodePath("Sprite2D")
-_turretDaySprite = ExtResource("2_4ihuq")
-_turretNightSprite = ExtResource("3_t0grq")
+_turretDaySprite = ExtResource("3_t0grq")
+_turretNightSprite = ExtResource("2_4ihuq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_4ihuq")

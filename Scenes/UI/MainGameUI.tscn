@@ -1,24 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://wfticmp1n3cj"]
+[gd_scene load_steps=6 format=3 uid="uid://wfticmp1n3cj"]
 
 [ext_resource type="Script" uid="uid://c1njvm1i5vqr0" path="res://Scripts/UI/MainGameUI.cs" id="1_mqxno"]
+[ext_resource type="Theme" uid="uid://c22xi6n2330wy" path="res://Resources/MainCoreDayScoreText.tres" id="2_54g0v"]
+[ext_resource type="Theme" uid="uid://cvl53kyqwheed" path="res://Resources/MainCoreNightScoreText.tres" id="3_qie6y"]
+[ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="4_v51ef"]
+[ext_resource type="Texture2D" uid="uid://cp7gvfw15ong7" path="res://Sprites/Background/BACKGROUND_NIGHT.png" id="5_ybh4b"]
 
-[node name="MainGameUi" type="Control" node_paths=PackedStringArray("PlayerLeftTime")]
+[node name="MainGameUi" type="Control" node_paths=PackedStringArray("PlayerLeftTime", "PlayerLabelTime", "BackgroundTexture")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_mqxno")
 PlayerLeftTime = NodePath("VBox/RichTextLabel2")
+PlayerLabelTime = NodePath("VBox/RichTextLabel")
+LabelsDayTheme = ExtResource("2_54g0v")
+LabelsNightTheme = ExtResource("3_qie6y")
+BackgroundTexture = NodePath("TextureRect")
+BackgroundDay = ExtResource("4_v51ef")
+BackgroundNight = ExtResource("5_ybh4b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBox" type="VBoxContainer" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
-anchor_top = 0.025
+anchor_top = 0.05
 anchor_right = 0.6
-anchor_bottom = 0.15
+anchor_bottom = 0.2
 alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBox"]

@@ -8,33 +8,41 @@ public abstract partial class CoreTemplate : CharacterBody2D
 	[Export] public float SpeedMultiplier = 1f;
 	[Export] public int PositiveScore;
 	[Export] public int NegativeScore;
+	
 	public int ScoreFromDestroy;
 	public int ScoreFromEntry;
 	
 	[ExportGroup("Core Types")]
-	[Export] public CoreType CoreType;
-	[Export] public CoreEntryAction CoreEntryAction;
-	[Export] public CoreDestroyAction CoreDestroyAction;
 	[Export] public Sprite2D CoreSprite;
 	[Export] public CompressedTexture2D CoreDaySprite;
 	[Export] public CompressedTexture2D CoreNightSprite;
 
+	[ExportGroup("Particles")]
+	[Export] public GpuParticles2D CoreParticles;
+	[Export] public ParticleProcessMaterial CoreParticleDayProcessMaterial;
+	[Export] public ParticleProcessMaterial CoreParticleNightProcessMaterial;
+	
 	protected MainCore _targetMainCore;
-
-	public override void _Ready()
-	{
-		GlobalContext.CoreInstance = this;
-	}
 
 	public abstract void RebuildForCurrentTimeType(TimeType timeType);
 	public abstract void SwapPolarityScores(TimeType timeType);
 	public abstract void MoveToMainCore(float delta);
 
+	public void MouseInputEvent(Node viewport, InputEvent @event, int shapeIdx)
+	{
+		if (@event is InputEventMouseButton mouseEvent && 
+		    mouseEvent.ButtonIndex == MouseButton.Left && 
+		    mouseEvent.Pressed)
+		{
+			DestroyCore();
+		}
+	}
+	
 	public void EnterCore(Node2D mainCore)
 	{
 		if (mainCore == _targetMainCore)
 		{
-			GD.Print("EnterCore SSS");
+			_targetMainCore.UpdateScore(ScoreFromEntry);
 			this.QueueFree();
 		}
 	}
@@ -44,33 +52,5 @@ public abstract partial class CoreTemplate : CharacterBody2D
 		_targetMainCore.UpdateScore(ScoreFromDestroy);
 		this.QueueFree();
 	}
-
-	public int GetPointsFromEntry()
-	{
-		return ScoreFromEntry;
-	}
-
-	public int GetPointsFromDestroy()
-	{
-		return ScoreFromDestroy;
-	}
-
 }
 
-public enum CoreType
-{
-	POSITIVE,
-	NEGATIVE
-}
-
-public enum CoreEntryAction
-{
-	POSITIVE,
-	NEGATIVE,
-}
-
-public enum CoreDestroyAction
-{
-	POSITIVE,
-	NEGATIVE,
-}

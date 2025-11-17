@@ -5,21 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://468l7pe0g1m0" path="res://Scenes/Game/SpawnMiniCores.tscn" id="2_u6ljv"]
 [ext_resource type="PackedScene" uid="uid://yvkh6ihscdqy" path="res://Scenes/UI/UI.tscn" id="4_to5xg"]
 
-[node name="MainGame" type="Node" node_paths=PackedStringArray("_timer")]
+[node name="MainGame" type="Node" node_paths=PackedStringArray("_timer", "_miniCoresPool")]
 script = ExtResource("1_2akhy")
 _timer = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 60.0
-autostart = true
+_miniCoresPool = NodePath("SpawnMiniCores/MiniCores")
 
 [node name="UI" parent="." instance=ExtResource("4_to5xg")]
 
-[node name="SpawnMiniCores" parent="." node_paths=PackedStringArray("NodesPool") instance=ExtResource("2_u6ljv")]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="SpawnMiniCores" parent="." node_paths=PackedStringArray("NodesPool", "MainGameTimer") instance=ExtResource("2_u6ljv")]
 NodesPool = NodePath("MiniCores")
+SpawnOffset = 0.0
+MainGameTimer = NodePath("../Timer")
 
 [node name="MiniCores" type="Node" parent="SpawnMiniCores"]
 
 [node name="MainCore" parent="." instance=ExtResource("1_v4ctl")]
-
-[connection signal="timeout" from="Timer" to="." method="TimeIsOver"]

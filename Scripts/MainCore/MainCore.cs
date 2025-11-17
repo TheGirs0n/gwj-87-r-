@@ -6,8 +6,7 @@ public partial class MainCore : Node2D
 {
     [ExportGroup("Sub parameters")]
     [Export] private MainCoreTurretPool _mainCoreTurretPool;
-    [Export] private RichTextLabel _scoreLabel;
-    [Export] public int Score;
+    [Export] public int Score = 50;
 
     [ExportGroup("SpriteSetting")]
     [Export] public Sprite2D MainCoreSprite;
@@ -19,8 +18,12 @@ public partial class MainCore : Node2D
     [Export] public Theme ScoreDayLabelTheme;
     [Export] public Theme ScoreNightLabelTheme;
     
+    [ExportGroup("Particles")]
+    [Export] private GpuParticles2D MainCoreParticles;
+    [Export] private ParticleProcessMaterial MainCoreDayParticlesMaterial;
+    [Export] private ParticleProcessMaterial MainCoreNightParticlesMaterial;
     
-    public override void _Ready()
+    public override void _EnterTree()
     {
         GlobalContext.MainCoreInstance = this;
     }
@@ -33,8 +36,16 @@ public partial class MainCore : Node2D
         {
             Score = 0;
         }
+
+        UpdateScoreText();
+        GD.Print("Score: " + Score);
     }
 
+    private void UpdateScoreText()
+    {
+        ScoreLabel.Text = Score.ToString();
+    }
+    
     public void AddTurretFromPool()
     {
         _mainCoreTurretPool.GetNewTurret();
@@ -47,10 +58,12 @@ public partial class MainCore : Node2D
             case TimeType.DAY:
                 MainCoreSprite.Texture = MainCoreDaySprite;
                 ScoreLabel.Theme = ScoreDayLabelTheme;
+                MainCoreParticles.ProcessMaterial = MainCoreDayParticlesMaterial;
                 break;
             case TimeType.NIGHT:
                 MainCoreSprite.Texture = MainCoreNightSprite;
                 ScoreLabel.Theme = ScoreNightLabelTheme;
+                MainCoreParticles.ProcessMaterial = MainCoreNightParticlesMaterial;
                 break;
         }
 

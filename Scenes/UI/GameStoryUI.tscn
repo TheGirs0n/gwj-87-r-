@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://sbi8k0du20la"]
+[gd_scene load_steps=3 format=3 uid="uid://sbi8k0du20la"]
 
 [ext_resource type="Script" uid="uid://68ufaitxx6t4" path="res://Scripts/UI/GoToTutorial.cs" id="1_1f824"]
+[ext_resource type="PackedScene" uid="uid://danf8100yrw1x" path="res://Scenes/Game/MainGame.tscn" id="2_yg3hv"]
 
 [node name="GameStoryUi" type="Control"]
 layout_mode = 3
@@ -9,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1f824")
+_mainScene = ExtResource("2_yg3hv")
 
 [node name="BackGround" type="TextureRect" parent="."]
 layout_mode = 1
@@ -47,4 +50,5 @@ anchor_right = 0.6
 anchor_bottom = 0.9
 offset_right = 8.0
 offset_bottom = 8.0
-script = ExtResource("1_1f824")
+
+[connection signal="pressed" from="BackGround/Button" to="." method="GoToMain"]

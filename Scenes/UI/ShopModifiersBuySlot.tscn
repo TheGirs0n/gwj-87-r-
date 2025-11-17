@@ -1,6 +1,17 @@
 [gd_scene load_steps=2 format=3 uid="uid://bs8145b23b7oj"]
 
-[ext_resource type="Script" uid="uid://bkiwf4dknfnvd" path="res://Scripts/UI/ShopModifiersBuySlot.cs" id="1_eatls"]
+[sub_resource type="CSharpScript" id="CSharpScript_7k778"]
+script/source = "using Godot;
+using System;
+
+public partial class ShopModifiersBuySlot : ShopUpgradeSlotUi
+{
+	public override void ShowUpgradeSlotPopUp()
+	{
+		
+	}
+}
+"
 
 [node name="ShopModifiersBuySlot" type="TextureButton"]
 anchors_preset = 15
@@ -10,4 +21,4 @@ grow_horizontal = 2
 grow_vertical = 2
 action_mode = 0
 stretch_mode = 5
-script = ExtResource("1_eatls")
+script = SubResource("CSharpScript_7k778")

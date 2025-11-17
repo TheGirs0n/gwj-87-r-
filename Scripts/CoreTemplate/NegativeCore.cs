@@ -18,16 +18,12 @@ public partial class NegativeCore : CoreTemplate
         switch (timeType)
         {
             case TimeType.DAY:
-                CoreEntryAction = CoreEntryAction.NEGATIVE;
-                CoreDestroyAction = CoreDestroyAction.POSITIVE;
-
                 CoreSprite.Texture = CoreDaySprite;
+                CoreParticles.ProcessMaterial = CoreParticleDayProcessMaterial;
                 break;
             case TimeType.NIGHT:
-                CoreEntryAction = CoreEntryAction.POSITIVE;
-                CoreDestroyAction = CoreDestroyAction.NEGATIVE;
-        
                 CoreSprite.Texture = CoreNightSprite;
+                CoreParticles.ProcessMaterial = CoreParticleNightProcessMaterial;
                 break;
         }
         

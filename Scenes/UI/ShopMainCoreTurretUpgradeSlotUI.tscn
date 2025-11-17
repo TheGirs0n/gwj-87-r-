@@ -1,7 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://dw3fcc77ewupw"]
 
 [ext_resource type="Texture2D" uid="uid://cbaful55y16i1" path="res://Sprites/SlotsUpgrade/MAIN_CORE_TURRENT_SLOT_UPGRADE.png" id="1_8sspr"]
-[ext_resource type="Script" uid="uid://b6m51534j82td" path="res://Scripts/UI/ShopMainCoreTurretUpgradeSlotUi.cs" id="1_bkvnp"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_bkvnp"]
+script/source = "using Godot;
+using System;
+
+public partial class ShopMainCoreTurretUpgradeSlotUi : ShopUpgradeSlotUi
+{
+	public override void ShowUpgradeSlotPopUp()
+	{
+		
+	}
+}
+"
 
 [node name="ShopMainCoreTurretUpgradeSlotUi" type="TextureButton"]
 anchors_preset = 15
@@ -12,4 +24,4 @@ grow_vertical = 2
 action_mode = 0
 texture_normal = ExtResource("1_8sspr")
 stretch_mode = 5
-script = ExtResource("1_bkvnp")
+script = SubResource("CSharpScript_bkvnp")

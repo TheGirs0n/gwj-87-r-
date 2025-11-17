@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://uhrim7vq5tug"]
+
+[ext_resource type="PackedScene" uid="uid://yvkh6ihscdqy" path="res://Scenes/UI/UI.tscn" id="1_5d002"]
+[ext_resource type="Script" uid="uid://d34cjkhlb4w62" path="res://Scripts/Tutorial/Tutorial.cs" id="1_8qvkk"]
+[ext_resource type="PackedScene" uid="uid://81jpjo61homb" path="res://Scenes/MainCore/MainCore.tscn" id="2_jqnu4"]
+[ext_resource type="PackedScene" uid="uid://w2rahq7m5ans" path="res://Scenes/MiniCore/NegativeCore.tscn" id="4_fbia3"]
+[ext_resource type="PackedScene" uid="uid://di3fbc26anm46" path="res://Scenes/MiniCore/PositiveCore.tscn" id="5_8s4t8"]
+[ext_resource type="PackedScene" uid="uid://b6o7oqf6gdkg4" path="res://Scenes/Game/TimeRebuilder.tscn" id="6_fbia3"]
+
+[node name="Tutorial" type="Node" node_paths=PackedStringArray("_positiveCore", "_negativeCore")]
+script = ExtResource("1_8qvkk")
+_positiveCore = NodePath("MiniCores/PositiveCore")
+_negativeCore = NodePath("MiniCores/NegativeCore")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
+[node name="UI" parent="." instance=ExtResource("1_5d002")]
+
+[node name="MainCore" parent="." instance=ExtResource("2_jqnu4")]
+
+[node name="MiniCores" type="Node" parent="."]
+
+[node name="NegativeCore" parent="MiniCores" instance=ExtResource("4_fbia3")]
+process_mode = 4
+visible = false
+position = Vector2(650, 0)
+
+[node name="PositiveCore" parent="MiniCores" instance=ExtResource("5_8s4t8")]
+process_mode = 4
+visible = false
+position = Vector2(650, 0)
+
+[node name="TimeRebuilder" parent="." instance=ExtResource("6_fbia3")]

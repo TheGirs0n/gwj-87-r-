@@ -18,16 +18,12 @@ public partial class PositiveCore : CoreTemplate
         switch (timeType)
         {
             case TimeType.DAY:
-                CoreEntryAction = CoreEntryAction.POSITIVE;
-                CoreDestroyAction = CoreDestroyAction.NEGATIVE;
-
                 CoreSprite.Texture = CoreDaySprite;
+                CoreParticles.ProcessMaterial = CoreParticleDayProcessMaterial;
                 break;
             case TimeType.NIGHT:
-                CoreEntryAction = CoreEntryAction.NEGATIVE;
-                CoreDestroyAction = CoreDestroyAction.POSITIVE;
-        
                 CoreSprite.Texture = CoreNightSprite;
+                CoreParticles.ProcessMaterial = CoreParticleNightProcessMaterial;
                 break;
         }
         
@@ -39,12 +35,12 @@ public partial class PositiveCore : CoreTemplate
         switch (timeType)
         {
             case TimeType.DAY:
-                ScoreFromEntry = NegativeScore;
-                ScoreFromDestroy = PositiveScore;
-                break;
-            case TimeType.NIGHT:
                 ScoreFromEntry = PositiveScore;
                 ScoreFromDestroy = NegativeScore;
+                break;
+            case TimeType.NIGHT:
+                ScoreFromEntry = NegativeScore;
+                ScoreFromDestroy = PositiveScore;
                 break;
         }
     }

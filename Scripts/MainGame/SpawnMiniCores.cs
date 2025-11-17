@@ -10,25 +10,30 @@ public partial class SpawnMiniCores : Node
 	
 	[ExportGroup("Parameters")]
 	[Export] public Timer SpawnTimer;
-	[Export] public float SpawnOffset = 50.0f; 
+	[Export] public float SpawnOffset = 50.0f;
+	[Export] public Timer MainGameTimer;
 	
 	[ExportGroup("Spawn Area")]
 	[Export] public float MinSpawnHeight = 0.05f; 
 	[Export] public float MaxSpawnHeight = 0.95f; 
 	
+	
 	private Random _random = new Random();
 	
 	public void SpawnRandomMiniCore()
 	{
-		var coreType = Random.Shared.Next(1, 3);
-		PackedScene coreScene = coreType == 1 ? PositiveCore : NegativeCore;
-		
-		var coreInstance = coreScene.Instantiate<CoreTemplate>();
-		NodesPool.AddChild(coreInstance);
-		GD.Print(NodesPool.GetChildCount());
-		
-		coreInstance.GlobalPosition = GetRandomPositionOffScreen();
-		GD.Print("Spawn Core");
+		if (MainGameTimer.TimeLeft != 0)
+		{
+			var coreType = Random.Shared.Next(1, 3);
+			PackedScene coreScene = coreType == 1 ? PositiveCore : NegativeCore;
+
+			var coreInstance = coreScene.Instantiate<CoreTemplate>();
+			coreInstance.RebuildForCurrentTimeType(GlobalContext.TimeRebuilderInstance.TimeType);
+			NodesPool.AddChild(coreInstance);
+
+			coreInstance.GlobalPosition = GetRandomPositionOffScreen();
+			GD.Print("Spawn Core");
+		}
 	}
 
 	private Vector2 GetRandomPositionOffScreen()
