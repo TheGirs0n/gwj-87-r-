@@ -13,10 +13,12 @@ public partial class MainCore : Node2D
     [Export] public CompressedTexture2D MainCoreDaySprite;
     [Export] public CompressedTexture2D MainCoreNightSprite;
     
-    [ExportGroup("Text")]
-    [Export] public RichTextLabel ScoreLabel;
-    [Export] public Theme ScoreDayLabelTheme;
-    [Export] public Theme ScoreNightLabelTheme;
+    [ExportGroup("ProgressBar")]
+    [Export] public TextureProgressBar ProgressBar;
+    [Export] public CompressedTexture2D ProgressBarDayUnder;
+    [Export] public CompressedTexture2D ProgressBarDayProgress;
+    [Export] public CompressedTexture2D ProgressBarNightUnder;
+    [Export] public CompressedTexture2D ProgressBarNightProgress;
     
     [ExportGroup("Particles")]
     [Export] private GpuParticles2D MainCoreParticles;
@@ -43,7 +45,7 @@ public partial class MainCore : Node2D
 
     private void UpdateScoreText()
     {
-        ScoreLabel.Text = Score.ToString();
+        ProgressBar.Value = Score;
     }
     
     public void AddTurretFromPool()
@@ -57,12 +59,14 @@ public partial class MainCore : Node2D
         {
             case TimeType.DAY:
                 MainCoreSprite.Texture = MainCoreDaySprite;
-                ScoreLabel.Theme = ScoreDayLabelTheme;
+                ProgressBar.TextureUnder = ProgressBarDayUnder;
+                ProgressBar.TextureProgress = ProgressBarDayProgress;
                 MainCoreParticles.ProcessMaterial = MainCoreDayParticlesMaterial;
                 break;
             case TimeType.NIGHT:
                 MainCoreSprite.Texture = MainCoreNightSprite;
-                ScoreLabel.Theme = ScoreNightLabelTheme;
+                ProgressBar.TextureUnder = ProgressBarNightUnder;
+                ProgressBar.TextureProgress = ProgressBarNightProgress;
                 MainCoreParticles.ProcessMaterial = MainCoreNightParticlesMaterial;
                 break;
         }

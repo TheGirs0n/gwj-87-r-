@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgpbaqcciylf"]
+
+[ext_resource type="Script" uid="uid://lvppfis8dala" path="res://Scripts/MainCore/MainCoreTurret.cs" id="1_tl4bj"]
+[ext_resource type="Texture2D" uid="uid://i62xwkw5tox7" path="res://Sprites/MainCore/MAIN_CORE_TURRET_NIGHT.png" id="2_xp7o1"]
+[ext_resource type="Texture2D" uid="uid://funipw1c3txe" path="res://Sprites/MainCore/MAIN_CORE_TURRET_DAY.png" id="3_gp4og"]
+[ext_resource type="PackedScene" uid="uid://ciinfnn0oet2b" path="res://Scenes/MainCore/CoreTurretBullet.tscn" id="4_qu4m0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dk4a4"]
+radius = 60.0
+
+[node name="CoreTurret" type="Node2D" node_paths=PackedStringArray("_turretSprite")]
+script = ExtResource("1_tl4bj")
+_turretSprite = NodePath("Sprite2D")
+_turretDaySprite = ExtResource("2_xp7o1")
+_turretNightSprite = ExtResource("3_gp4og")
+_bulletScene = ExtResource("4_qu4m0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_gp4og")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dk4a4")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0

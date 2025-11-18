@@ -8,6 +8,9 @@ public partial class MainCoreTurret : Node2D
     [Export] private CompressedTexture2D _turretDaySprite;
     [Export] private CompressedTexture2D _turretNightSprite;
     
+    [ExportGroup("BulletSprite")]
+    [Export] private PackedScene _bulletScene;
+    
     private bool _canShoot = true;
     private TimeType _timeType;
 

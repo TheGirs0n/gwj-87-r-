@@ -16,6 +16,7 @@ public partial class TimeRebuilder : Node
         GlobalContext.GlobalUIInstance.MainSceneUIOpen();
         GlobalContext.MainCoreInstance.RebuildForCurrentTimeType(TimeType);
         GlobalContext.GlobalUIInstance.MainGameUi.RebuildForCurrentTime(TimeType);
+        GlobalContext.GlobalUIInstance.BackgroundLayer.RebuildForCurrentTimeType(TimeType);
     }
     
     public void RebuildForCurrentTimeType(TimeType timeType)
@@ -23,6 +24,7 @@ public partial class TimeRebuilder : Node
         GlobalContext.GlobalUIInstance.MainSceneUIOpen();
         GlobalContext.MainCoreInstance.RebuildForCurrentTimeType(TimeType);
         GlobalContext.GlobalUIInstance.MainGameUi.RebuildForCurrentTime(TimeType);
+        GlobalContext.GlobalUIInstance.BackgroundLayer.RebuildForCurrentTimeType(TimeType);
     }
 
     private void ChangeTimeType()

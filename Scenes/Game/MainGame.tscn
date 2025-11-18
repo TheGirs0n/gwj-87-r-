@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://danf8100yrw1x"]
+[gd_scene load_steps=8 format=3 uid="uid://danf8100yrw1x"]
 
 [ext_resource type="Script" uid="uid://b8vy2fwa6sda2" path="res://Scripts/MainGame/MainGame.cs" id="1_2akhy"]
 [ext_resource type="PackedScene" uid="uid://81jpjo61homb" path="res://Scenes/MainCore/MainCore.tscn" id="1_v4ctl"]
+[ext_resource type="Script" uid="uid://c1qnvim27nxq8" path="res://Scripts/UI/BackgroundLayer.cs" id="2_nl514"]
 [ext_resource type="PackedScene" uid="uid://468l7pe0g1m0" path="res://Scenes/Game/SpawnMiniCores.tscn" id="2_u6ljv"]
+[ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="3_oilwc"]
+[ext_resource type="Texture2D" uid="uid://cp7gvfw15ong7" path="res://Sprites/Background/BACKGROUND_NIGHT.png" id="4_jt8oo"]
 [ext_resource type="PackedScene" uid="uid://yvkh6ihscdqy" path="res://Scenes/UI/UI.tscn" id="4_to5xg"]
 
 [node name="MainGame" type="Node" node_paths=PackedStringArray("_timer", "_miniCoresPool")]
@@ -10,12 +13,31 @@ script = ExtResource("1_2akhy")
 _timer = NodePath("Timer")
 _miniCoresPool = NodePath("SpawnMiniCores/MiniCores")
 
-[node name="UI" parent="." instance=ExtResource("4_to5xg")]
+[node name="BackgroundLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("BackgroundTexture")]
+layer = -1
+script = ExtResource("2_nl514")
+BackgroundTexture = NodePath("TextureRect")
+BackgroundDay = ExtResource("3_oilwc")
+BackgroundNight = ExtResource("4_jt8oo")
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+mouse_behavior_recursive = 1
+texture = ExtResource("3_oilwc")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
 autostart = true
+
+[node name="MainCore" parent="." instance=ExtResource("1_v4ctl")]
 
 [node name="SpawnMiniCores" parent="." node_paths=PackedStringArray("NodesPool", "MainGameTimer") instance=ExtResource("2_u6ljv")]
 NodesPool = NodePath("MiniCores")
@@ -24,4 +46,4 @@ MainGameTimer = NodePath("../Timer")
 
 [node name="MiniCores" type="Node" parent="SpawnMiniCores"]
 
-[node name="MainCore" parent="." instance=ExtResource("1_v4ctl")]
+[node name="UI" parent="." instance=ExtResource("4_to5xg")]

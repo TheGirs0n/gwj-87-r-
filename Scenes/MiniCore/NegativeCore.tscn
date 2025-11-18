@@ -16,9 +16,8 @@ radius = 18.0
 [node name="NegativeCore" type="CharacterBody2D" node_paths=PackedStringArray("CoreSprite", "CoreParticles")]
 collision_mask = 2
 script = ExtResource("1_eek35")
-PositiveScore = 15
-NegativeScore = -15
-CoreType = 1
+PositiveScore = 10
+NegativeScore = 10
 CoreSprite = NodePath("CoreSprite")
 CoreDaySprite = ExtResource("3_caw4j")
 CoreNightSprite = ExtResource("2_4p6ey")
@@ -41,7 +40,7 @@ shape = SubResource("CircleShape2D_caw4j")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 50
 texture = ExtResource("4_nvofs")
-lifetime = 0.09999999999999999
+lifetime = 0.5
 process_material = ExtResource("4_caw4j")
 
 [connection signal="area_entered" from="Area2D" to="." method="EnterCore"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cu2o4mdv0jmti"]
 
 [ext_resource type="Script" uid="uid://drjda8uo6gq83" path="res://Scripts/UI/GameOverScene.cs" id="1_epxa1"]
-[ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/ButtonsTheme.tres" id="2_x0rts"]
+[ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="2_x0rts"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_epxa1"]
 

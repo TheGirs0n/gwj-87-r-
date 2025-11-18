@@ -26,7 +26,7 @@ public partial class MainGame : Node
 
     public void TimeIsOver()
     {
-        GlobalContext.GlobalUIInstance.ShopUIOpen();
+        GlobalContext.GlobalUIInstance.TimeSwitcherUIOpen();
         //this.ProcessMode = ProcessModeEnum.Disabled;
     }
 }
