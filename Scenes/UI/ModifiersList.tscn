@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6t6qjrqxvtwb"]
+[gd_scene load_steps=3 format=3 uid="uid://b6t6qjrqxvtwb"]
 
 [ext_resource type="Script" uid="uid://c0cdkekppkupx" path="res://Scripts/UI/ModifiersListUI.cs" id="1_rycyd"]
+[ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="2_t2j6i"]
 
 [node name="ModifiersList" type="Control"]
 layout_mode = 3
@@ -12,6 +13,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rycyd")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.49803922)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t2j6i")
+
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -21,7 +32,6 @@ grow_horizontal = 2
 grow_vertical = 2
 draw_focus_border = true
 scroll_horizontal_custom_step = 15.0
-horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]

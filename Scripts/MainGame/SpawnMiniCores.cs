@@ -32,7 +32,6 @@ public partial class SpawnMiniCores : Node
 			NodesPool.AddChild(coreInstance);
 
 			coreInstance.GlobalPosition = GetRandomPositionOffScreen();
-			GD.Print("Spawn Core");
 		}
 	}
 

@@ -1,25 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://yvkh6ihscdqy"]
+[gd_scene load_steps=7 format=3 uid="uid://yvkh6ihscdqy"]
 
 [ext_resource type="Script" uid="uid://dn355iio3wkh4" path="res://Scripts/UI/GlobalUI.cs" id="1_akgwn"]
 [ext_resource type="PackedScene" uid="uid://wfticmp1n3cj" path="res://Scenes/UI/MainGameUI.tscn" id="2_b83rk"]
 [ext_resource type="PackedScene" uid="uid://cu2o4mdv0jmti" path="res://Scenes/Game/GameOverScene.tscn" id="2_oqha6"]
+[ext_resource type="PackedScene" uid="uid://ck7i4sfaktyt2" path="res://Scenes/UI/PauseMenu.tscn" id="3_7tgkj"]
 [ext_resource type="PackedScene" uid="uid://b6t6qjrqxvtwb" path="res://Scenes/UI/ModifiersList.tscn" id="4_b83rk"]
 [ext_resource type="PackedScene" uid="uid://celnrvbioga0q" path="res://Scenes/Game/AfterGameSwitcher.tscn" id="5_oqha6"]
 
-[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("MainGameUi", "ModifiersList", "AfterGameSwitcher")]
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("MainGameUi", "ModifiersList", "AfterGameSwitcher", "PauseMenuUi")]
 script = ExtResource("1_akgwn")
 MainGameUi = NodePath("MainGameUi")
 ModifiersList = NodePath("ModifiersList")
 AfterGameSwitcher = NodePath("AfterGameSwitcher")
+PauseMenuUi = NodePath("PauseMenu")
 GameOverScene = ExtResource("2_oqha6")
-
-[node name="MainGameUi" parent="." instance=ExtResource("2_b83rk")]
-show_behind_parent = false
 
 [node name="ModifiersList" parent="." instance=ExtResource("4_b83rk")]
 visible = false
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="MainGameUi" parent="." instance=ExtResource("2_b83rk")]
+visible = false
+
 [node name="AfterGameSwitcher" parent="." instance=ExtResource("5_oqha6")]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_7tgkj")]
 visible = false

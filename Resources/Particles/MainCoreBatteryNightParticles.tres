@@ -1,0 +1,24 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://c0267etr2cbgj"]
+
+[sub_resource type="Curve" id="Curve_tuxjx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.25171626, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_75xtg"]
+curve = SubResource("Curve_tuxjx")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+spread = 180.0
+orbit_velocity_min = -0.049999908
+orbit_velocity_max = 0.050000098
+gravity = Vector3(0, 200, 0)
+tangential_accel_min = -5.000002
+tangential_accel_max = 4.9999976
+scale_min = 0.049999997
+scale_max = 0.08
+alpha_curve = SubResource("CurveTexture_75xtg")

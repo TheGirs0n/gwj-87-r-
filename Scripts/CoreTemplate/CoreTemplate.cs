@@ -5,12 +5,8 @@ public abstract partial class CoreTemplate : CharacterBody2D
 {
 	[ExportGroup("Parameters")]
 	[Export] public float CoreSpeed = 300f;
-	[Export] public float SpeedMultiplier = 1f;
 	[Export] public int PositiveScore;
 	[Export] public int NegativeScore;
-	
-	public int ScoreFromDestroy;
-	public int ScoreFromEntry;
 	
 	[ExportGroup("Core Types")]
 	[Export] public Sprite2D CoreSprite;
@@ -23,10 +19,19 @@ public abstract partial class CoreTemplate : CharacterBody2D
 	[Export] public ParticleProcessMaterial CoreParticleNightProcessMaterial;
 	
 	protected MainCore _targetMainCore;
+	public static float SpeedMultiplier = 1f;
+	public static float SpeedMultiplierIncreaseStep = 0.05f;
+	public int ScoreFromDestroy;
+	public int ScoreFromEntry;
 
 	public abstract void RebuildForCurrentTimeType(TimeType timeType);
 	public abstract void SwapPolarityScores(TimeType timeType);
 	public abstract void MoveToMainCore(float delta);
+
+	public static void IncreaseSpeedMultiplier()
+	{
+		SpeedMultiplier += SpeedMultiplierIncreaseStep;
+	}
 
 	public void MouseInputEvent(Node viewport, InputEvent @event, int shapeIdx)
 	{

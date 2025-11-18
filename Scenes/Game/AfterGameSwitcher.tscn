@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://celnrvbioga0q"]
+[gd_scene load_steps=4 format=3 uid="uid://celnrvbioga0q"]
 
 [ext_resource type="Script" uid="uid://1fgys5qk6pgq" path="res://Scripts/UI/AfterGameSwitcher.cs" id="1_ofrxm"]
+[ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="2_ixetq"]
+[ext_resource type="Theme" uid="uid://d02rnrhk8v402" path="res://Resources/Themes/ButtonsNightTheme.tres" id="3_5c7k7"]
 
-[node name="AfterGameSwitcher" type="Control"]
+[node name="AfterGameSwitcher" type="Control" node_paths=PackedStringArray("DifficultyLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +12,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ofrxm")
+DifficultyLabel = NodePath("RichTextLabel")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.49747366, 0.49747366, 0.49747366, 1)
+self_modulate = Color(1, 1, 1, 0.49803922)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+texture = ExtResource("2_ixetq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.25
+anchor_right = 0.6
+anchor_bottom = 0.4
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -18,5 +43,8 @@ anchor_left = 0.4
 anchor_top = 0.45
 anchor_right = 0.6
 anchor_bottom = 0.55
+theme = ExtResource("3_5c7k7")
 action_mode = 0
-text = "asdasasdasdasdsdasd"
+text = "Switch Time"
+
+[connection signal="pressed" from="Button" to="." method="SwitchDayTime"]

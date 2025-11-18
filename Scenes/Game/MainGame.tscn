@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://danf8100yrw1x"]
+[gd_scene load_steps=9 format=3 uid="uid://danf8100yrw1x"]
 
 [ext_resource type="Script" uid="uid://b8vy2fwa6sda2" path="res://Scripts/MainGame/MainGame.cs" id="1_2akhy"]
 [ext_resource type="PackedScene" uid="uid://81jpjo61homb" path="res://Scenes/MainCore/MainCore.tscn" id="1_v4ctl"]
@@ -7,11 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="3_oilwc"]
 [ext_resource type="Texture2D" uid="uid://cp7gvfw15ong7" path="res://Sprites/Background/BACKGROUND_NIGHT.png" id="4_jt8oo"]
 [ext_resource type="PackedScene" uid="uid://yvkh6ihscdqy" path="res://Scenes/UI/UI.tscn" id="4_to5xg"]
+[ext_resource type="PackedScene" uid="uid://c7v4bl8t5hhp0" path="res://Scenes/Game/AudioManager.tscn" id="8_1605l"]
 
-[node name="MainGame" type="Node" node_paths=PackedStringArray("_timer", "_miniCoresPool")]
+[node name="MainGame" type="Node" node_paths=PackedStringArray("_timer", "_miniCoresPool", "_spawnMiniCores")]
 script = ExtResource("1_2akhy")
 _timer = NodePath("Timer")
 _miniCoresPool = NodePath("SpawnMiniCores/MiniCores")
+_spawnMiniCores = NodePath("SpawnMiniCores")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("BackgroundTexture")]
 layer = -1
@@ -26,11 +28,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 mouse_filter = 2
 mouse_behavior_recursive = 1
-texture = ExtResource("3_oilwc")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0
@@ -47,3 +46,5 @@ MainGameTimer = NodePath("../Timer")
 [node name="MiniCores" type="Node" parent="SpawnMiniCores"]
 
 [node name="UI" parent="." instance=ExtResource("4_to5xg")]
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("8_1605l")]

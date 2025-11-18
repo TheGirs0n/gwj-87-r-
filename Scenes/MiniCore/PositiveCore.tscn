@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://7pwvvwsroe28" path="res://Sprites/MiniCore/POSITIVE_MINI_CORE_DAY.png" id="2_w5vqa"]
 [ext_resource type="Texture2D" uid="uid://dct4r4554f5n1" path="res://Sprites/MiniCore/POSITIVE_MINI_CORE_NIGHT.png" id="3_13i7q"]
 [ext_resource type="Material" uid="uid://cgi6rlu0mblyi" path="res://Resources/Particles/CoreDayParticles.tres" id="4_13i7q"]
-[ext_resource type="Texture2D" uid="uid://buk1h5gpoemt8" path="res://Sprites/MainCore/circle_05.png" id="4_v2e78"]
 [ext_resource type="Material" uid="uid://b60a3im8f76eo" path="res://Resources/Particles/CoreNightParticles.tres" id="5_fswgx"]
+[ext_resource type="Texture2D" uid="uid://bb0qwdy3fqq7h" path="res://Sprites/MainCore/DAY_PARTICLES.png" id="6_fswgx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5vqa"]
 radius = 16.0
@@ -17,7 +17,7 @@ radius = 18.0
 collision_mask = 2
 script = ExtResource("1_75438")
 PositiveScore = 10
-NegativeScore = 10
+NegativeScore = -10
 CoreSprite = NodePath("CoreSprite")
 CoreDaySprite = ExtResource("3_13i7q")
 CoreNightSprite = ExtResource("2_w5vqa")
@@ -39,9 +39,9 @@ shape = SubResource("CircleShape2D_13i7q")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 50
-texture = ExtResource("4_v2e78")
+texture = ExtResource("6_fswgx")
 lifetime = 0.5
-process_material = ExtResource("4_13i7q")
+process_material = ExtResource("5_fswgx")
 
 [connection signal="area_entered" from="Area2D" to="." method="EnterCore"]
 [connection signal="input_event" from="Area2D" to="." method="MouseInputEvent"]

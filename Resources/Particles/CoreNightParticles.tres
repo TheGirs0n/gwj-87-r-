@@ -1,4 +1,4 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=7 format=3 uid="uid://b60a3im8f76eo"]
+[gd_resource type="ParticleProcessMaterial" load_steps=9 format=3 uid="uid://b60a3im8f76eo"]
 
 [sub_resource type="Curve" id="Curve_wm236"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5034326, 0), 0.0, 0.0, 0, 0]
@@ -31,6 +31,13 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_cywer"]
 image = SubResource("Image_hhuoi")
 
+[sub_resource type="Curve" id="Curve_hhuoi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2b1ec"]
+curve = SubResource("Curve_hhuoi")
+
 [resource]
 particle_flag_disable_z = true
 emission_shape = 4
@@ -42,6 +49,7 @@ orbit_velocity_max = 0.050000098
 gravity = Vector3(0, 0, 0)
 tangential_accel_min = -10.000002
 tangential_accel_max = 9.999997
-scale_min = 0.01
-scale_max = 0.02
+scale_min = 0.099999994
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_2b1ec")
 alpha_curve = SubResource("CurveTexture_hhuoi")

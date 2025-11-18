@@ -6,7 +6,8 @@ public partial class MainCore : Node2D
 {
     [ExportGroup("Sub parameters")]
     [Export] private MainCoreTurretPool _mainCoreTurretPool;
-    [Export] public int Score = 50;
+    [Export] public int InitialScore = 50;
+    public int CurrentScore;
 
     [ExportGroup("SpriteSetting")]
     [Export] public Sprite2D MainCoreSprite;
@@ -20,39 +21,39 @@ public partial class MainCore : Node2D
     [Export] public CompressedTexture2D ProgressBarNightUnder;
     [Export] public CompressedTexture2D ProgressBarNightProgress;
     
-    [ExportGroup("Particles")]
+    [ExportGroup("Particles Main")]
     [Export] private GpuParticles2D MainCoreParticles;
     [Export] private ParticleProcessMaterial MainCoreDayParticlesMaterial;
     [Export] private ParticleProcessMaterial MainCoreNightParticlesMaterial;
     
+    [ExportGroup("Particles Battery")]
+    [Export] private GpuParticles2D MainCoreBatteryParticles;
+    [Export] private ParticleProcessMaterial MainCoreBatteryDayParticlesMaterial;
+    [Export] private ParticleProcessMaterial MainCoreBatteryNightParticlesMaterial;
+    
     public override void _EnterTree()
     {
         GlobalContext.MainCoreInstance = this;
+        UpdateScoreText();
     }
 
     public void UpdateScore(int score)
     {
-        Score += score;
+        CurrentScore += score;
 
-        if (Score < 0)
+        if (CurrentScore < 0)
         {
-            Score = 0;
+            CurrentScore = 0;
         }
 
         UpdateScoreText();
-        GD.Print("Score: " + Score);
     }
 
-    private void UpdateScoreText()
+    public void ResetBatteryCharge()
     {
-        ProgressBar.Value = Score;
+        CurrentScore = InitialScore;
     }
     
-    public void AddTurretFromPool()
-    {
-        _mainCoreTurretPool.GetNewTurret();
-    }
-
     public void RebuildForCurrentTimeType(TimeType timeType)
     {
         switch (timeType)
@@ -62,15 +63,23 @@ public partial class MainCore : Node2D
                 ProgressBar.TextureUnder = ProgressBarDayUnder;
                 ProgressBar.TextureProgress = ProgressBarDayProgress;
                 MainCoreParticles.ProcessMaterial = MainCoreDayParticlesMaterial;
+                MainCoreBatteryParticles.ProcessMaterial = MainCoreBatteryDayParticlesMaterial;
                 break;
             case TimeType.NIGHT:
                 MainCoreSprite.Texture = MainCoreNightSprite;
                 ProgressBar.TextureUnder = ProgressBarNightUnder;
                 ProgressBar.TextureProgress = ProgressBarNightProgress;
                 MainCoreParticles.ProcessMaterial = MainCoreNightParticlesMaterial;
+                MainCoreBatteryParticles.ProcessMaterial = MainCoreBatteryNightParticlesMaterial;
                 break;
         }
 
-        _mainCoreTurretPool.RebuildTurrets(timeType);
+       // _mainCoreTurretPool.RebuildTurrets(timeType);
     }
+    
+    private void UpdateScoreText()
+    {
+        ProgressBar.Value = CurrentScore;
+    }
+
 }

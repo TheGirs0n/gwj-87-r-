@@ -1,4 +1,4 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://btn0p31t056s2"]
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://btn0p31t056s2"]
 
 [sub_resource type="Image" id="Image_30s2w"]
 data = {
@@ -12,6 +12,13 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_n5hl6"]
 image = SubResource("Image_30s2w")
 
+[sub_resource type="Curve" id="Curve_30s2w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ynfdn"]
+curve = SubResource("Curve_30s2w")
+
 [resource]
 particle_flag_disable_z = true
 emission_shape = 4
@@ -23,6 +30,7 @@ orbit_velocity_max = 0.050000098
 gravity = Vector3(0, 0, 0)
 tangential_accel_min = -10.000002
 tangential_accel_max = 9.999997
-scale_min = 0.01
-scale_max = 0.02
+scale_min = 0.099999994
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_ynfdn")
 color = Color(0, 0, 0, 1)

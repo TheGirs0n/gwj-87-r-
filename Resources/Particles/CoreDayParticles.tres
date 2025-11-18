@@ -1,4 +1,4 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=7 format=3 uid="uid://cgi6rlu0mblyi"]
+[gd_resource type="ParticleProcessMaterial" load_steps=9 format=3 uid="uid://cgi6rlu0mblyi"]
 
 [sub_resource type="Curve" id="Curve_s16f4"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.501199, 0), 0.0, 0.0, 0, 0]
@@ -31,6 +31,13 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_fswgx"]
 image = SubResource("Image_nodxp")
 
+[sub_resource type="Curve" id="Curve_nodxp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mywfg"]
+curve = SubResource("Curve_nodxp")
+
 [resource]
 particle_flag_disable_z = true
 emission_shape = 4
@@ -42,7 +49,8 @@ orbit_velocity_max = 9.49949e-08
 gravity = Vector3(0, 0, 0)
 tangential_accel_min = -10.000002
 tangential_accel_max = 9.999997
-scale_min = 0.01
-scale_max = 0.02
+scale_min = 0.099999994
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_mywfg")
 color = Color(0, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_nodxp")

@@ -22,7 +22,7 @@ SpawnMiniCores="*res://Scripts/MainGame/SpawnMiniCores.cs"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [dotnet]
 
