@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://sbi8k0du20la"]
 
 [ext_resource type="Script" uid="uid://68ufaitxx6t4" path="res://Scripts/UI/GoToTutorial.cs" id="1_1f824"]
-[ext_resource type="PackedScene" uid="uid://danf8100yrw1x" path="res://Scenes/Game/MainGame.tscn" id="2_yg3hv"]
+[ext_resource type="PackedScene" uid="uid://cy1e23s0djp7t" path="res://Scenes/Tutorial/Tutorial.tscn" id="2_bx1ub"]
 [ext_resource type="Texture2D" uid="uid://cp7gvfw15ong7" path="res://Sprites/Background/BACKGROUND_NIGHT.png" id="3_rf0ur"]
 [ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="4_bx1ub"]
 
@@ -15,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1f824")
-_mainScene = ExtResource("2_yg3hv")
+_tutorial = ExtResource("2_bx1ub")
 
 [node name="BackGround" type="TextureRect" parent="."]
 layout_mode = 1
@@ -46,14 +46,14 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="BackGround/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "asdads"
+text = "Ядро вещества x постоянно активно, необходима постоянная слежка"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="BackGround/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "adasdsas"
+text = "Нельзя допустить перенасыщения или потухание ядра"
 horizontal_alignment = 1
 vertical_alignment = 1
 

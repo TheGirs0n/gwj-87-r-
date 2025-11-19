@@ -33,6 +33,11 @@ public abstract partial class CoreTemplate : CharacterBody2D
 		SpeedMultiplier += SpeedMultiplierIncreaseStep;
 	}
 
+	public static float GetSpeedMultiplier()
+	{
+		return SpeedMultiplier;
+	}
+	
 	public void MouseInputEvent(Node viewport, InputEvent @event, int shapeIdx)
 	{
 		if (@event is InputEventMouseButton mouseEvent && 

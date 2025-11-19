@@ -7,7 +7,6 @@ public class GlobalContext
 	public static MainGame MainGameInstance;
 	public static TimeRebuilder TimeRebuilderInstance;
 	public static SpawnMiniCores SpawnMiniCoresInstance;
-	public static ModifiersList ModifiersListInstance;
 	
 	public static GlobalUI GlobalUIInstance;
 }

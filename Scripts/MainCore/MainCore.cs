@@ -7,6 +7,8 @@ public partial class MainCore : Node2D
     [ExportGroup("Sub parameters")]
     [Export] private MainCoreTurretPool _mainCoreTurretPool;
     [Export] public int InitialScore = 50;
+    [Export] public int MinScore = 0;
+    [Export] public int MaxScore = 100;
     public int CurrentScore;
 
     [ExportGroup("SpriteSetting")]
@@ -35,18 +37,25 @@ public partial class MainCore : Node2D
     {
         GlobalContext.MainCoreInstance = this;
         UpdateScoreText();
+        
+        ProgressBar.MinValue = MinScore;
+        ProgressBar.MaxValue = MaxScore;
     }
 
     public void UpdateScore(int score)
     {
         CurrentScore += score;
+        UpdateScoreText();
 
-        if (CurrentScore < 0)
+        if (CurrentScore < MinScore)
         {
-            CurrentScore = 0;
+            CurrentScore = MinScore;
+        }
+        else if (CurrentScore > MaxScore)
+        {
+            CurrentScore = MaxScore;
         }
 
-        UpdateScoreText();
     }
 
     public void ResetBatteryCharge()
@@ -73,8 +82,6 @@ public partial class MainCore : Node2D
                 MainCoreBatteryParticles.ProcessMaterial = MainCoreBatteryNightParticlesMaterial;
                 break;
         }
-
-       // _mainCoreTurretPool.RebuildTurrets(timeType);
     }
     
     private void UpdateScoreText()

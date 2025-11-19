@@ -3,7 +3,13 @@ using Godot;
 
 public partial class MainGame : Node
 {
+    [ExportGroup("GameOverScene")]
+    [Export] private PackedScene _gameOverScene;
+    
+    [ExportGroup("Timer")]
     [Export] private Timer _timer;
+    
+    [ExportGroup("Mini Cores")]
     [Export] private Node _miniCoresPool;
     [Export] private SpawnMiniCores _spawnMiniCores;
 
@@ -42,6 +48,7 @@ public partial class MainGame : Node
 
     public void TimeIsOver()
     {
+        GlobalContext.GlobalUIInstance.AfterGameSwitcher.SetupSwitcherScene();
         GlobalContext.GlobalUIInstance.TimeSwitcherUIOpen();
     }
 
@@ -55,4 +62,17 @@ public partial class MainGame : Node
     {
         this.ProcessMode = ProcessModeEnum.Inherit;
     }
+
+    public void GameOver(GameOverType gameOverType)
+    {
+        var scene = _gameOverScene.Instantiate<GameOverScene>();
+        scene.SetupScreenGameOver(gameOverType, GlobalContext.TimeRebuilderInstance.TimeType);
+        this.QueueFree();
+    }
+}
+
+public enum GameOverType
+{
+    MAX_CHARGE,
+    MIN_CHARGE,
 }

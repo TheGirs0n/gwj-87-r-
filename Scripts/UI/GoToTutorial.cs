@@ -3,14 +3,14 @@ using System;
 
 public partial class GoToTutorial : Control
 {
-	[Export] private PackedScene _mainScene;
+	[Export] private PackedScene _tutorial;
 
 	public void GoToMain()
 	{
-		var scene = _mainScene.Instantiate<MainGame>();
+		var scene = _tutorial.Instantiate<Tutorial>();
+		scene.SetupTutorial();
 		GetTree().Root.AddChild(scene);
 		
-		GlobalContext.TimeRebuilderInstance.RebuildForCurrentTimeType(TimeType.DAY);
 		this.QueueFree();
 	}
 }
