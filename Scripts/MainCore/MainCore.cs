@@ -36,6 +36,7 @@ public partial class MainCore : Node2D
     public override void _EnterTree()
     {
         GlobalContext.MainCoreInstance = this;
+        CurrentScore = InitialScore;
         UpdateScoreText();
         
         ProgressBar.MinValue = MinScore;
@@ -45,17 +46,18 @@ public partial class MainCore : Node2D
     public void UpdateScore(int score)
     {
         CurrentScore += score;
-        UpdateScoreText();
-
-        if (CurrentScore < MinScore)
+        if (CurrentScore <= MinScore)
         {
             CurrentScore = MinScore;
+            GlobalContext.MainGameInstance.GameOver(GameOverType.MIN_CHARGE);
         }
-        else if (CurrentScore > MaxScore)
+        else if (CurrentScore >= MaxScore)
         {
             CurrentScore = MaxScore;
+            GlobalContext.MainGameInstance.GameOver(GameOverType.MAX_CHARGE);
         }
-
+        
+        UpdateScoreText();
     }
 
     public void ResetBatteryCharge()

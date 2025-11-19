@@ -4,3 +4,12 @@
 
 [node name="AudioStreamPlayer" type="Node"]
 script = ExtResource("1_28rc6")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="MenuBackgroundMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

@@ -1,0 +1,274 @@
+[gd_scene load_steps=12 format=3 uid="uid://d1w67xae0uwo8"]
+
+[ext_resource type="Script" uid="uid://drjda8uo6gq83" path="res://Scripts/UI/GameOverScene.cs" id="1_t0hjf"]
+[ext_resource type="Theme" uid="uid://c5sr6vimyjyi4" path="res://Resources/Themes/TextDayTheme.tres" id="2_po2jt"]
+[ext_resource type="Theme" uid="uid://bq8marwmvebko" path="res://Resources/Themes/TextNightTheme.tres" id="3_k746o"]
+[ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="4_ta5ry"]
+[ext_resource type="Texture2D" uid="uid://cp7gvfw15ong7" path="res://Sprites/Background/BACKGROUND_NIGHT.png" id="5_r3qpu"]
+[ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="6_jee4a"]
+[ext_resource type="Theme" uid="uid://d02rnrhk8v402" path="res://Resources/Themes/ButtonsNightTheme.tres" id="7_ajlo6"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lxswn"]
+
+[sub_resource type="Animation" id="Animation_6l5i3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.49803922)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/Restart:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/MainMenu:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x0rts"]
+resource_name = "playOver"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.49803922), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/Restart:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/MainMenu:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l68lt"]
+_data = {
+&"RESET": SubResource("Animation_6l5i3"),
+&"playOver": SubResource("Animation_x0rts")
+}
+
+[node name="GameOverUi" type="Control" node_paths=PackedStringArray("_richTextLabel", "_textureRect", "_buttonRestartGame", "_buttonMainMenu", "_animatePlayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_t0hjf")
+_richTextLabel = NodePath("RichTextLabel")
+_minChargeText = "MIN_CHARGE"
+_maxChargeText = "MAX_CHARGE"
+_textDayLabel = ExtResource("2_po2jt")
+_textNightLabel = ExtResource("3_k746o")
+_textureRect = NodePath("TextureRect")
+_textureDayRect = ExtResource("4_ta5ry")
+_textureNightRect = ExtResource("5_r3qpu")
+_buttonRestartGame = NodePath("VBoxContainer/Restart")
+_buttonMainMenu = NodePath("VBoxContainer/MainMenu")
+_buttonRestartDayTheme = ExtResource("6_jee4a")
+_buttonRestartNightTheme = ExtResource("7_ajlo6")
+_animatePlayer = NodePath("AnimationPlayer")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.2
+anchor_right = 0.65
+anchor_bottom = 0.3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 0.49803922)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_lxswn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_l68lt")
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.3
+anchor_right = 0.6
+anchor_bottom = 0.7
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+text = "Restart Game"
+
+[node name="MainMenu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+text = "Go to Main Menu"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.3
+anchor_right = 0.3
+anchor_bottom = 0.7
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Restart" type="RichTextLabel" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Restart Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu" type="RichTextLabel" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Go to Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.3
+anchor_right = 0.9
+anchor_bottom = 0.8
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Restart" type="RichTextLabel" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Speed Multiplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu" type="RichTextLabel" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart2" type="RichTextLabel" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Spawn Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu2" type="RichTextLabel" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart3" type="RichTextLabel" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "POSITIVE SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu3" type="RichTextLabel" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart4" type="RichTextLabel" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "NEGATIVE SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu4" type="RichTextLabel" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 1

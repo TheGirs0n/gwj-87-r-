@@ -3,21 +3,29 @@ using System;
 
 public partial class SettingsBarUi : Control
 {
+	[ExportGroup("Text Numbers")] 
+	[Export] private RichTextLabel _masterVolumeText;
+	[Export] private RichTextLabel _sfxVolumeText;
+	[Export] private RichTextLabel _musicVolumeText;
+	
 	#region Audio
 
 	public void UpdateMasterVolume(float volume)
 	{
-		
+		AudioServer.SetBusVolumeLinear(0, volume);
+		_masterVolumeText.Text = $"{Math.Round(volume * 100, 1)}%";
 	}
 
 	public void UpdateSoundEffectVolume(float volume)
 	{
-		
+		AudioServer.SetBusVolumeLinear(1, volume);
+		_sfxVolumeText.Text = $"{Math.Round(volume * 100, 1)}%";
 	}
 	
 	public void UpdateMusicVolume(float volume)
 	{
-		
+		AudioServer.SetBusVolumeLinear(2, volume);
+		_musicVolumeText.Text = $"{Math.Round(volume * 100, 1)}%";
 	}
 	
 	#endregion

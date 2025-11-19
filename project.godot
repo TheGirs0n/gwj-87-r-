@@ -13,12 +13,13 @@ config_version=5
 config/name="GWJ_87(R)"
 run/main_scene="uid://dubpcv52yvbsx"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [autoload]
 
 TimeRebuilder="*res://Scenes/Game/TimeRebuilder.tscn"
 SpawnMiniCores="*res://Scripts/MainGame/SpawnMiniCores.cs"
+AudioManager="*res://Scenes/Game/AudioManager.tscn"
+SettingsUi="*res://Scenes/UI/SettingsUI.tscn"
 
 [display]
 

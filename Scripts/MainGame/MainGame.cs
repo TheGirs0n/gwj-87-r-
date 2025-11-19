@@ -48,7 +48,7 @@ public partial class MainGame : Node
 
     public void TimeIsOver()
     {
-        GlobalContext.GlobalUIInstance.AfterGameSwitcher.SetupSwitcherScene();
+        GlobalContext.GlobalUIInstance.AfterGameSwitcher.SetupSwitcherScene((int)GlobalContext.TimeRebuilderInstance.TimeType);
         GlobalContext.GlobalUIInstance.TimeSwitcherUIOpen();
     }
 
@@ -67,7 +67,7 @@ public partial class MainGame : Node
     {
         var scene = _gameOverScene.Instantiate<GameOverScene>();
         scene.SetupScreenGameOver(gameOverType, GlobalContext.TimeRebuilderInstance.TimeType);
-        this.QueueFree();
+        GlobalContext.MainSceneInstance.QueueFree();
     }
 }
 

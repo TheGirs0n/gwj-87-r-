@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://celnrvbioga0q"]
+[gd_scene load_steps=8 format=3 uid="uid://celnrvbioga0q"]
 
 [ext_resource type="Script" uid="uid://1fgys5qk6pgq" path="res://Scripts/UI/AfterGameSwitcher.cs" id="1_ofrxm"]
 [ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="2_ixetq"]
@@ -6,8 +6,9 @@
 [ext_resource type="Theme" uid="uid://d02rnrhk8v402" path="res://Resources/Themes/ButtonsNightTheme.tres" id="3_5c7k7"]
 [ext_resource type="Theme" uid="uid://bq8marwmvebko" path="res://Resources/Themes/TextNightTheme.tres" id="3_qg8iw"]
 [ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="4_k0ycb"]
+[ext_resource type="PackedScene" uid="uid://crsmlgmfa3hnq" path="res://Scenes/Game/ModifierDifficulty.tscn" id="7_qg8iw"]
 
-[node name="AfterGameSwitcher" type="Control" node_paths=PackedStringArray("DifficultyLabel", "SwitchTimeButton")]
+[node name="AfterGameSwitcher" type="Control" node_paths=PackedStringArray("DifficultyLabel", "LevelLabel", "DayNightLabel", "DayNightLabelCount", "SwitchTimeButton", "_modifierDifficulty")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,12 +16,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ofrxm")
-DifficultyLabel = NodePath("RichTextLabel")
+DifficultyLabel = NodePath("VBoxContainer3/VBoxContainer/RichTextLabel2")
+LevelLabel = NodePath("VBoxContainer3/VBoxContainer/RichTextLabel")
+DayNightLabel = NodePath("VBoxContainer3/VBoxContainer2/RichTextLabel")
+DayNightLabelCount = NodePath("VBoxContainer3/VBoxContainer2/RichTextLabel2")
 LabelDayTheme = ExtResource("2_pi21s")
 LabelNightTheme = ExtResource("3_qg8iw")
-SwitchTimeButton = NodePath("Button")
+SwitchTimeButton = NodePath("VBoxContainer3/Button")
 SwitchTimeDayTheme = ExtResource("4_k0ycb")
 SwitchTimeNightTheme = ExtResource("3_5c7k7")
+_modifierDifficulty = NodePath("ModifierDifficulty")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.49747366, 0.49747366, 0.49747366, 1)
@@ -35,23 +40,62 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 texture = ExtResource("2_ixetq")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4
-anchor_top = 0.25
-anchor_right = 0.6
-anchor_bottom = 0.4
+[node name="ModifierDifficulty" parent="." instance=ExtResource("7_qg8iw")]
 
-[node name="Button" type="Button" parent="."]
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
-anchor_top = 0.45
+anchor_top = 0.2
 anchor_right = 0.6
-anchor_bottom = 0.55
+anchor_bottom = 0.8
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "SPEED MULTIPLAYER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("3_5c7k7")
 action_mode = 0
 text = "Switch Time"
 
-[connection signal="pressed" from="Button" to="." method="SwitchDayTime"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "DAY/NIGHT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer3/Button" to="." method="SwitchDayTime"]

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://urbihws1nw3l" path="res://Sprites/SettingsIcons/SOUND_ICON.png" id="1_777fb"]
 [ext_resource type="Script" uid="uid://cku31n6fhrot8" path="res://Scripts/UI/SettingsBarUi.cs" id="1_phv7t"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" node_paths=PackedStringArray("_masterVolumeText", "_sfxVolumeText", "_musicVolumeText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_phv7t")
+_masterVolumeText = NodePath("TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer/RichTextLabel6")
+_sfxVolumeText = NodePath("TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer2/RichTextLabel5")
+_musicVolumeText = NodePath("TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer3/RichTextLabel4")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -64,6 +67,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
+[node name="RichTextLabel6" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+text = "1231"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -85,6 +96,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
+[node name="RichTextLabel5" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+text = "1231"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -105,6 +124,14 @@ texture = ExtResource("1_777fb")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+text = "1231"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Display" type="TabBar" parent="TabContainer"]
 visible = false

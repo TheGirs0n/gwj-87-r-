@@ -8,19 +8,19 @@ public partial class Tutorial : Node
 	[Export] private PackedScene _mainScene;
 	
 	[ExportGroup("Button")] 
-	[Export] private Button Button;
-	[Export] private Theme ButtonDayTheme;
-	[Export] private Theme ButtonNightTheme;
+	[Export] private Button _button;
+	[Export] private Theme _buttonDayTheme;
+	[Export] private Theme _buttonNightTheme;
 	
 	[ExportGroup("Background Text")]
-	[Export] private TextureRect Background;
-	[Export] private CompressedTexture2D BackgroundDay;
-	[Export] private CompressedTexture2D BackgroundNight;
+	[Export] private TextureRect _background;
+	[Export] private CompressedTexture2D _backgroundDay;
+	[Export] private CompressedTexture2D _backgroundNight;
 	
 	[ExportGroup("Main Texture")]
-	[Export] private TextureRect Main;
-	[Export] private CompressedTexture2D MainDay;
-	[Export] private CompressedTexture2D MainNight;
+	[Export] private TextureRect _main;
+	[Export] private CompressedTexture2D _mainDay;
+	[Export] private CompressedTexture2D _mainNight;
 	
 	[ExportGroup("Texts")]
 	[Export] private RichTextLabel _textFirst;
@@ -29,25 +29,40 @@ public partial class Tutorial : Node
 	[Export] private Theme _textDayTheme;
 	[Export] private Theme _textNightTheme;
 
+	[ExportGroup("Textures Tutor")]
+	[Export] private TextureRect _texture1;
+	[Export] private TextureRect _texture2;
+	[Export] private TextureRect _texture3;
+	[Export] private CompressedTexture2D _texture1Day;
+	[Export] private CompressedTexture2D _texture2Day;
+	[Export] private CompressedTexture2D _texture3Day;
+	[Export] private CompressedTexture2D _texture1Night;
+	[Export] private CompressedTexture2D _texture2Night;
+	[Export] private CompressedTexture2D _texture3Night;
+	
 	public void SwitchState()
 	{
 		_currentState++;
 		switch (_currentState)
 		{
 			case 1:
-				Button.Theme = ButtonNightTheme;
-				Background.Texture = BackgroundNight;
-				Main.Texture = MainNight;
+				_button.Theme = _buttonNightTheme;
+				
+				_background.Texture = _backgroundNight;
+				_main.Texture = _mainNight;
 				
 				_textFirst.Theme = _textNightTheme;
 				_textSecond.Theme = _textNightTheme;
 				_textThird.Theme = _textNightTheme;
+
+				_texture1.Texture = _texture1Night;
+				_texture2.Texture = _texture2Night;
+				_texture3.Texture = _texture3Night;
 				break;
 			case 2:
-				var scene = _mainScene.Instantiate<MainGame>();
+				var scene = _mainScene.Instantiate<MainScene>();
 				GetTree().Root.AddChild(scene);
-		
-				GlobalContext.TimeRebuilderInstance.RebuildForCurrentTimeType(TimeType.DAY);
+				
 				this.QueueFree();
 				break;
 		}
@@ -56,13 +71,17 @@ public partial class Tutorial : Node
 	public void SetupTutorial()
 	{
 		_currentState = 0;
-		Button.Theme = ButtonDayTheme;
+		_button.Theme = _buttonDayTheme;
 		
-		Background.Texture = BackgroundDay;
-		Main.Texture = MainDay;
+		_background.Texture = _backgroundDay;
+		_main.Texture = _mainDay;
 				
 		_textFirst.Theme = _textDayTheme;
 		_textSecond.Theme = _textDayTheme;
 		_textThird.Theme = _textDayTheme;
+		
+		_texture1.Texture = _texture1Day;
+		_texture2.Texture = _texture2Day;
+		_texture3.Texture = _texture3Day;
 	}
 }

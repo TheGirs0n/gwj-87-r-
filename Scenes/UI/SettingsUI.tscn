@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xv0xr5v5lqt2" path="res://Scenes/UI/SettingsBarUI.tscn" id="2_qep6s"]
 
 [node name="SettingsUi" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,3 +43,6 @@ anchor_left = 0.4
 anchor_top = 0.85
 anchor_right = 0.6
 anchor_bottom = 0.95
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="HideSettings"]

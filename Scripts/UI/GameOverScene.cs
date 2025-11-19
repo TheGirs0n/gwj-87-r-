@@ -24,7 +24,6 @@ public partial class GameOverScene : Control
 	[ExportGroup("AnimatePlayer")]
 	[Export] private AnimationPlayer _animatePlayer;
 	
-	
 	[ExportGroup("Packed Scene")]
 	[Export] private PackedScene _tutorial;
 	[Export] private PackedScene _mainMenu;

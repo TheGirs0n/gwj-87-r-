@@ -9,7 +9,7 @@ script = ExtResource("1_pihk5")
 PositiveCore = ExtResource("2_nulrp")
 NegativeCore = ExtResource("3_idt5a")
 SpawnTimer = NodePath("Timer")
-SpawnOffset = 25.0
+SpawnOffset = -50.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

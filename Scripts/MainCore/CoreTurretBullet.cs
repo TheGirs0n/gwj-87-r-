@@ -12,11 +12,6 @@ public partial class CoreTurretBullet : Sprite2D
 	[Export] private GpuParticles2D _bulletParticles;
 	[Export] private ParticleProcessMaterial _bulletDayProcessMaterial;
 	[Export] private ParticleProcessMaterial _bulletNightProcessMaterial;
-	
-	public override void _Process(double delta)
-	{
-		
-	}
 
 	public void RebuildForCurrentTimeType(TimeType timeType)
 	{

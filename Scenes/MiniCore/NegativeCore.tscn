@@ -16,6 +16,7 @@ radius = 18.0
 [node name="NegativeCore" type="CharacterBody2D" node_paths=PackedStringArray("CoreSprite", "CoreParticles")]
 collision_mask = 2
 script = ExtResource("1_eek35")
+CoreSpeed = 200.0
 PositiveScore = 10
 NegativeScore = -10
 CoreSprite = NodePath("CoreSprite")
@@ -42,6 +43,12 @@ amount = 50
 texture = ExtResource("6_b4x58")
 lifetime = 0.5
 process_material = ExtResource("4_caw4j")
+
+[node name="DestroyCore" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+
+[node name="EntryCore" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="EnterCore"]
 [connection signal="input_event" from="Area2D" to="." method="MouseInputEvent"]

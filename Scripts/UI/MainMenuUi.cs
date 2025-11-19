@@ -14,11 +14,12 @@ public partial class MainMenuUi : Control
 
 	public void Settings()
 	{
-		
+		GlobalContext.SettingsUiInstance.Visible = true;
+		GD.Print(GlobalContext.SettingsUiInstance.Visible);
 	}
 	
 	public void ExitGame()
 	{
-		
+		GetTree().Quit();
 	}
 }

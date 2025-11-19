@@ -93,4 +93,10 @@ lifetime = 2.0
 preprocess = 5.0
 speed_scale = 1.5
 local_coords = true
-process_material = ExtResource("7_xbel3")
+process_material = ExtResource("9_ox375")
+
+[node name="MinChargeCap" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+
+[node name="MaxChargeCap" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"

@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://d34cjkhlb4w62" path="res://Scripts/Tutorial/Tutorial.cs" id="1_auiun"]
 [ext_resource type="Texture2D" uid="uid://cp7gvfw15ong7" path="res://Sprites/Background/BACKGROUND_NIGHT.png" id="1_thyfh"]
-[ext_resource type="PackedScene" uid="uid://danf8100yrw1x" path="res://Scenes/Game/MainGame.tscn" id="2_tq6py"]
+[ext_resource type="PackedScene" uid="uid://c5fpd63a5jqgf" path="res://Scenes/Game/MainScene.tscn" id="2_tq6py"]
 [ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="3_0yr2e"]
 [ext_resource type="Theme" uid="uid://d02rnrhk8v402" path="res://Resources/Themes/ButtonsNightTheme.tres" id="3_n3ycm"]
 [ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="3_w7w38"]
 [ext_resource type="Theme" uid="uid://c5sr6vimyjyi4" path="res://Resources/Themes/TextDayTheme.tres" id="6_1oc1e"]
 [ext_resource type="Theme" uid="uid://bq8marwmvebko" path="res://Resources/Themes/TextNightTheme.tres" id="7_tq6py"]
 
-[node name="Tutorial" type="Control" node_paths=PackedStringArray("Button", "Background", "Main", "_textFirst", "_textSecond", "_textThird")]
+[node name="Tutorial" type="Control" node_paths=PackedStringArray("_button", "_background", "_main", "_textFirst", "_textSecond", "_textThird", "_texture1", "_texture2", "_texture3")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,20 +18,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_auiun")
 _mainScene = ExtResource("2_tq6py")
-Button = NodePath("Background/Button")
-ButtonDayTheme = ExtResource("3_w7w38")
-ButtonNightTheme = ExtResource("3_n3ycm")
-Background = NodePath("Background")
-BackgroundDay = ExtResource("3_0yr2e")
-BackgroundNight = ExtResource("1_thyfh")
-Main = NodePath("Background/TextureRect")
-MainDay = ExtResource("1_thyfh")
-MainNight = ExtResource("3_0yr2e")
-_textFirst = NodePath("Background/TextureRect/RichTextLabel")
-_textSecond = NodePath("Background/TextureRect/RichTextLabel2")
-_textThird = NodePath("Background/TextureRect/RichTextLabel3")
+_button = NodePath("Background/Button")
+_buttonDayTheme = ExtResource("3_w7w38")
+_buttonNightTheme = ExtResource("3_n3ycm")
+_background = NodePath("Background")
+_backgroundDay = ExtResource("3_0yr2e")
+_backgroundNight = ExtResource("1_thyfh")
+_main = NodePath("Background/TextureRect")
+_mainDay = ExtResource("3_0yr2e")
+_mainNight = ExtResource("1_thyfh")
+_textFirst = NodePath("Background/TextureRect/VBoxContainer/RichTextLabel")
+_textSecond = NodePath("Background/TextureRect/VBoxContainer/RichTextLabel2")
+_textThird = NodePath("Background/TextureRect/VBoxContainer/RichTextLabel3")
 _textDayTheme = ExtResource("6_1oc1e")
 _textNightTheme = ExtResource("7_tq6py")
+_texture1 = NodePath("Background/TextureRect/HBoxContainer/TextureRect")
+_texture2 = NodePath("Background/TextureRect/HBoxContainer/TextureRect2")
+_texture3 = NodePath("Background/TextureRect/HBoxContainer/TextureRect3")
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.78431374)
@@ -64,37 +67,52 @@ anchor_bottom = 0.75
 size_flags_horizontal = 3
 texture = ExtResource("3_0yr2e")
 
-[node name="TextureRect" type="TextureRect" parent="Background/TextureRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 0.35
+theme_override_constants/separation = 25
+alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="Background/TextureRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TextureRect" type="TextureRect" parent="Background/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Background/TextureRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TextureRect2" type="TextureRect" parent="Background/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Background/TextureRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TextureRect3" type="TextureRect" parent="Background/TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.95
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "Ядро вещества ведет себя по разному в зависимости от времени суток. С "
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Background/TextureRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="RichTextLabel2" type="RichTextLabel" parent="Background/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "Для зарядки главного ядра используются ядра поменьше. "
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="Background/TextureRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="RichTextLabel3" type="RichTextLabel" parent="Background/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "У каждого мини-ядра свой знак."
 
 [connection signal="pressed" from="Background/Button" to="." method="SwitchState"]
