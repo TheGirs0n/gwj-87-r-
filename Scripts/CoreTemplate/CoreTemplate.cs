@@ -5,8 +5,8 @@ public abstract partial class CoreTemplate : CharacterBody2D
 {
 	[ExportGroup("Parameters")]
 	[Export] public float CoreSpeed = 300f;
-	[Export] public int PositiveScore;
-	[Export] public int NegativeScore;
+	[Export] public float PositiveScore;
+	[Export] public float NegativeScore;
 	
 	[ExportGroup("Core Types")]
 	[Export] public Sprite2D CoreSprite;
@@ -19,24 +19,13 @@ public abstract partial class CoreTemplate : CharacterBody2D
 	[Export] public ParticleProcessMaterial CoreParticleNightProcessMaterial;
 	
 	protected MainCore _targetMainCore;
-	public static float SpeedMultiplier = 1f;
-	public static float SpeedMultiplierIncreaseStep = 0.05f;
-	public int ScoreFromDestroy;
-	public int ScoreFromEntry;
+	public float SpeedMultiplier = 1f;
+	public float ScoreFromDestroy;
+	public float ScoreFromEntry;
 
 	public abstract void RebuildForCurrentTimeType(TimeType timeType);
 	public abstract void SwapPolarityScores(TimeType timeType);
 	public abstract void MoveToMainCore(float delta);
-
-	public static void IncreaseSpeedMultiplier()
-	{
-		SpeedMultiplier += SpeedMultiplierIncreaseStep;
-	}
-
-	public static float GetSpeedMultiplier()
-	{
-		return SpeedMultiplier;
-	}
 	
 	public void MouseInputEvent(Node viewport, InputEvent @event, int shapeIdx)
 	{
@@ -61,6 +50,21 @@ public abstract partial class CoreTemplate : CharacterBody2D
 	{
 		_targetMainCore.UpdateScore(ScoreFromDestroy);
 		this.QueueFree();
+	}
+
+	public void UpdateSpeedMultiplier(float newSpeedMultiplier)
+	{
+		SpeedMultiplier = newSpeedMultiplier;
+	}
+
+	public void UpdatePositiveScore(float newPositiveScore)
+	{
+		PositiveScore = newPositiveScore;
+	}
+
+	public void UpdateNegativeScore(float newNegativeScore)
+	{
+		NegativeScore = newNegativeScore;
 	}
 }
 

@@ -1,12 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://81jpjo61homb"]
+[gd_scene load_steps=14 format=3 uid="uid://81jpjo61homb"]
 
 [ext_resource type="Script" uid="uid://d4f5f7im7tg0o" path="res://Scripts/MainCore/MainCore.cs" id="1_n1loq"]
 [ext_resource type="Texture2D" uid="uid://h3q485p71upd" path="res://Sprites/MainCore/MAIN_CORE_DAY.png" id="2_51ihd"]
-[ext_resource type="PackedScene" uid="uid://bgpbaqcciylf" path="res://Scenes/MainCore/CoreTurret.tscn" id="2_n8cjy"]
 [ext_resource type="Texture2D" uid="uid://ryhavjgtw4un" path="res://Sprites/MainCore/MAIN_CORE_NIGHT.png" id="3_dcaak"]
 [ext_resource type="Texture2D" uid="uid://dp7g7li3ql2q4" path="res://Sprites/MainCore/MAIN_CORE_CHARGE_NIGHT.png" id="4_tuxjx"]
 [ext_resource type="Texture2D" uid="uid://bxhst6wlt6hcg" path="res://Sprites/MainCore/MAIN_CORE_CHARGE_FILL_DAY.png" id="5_75xtg"]
-[ext_resource type="Script" uid="uid://2afiwv0vpg7f" path="res://Scripts/MainCore/MainCoreTurretPool.cs" id="6_fgwsc"]
 [ext_resource type="Material" uid="uid://d3k7dfxrr4v2e" path="res://Resources/Particles/MainCoreNightParticles.tres" id="7_xbel3"]
 [ext_resource type="Texture2D" uid="uid://dsl8r1p8smdv8" path="res://Sprites/MainCore/MAIN_CORE_CHARGE_DAY.png" id="8_tuxjx"]
 [ext_resource type="Texture2D" uid="uid://cc5j1dklxefx2" path="res://Sprites/MainCore/MAIN_CORE_CHARGE_FILL_NIGHT.png" id="9_75xtg"]
@@ -18,12 +16,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8cjy"]
 radius = 16.0
 
-[node name="MainCore" type="Area2D" node_paths=PackedStringArray("_mainCoreTurretPool", "MainCoreSprite", "ProgressBar", "MainCoreParticles", "MainCoreBatteryParticles")]
+[node name="MainCore" type="Area2D" node_paths=PackedStringArray("MainCoreSprite", "ProgressBar", "MainCoreParticles", "MainCoreBatteryParticles")]
 scale = Vector2(5, 5)
 collision_layer = 2
 input_pickable = false
 script = ExtResource("1_n1loq")
-_mainCoreTurretPool = NodePath("MainCoreTurretPool")
 MainCoreSprite = NodePath("Sprite2D")
 MainCoreDaySprite = ExtResource("3_dcaak")
 MainCoreNightSprite = ExtResource("2_51ihd")
@@ -81,10 +78,6 @@ randomness = 0.5
 visibility_rect = Rect2(-20, -20, 17, 85)
 local_coords = true
 process_material = ExtResource("10_75xtg")
-
-[node name="MainCoreTurretPool" type="Node" parent="."]
-script = ExtResource("6_fgwsc")
-_turretScene = ExtResource("2_n8cjy")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 200

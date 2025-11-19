@@ -103,16 +103,23 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="Background/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 text = "Ядро вещества ведет себя по разному в зависимости от времени суток. С "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Background/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Для зарядки главного ядра используются ядра поменьше. "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Background/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "У каждого мини-ядра свой знак."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Background/Button" to="." method="SwitchState"]

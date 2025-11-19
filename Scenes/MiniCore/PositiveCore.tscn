@@ -16,7 +16,7 @@ radius = 18.0
 [node name="PositiveCore" type="CharacterBody2D" node_paths=PackedStringArray("CoreSprite", "CoreParticles")]
 collision_mask = 2
 script = ExtResource("1_75438")
-CoreSpeed = 200.0
+CoreSpeed = 150.0
 PositiveScore = 10
 NegativeScore = -10
 CoreSprite = NodePath("CoreSprite")

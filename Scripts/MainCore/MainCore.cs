@@ -5,11 +5,10 @@ using Godot;
 public partial class MainCore : Node2D
 {
     [ExportGroup("Sub parameters")]
-    [Export] private MainCoreTurretPool _mainCoreTurretPool;
-    [Export] public int InitialScore = 50;
-    [Export] public int MinScore = 0;
-    [Export] public int MaxScore = 100;
-    public int CurrentScore;
+    [Export] public float InitialScore = 50;
+    [Export] public float MinScore = 0;
+    [Export] public float MaxScore = 100;
+    public float CurrentScore;
 
     [ExportGroup("SpriteSetting")]
     [Export] public Sprite2D MainCoreSprite;
@@ -43,7 +42,7 @@ public partial class MainCore : Node2D
         ProgressBar.MaxValue = MaxScore;
     }
 
-    public void UpdateScore(int score)
+    public void UpdateScore(float score)
     {
         CurrentScore += score;
         if (CurrentScore <= MinScore)

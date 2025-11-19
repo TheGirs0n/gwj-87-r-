@@ -10,29 +10,29 @@ public partial class SettingsBarUi : Control
 	
 	#region Audio
 
-	public void UpdateMasterVolume(float volume)
+	private void UpdateMasterVolume(float volume)
 	{
 		AudioServer.SetBusVolumeLinear(0, volume);
-		_masterVolumeText.Text = $"{Math.Round(volume * 100, 1)}%";
+		_masterVolumeText.Text = $"{Math.Round(volume, 1)}%";
 	}
 
-	public void UpdateSoundEffectVolume(float volume)
+	private void UpdateSoundEffectVolume(float volume)
 	{
 		AudioServer.SetBusVolumeLinear(1, volume);
-		_sfxVolumeText.Text = $"{Math.Round(volume * 100, 1)}%";
+		_sfxVolumeText.Text = $"{Math.Round(volume, 1)}%";
 	}
 	
-	public void UpdateMusicVolume(float volume)
+	private void UpdateMusicVolume(float volume)
 	{
 		AudioServer.SetBusVolumeLinear(2, volume);
-		_musicVolumeText.Text = $"{Math.Round(volume * 100, 1)}%";
+		_musicVolumeText.Text = $"{Math.Round(volume, 1)}%";
 	}
 	
 	#endregion
 
 	#region Display
 
-	public void SetWindowMode(int index)
+	private void SetWindowMode(int index)
 	{
 		switch (index)
 		{
@@ -62,9 +62,25 @@ public partial class SettingsBarUi : Control
 		new Vector2I(1920, 1080)
 	];
 
-	public void SetResolutionMode(int index)
+	private void SetResolutionMode(int index)
 	{
 		DisplayServer.WindowSetSize(_windowSizes[index]);
+	}
+
+	#endregion
+
+	#region Language
+
+	private void UpdateLanguage(bool toggledOn)
+	{
+		if (toggledOn == true)
+		{
+			// english
+		}
+		else
+		{
+			// russian
+		}
 	}
 
 	#endregion

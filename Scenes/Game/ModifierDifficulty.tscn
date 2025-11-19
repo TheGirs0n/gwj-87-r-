@@ -5,8 +5,8 @@
 [node name="ModifierDifficulty" type="Node"]
 script = ExtResource("1_tq0wk")
 _modifierDifficulty = Dictionary[String, float]({
-"MINUS POSITIVE": -0.5,
-"PLUS NEGATIVE": 0.5,
+"MINUS POSITIVE": 0.5,
+"PLUS NEGATIVE": -0.5,
 "SPAWN TIME": -0.05,
 "SPEED MULTIPLAYER": 0.05
 })

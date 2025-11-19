@@ -71,7 +71,7 @@ size_flags_vertical = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
-text = "1231"
+text = "0%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -100,7 +100,7 @@ size_flags_vertical = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
-text = "1231"
+text = "0%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -129,7 +129,7 @@ size_flags_vertical = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
-text = "1231"
+text = "0%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -203,6 +203,42 @@ popup/item_1/text = "1600x900"
 popup/item_1/id = 1
 popup/item_2/text = "1920x1080"
 popup/item_2/id = 2
+
+[node name="Language" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Language"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Language/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/Language/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Language/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+action_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="TabContainer/Language/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [connection signal="value_changed" from="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="UpdateMasterVolume"]
 [connection signal="value_changed" from="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer2/HSlider" to="." method="UpdateSoundEffectVolume"]

@@ -30,6 +30,7 @@ public partial class AfterGameSwitcher : Control
 	public void SwitchDayTime()
 	{
 		GlobalContext.TimeRebuilderInstance.RebuildForCurrentTimeType();
+		GlobalContext.MainGameInstance.IsSwitcherOpened = false;
 	}
 
 	public void SetupSwitcherScene(int currentState)
@@ -40,6 +41,9 @@ public partial class AfterGameSwitcher : Control
 				DifficultyLabel.Theme = LabelDayTheme;
 				LevelLabel.Theme = LabelDayTheme;
 				
+				DifficultyLabel.Visible = false;
+				LevelLabel.Visible = false;
+				
 				SwitchTimeButton.Theme = SwitchTimeDayTheme;
 				
 				DayNightLabel.Theme = LabelDayTheme;
@@ -49,6 +53,7 @@ public partial class AfterGameSwitcher : Control
 				UpdateDayNightCount();
 				break;
 			case 1:
+				_modifierDifficulty.ApplyRandomModifierDifficulty();
 				DifficultyLabel.Theme = LabelNightTheme;
 				LevelLabel.Theme = LabelNightTheme;
 				
@@ -59,17 +64,17 @@ public partial class AfterGameSwitcher : Control
 				
 				_nightCount++;
 				UpdateDayNightCount();
-				//
-				// GlobalContext.MainGameInstance.IncreaseDifficulty();
-				// DifficultyLabel.Text = CoreTemplate.GetSpeedMultiplier().ToString();
 				break;
 		}
 	}
 
-	public void SetupModifierScene(string modifierText, float modifierValue)
+	public void SetupModifierScene(string modifierText, float modifierValue, float newValue)
 	{
 		LevelLabel.Text = modifierText;
-		DifficultyLabel.Text = modifierText;
+		DifficultyLabel.Text = $"{modifierValue} => {Math.Round(newValue, 2)}";
+		
+		DifficultyLabel.Visible = true;
+		LevelLabel.Visible = true;
 	}
 
 	public void UpdateDayNightCount()

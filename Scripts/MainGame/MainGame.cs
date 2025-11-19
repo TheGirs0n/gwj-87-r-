@@ -13,6 +13,8 @@ public partial class MainGame : Node
     [Export] private Node _miniCoresPool;
     [Export] private SpawnMiniCores _spawnMiniCores;
 
+    public bool IsSwitcherOpened = false;
+    
     public override void _EnterTree()
     {
         GlobalContext.MainGameInstance = this;
@@ -23,10 +25,6 @@ public partial class MainGame : Node
         _timer.Start();
     }
 
-    public void IncreaseDifficulty()
-    {
-        CoreTemplate.IncreaseSpeedMultiplier();
-    }
     
     public override void _Process(double delta)
     {
@@ -41,7 +39,8 @@ public partial class MainGame : Node
         {
             if (_miniCoresPool.GetChildCount() <= 0)
             {
-                TimeIsOver();
+                if(IsSwitcherOpened == false)
+                    TimeIsOver();
             }
         }
     }
@@ -50,6 +49,7 @@ public partial class MainGame : Node
     {
         GlobalContext.GlobalUIInstance.AfterGameSwitcher.SetupSwitcherScene((int)GlobalContext.TimeRebuilderInstance.TimeType);
         GlobalContext.GlobalUIInstance.TimeSwitcherUIOpen();
+        IsSwitcherOpened = true;
     }
 
     public void StopGame()
