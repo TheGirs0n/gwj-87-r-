@@ -1,6 +1,4 @@
 ﻿
-using Godot;
-
 public partial class PositiveCore : CoreTemplate
 {
     public override void _Ready()

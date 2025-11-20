@@ -1,6 +1,3 @@
-using Godot;
-using System;
-
 public class GlobalContext 
 {
 	public static MainCore MainCoreInstance;

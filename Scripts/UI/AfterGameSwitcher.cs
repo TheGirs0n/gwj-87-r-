@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class AfterGameSwitcher : Control
 {
@@ -19,8 +19,8 @@ public partial class AfterGameSwitcher : Control
 	[ExportGroup("Modifier")]
 	[Export] private ModifierDifficulty _modifierDifficulty;
 
-	private int _dayCount = 0;
-	private int _nightCount = 0;
+	public int DayCount = 0;
+	public int NightCount = 0;
 	
 	public override void _EnterTree()
 	{
@@ -49,7 +49,7 @@ public partial class AfterGameSwitcher : Control
 				DayNightLabel.Theme = LabelDayTheme;
 				DayNightLabelCount.Theme = LabelDayTheme;
 				
-				_dayCount++;
+				DayCount++;
 				UpdateDayNightCount();
 				break;
 			case 1:
@@ -62,7 +62,7 @@ public partial class AfterGameSwitcher : Control
 				DayNightLabel.Theme = LabelNightTheme;
 				DayNightLabelCount.Theme = LabelNightTheme;
 				
-				_nightCount++;
+				NightCount++;
 				UpdateDayNightCount();
 				break;
 		}
@@ -79,6 +79,6 @@ public partial class AfterGameSwitcher : Control
 
 	public void UpdateDayNightCount()
 	{
-		DayNightLabelCount.Text = $"{_dayCount}/{_nightCount}";
+		DayNightLabelCount.Text = $"{DayCount}/{NightCount}";
 	}
 }

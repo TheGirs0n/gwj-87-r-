@@ -1,5 +1,5 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class SettingsBarUi : Control
 {
@@ -75,11 +75,11 @@ public partial class SettingsBarUi : Control
 	{
 		if (toggledOn == true)
 		{
-			// english
+			TranslationServer.SetLocale("en");
 		}
 		else
 		{
-			// russian
+			TranslationServer.SetLocale("ru");
 		}
 	}
 

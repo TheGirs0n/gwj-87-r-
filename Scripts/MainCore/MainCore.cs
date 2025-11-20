@@ -1,6 +1,4 @@
-﻿
-using System.Linq;
-using Godot;
+﻿using Godot;
 
 public partial class MainCore : Node2D
 {

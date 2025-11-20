@@ -36,8 +36,13 @@ folder_colors={
 "res://Resources/": "orange",
 "res://Scenes/": "yellow",
 "res://Scripts/": "green",
-"res://Sprites/": "teal"
+"res://Sprites/": "teal",
+"res://Translation/": "blue"
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Translation/TEST_TRANSLATION.en.translation", "res://Translation/TEST_TRANSLATION.ru.translation")
 
 [layer_names]
 

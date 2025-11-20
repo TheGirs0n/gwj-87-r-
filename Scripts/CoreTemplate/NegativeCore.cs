@@ -1,6 +1,4 @@
 ﻿
-using Godot;
-
 public partial class NegativeCore : CoreTemplate
 {
     public override void _Ready()

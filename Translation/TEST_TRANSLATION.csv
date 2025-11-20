@@ -1,0 +1,45 @@
+﻿key;ru;en
+START_GAME;Начать игру;Start Game
+SETTINGS;Настройки;Settings
+EXIT;Выход;Exit
+STORY_CASE_1;Ядро вещества x постоянно активно, необходима постоянная слежка;STORY_CASE_1
+STORY_CASE_2;Нельзя допустить перенасыщения или потухание ядра;STORY_CASE_2
+STORY_BUTTON;Вперед;Go on
+TUTORIAL_CASE_1_1;Ядро вещества ведет себя по разному в зависимости от времени суток. С ;TUTORIAL_CASE_1_1
+TUTORIAL_CASE_1_2;Для зарядки главного ядра используются ядра поменьше. ;TUTORIAL_CASE_1_2
+TUTORIAL_CASE_1_3;У каждого мини-ядра свой знак.;TUTORIAL_CASE_1_3
+TUTORIAL_BUTTON_1;Вперед;Go on
+TUTORIAL_CASE_2_1;Хз, тут думаем;TUTORIAL_CASE_2_1
+TUTORIAL_CASE_2_2;Для зарядки главного ядра используются ядра поменьше. ;TUTORIAL_CASE_2_2
+TUTORIAL_CASE_2_3;У каждого мини-ядра свой знак.;TUTORIAL_CASE_2_3
+TUTORIAL_BUTTON_2;ПОЕХАЛИ;WORK
+UI_MAIN_TIMER_TEXT;ОСТАВШЕЕСЯ ВРЕМЯ:;TIME LEFT:
+UI_SWITCHER_MOD_TEXT_1;МИНУС ПОЛОЖИТЕЛЬНЫЕ;MINUS POSITIVE
+UI_SWITCHER_MOD_TEXT_2;ПЛЮС НЕГАТИВНЫЕ;PLUS NEGATIVE
+UI_SWITCHER_MOD_TEXT_3;ВРЕМЯ ПОЯВЛЕНИЯ;SPAWN TIME
+UI_SWITCHER_MOD_TEXT_4;МНОЖИТЕЛЬ СКОРОСТИ;SPEED MULTIPLAYER
+UI_SWITCHER_SWITCH_BUTTON;СМЕНИТЬ ВРЕМЯ;SWITCH TIME
+UI_SWITCHER_TIME_TEXT;ДЕНЬ/НОЧЬ;DAY/NIGHT
+UI_PAUSE_TEXT;ПАУЗА;PAUSE
+UI_PAUSE_CONTINUE;ПРОДОЛЖИТЬ;CONTINUE
+UI_PAUSE_SETTINGS;НАСТРОЙКИ;SETTINGS
+UI_PAUSE_EXIT;ВЫХОД;EXIT
+UI_SETTINGS_TEXT;НАСТРОЙКИ;OPTIONS
+UI_SETTINGS_EXIT;ВЫХОД;EXIT
+UI_SETTINGS_SOUND_BAR_NAME;ЗВУК;SOUND
+UI_SETTINGS_DISPLAY_BAR_NAME;ЭКРАН;DISPLAY
+UI_SETTINGS_LANGUAGE_BAR_NAME;ЯЗЫК;LANGUAGE
+UI_SETTINGS_BAR_SOUND_MASTER;ОБЩАЯ ГРОМКОСТЬ;MASTER VOLUME
+UI_SETTINGS_BAR_SOUND_SFX;ЗВУКОВЫЕ ЭФФЕКТЫ;SOUND EFFECTS
+UI_SETTINGS_BAR_SOUND_MUSIC;ГРОМКОСТЬ МУЗЫКИ;MUSIC VOLUME
+UI_SETTINGS_BAR_DISPLAY_WINDOW;РЕЖИМ ОКНА;WINDOW MODE
+UI_SETTINGS_BAR_DISPLAY_RESOLUTION;РАЗРЕШЕНИЕ ЭКРАНА;SCREE RESOLUTION
+UI_GAME_OVER_DEATH_CAUSE_1;ПЕРЕНАПРЯЖЕНИЕ ЯДРА;CORE OVERCHARGE
+UI_GAME_OVER_DEATH_CAUSE_2;ПОТУХАНИЕ ЯДРА;CORE DISEASED
+UI_GAME_OVER_TIME_COUNT_TEXT;ДЕНЬ/НОЧЬ;DAY/NIGHT
+UI_GAME_OVER_RESTART_BUTTON;НАЧАТЬ ЗАНОВО;RESTART GAME
+UI_GAME_OVER_MAIN_MENU_BUTTON;В ГЛАВНОЕ МЕНЮ;GO TO MAIN MENU
+UI_GAME_OVER_SPEED_MULTIPLAYER_TEXT;МНОЖИТЕЛЬ СКОРОСТИ;SPEED MULTIPLAYER
+UI_GAME_OVER_SPAWN_TIME_TEXT;ВРЕМЯ ПОЯВЛЕНИЯ;SPAWN TIME
+UI_GAME_OVER_MINUS_POSITIVE_TEXT;КОЛ-ВО ПОЛОЖИТЕЛЬНЫХ ОЧКОВ;POSITIVE SCORE
+UI_GAME_OVER_PLUS_NEGATIVE_TEXT;КОЛ-ВО ОТРИЦАТЕЛЬНЫХ ОЧКОВ;NEGATIVE SCORE

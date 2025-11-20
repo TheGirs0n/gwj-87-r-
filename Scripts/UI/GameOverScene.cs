@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class GameOverScene : Control
 {
@@ -111,6 +110,7 @@ public partial class GameOverScene : Control
 	{
 		_dayNightCountText.Theme = theme;
 		_dayNightCount.Theme = theme;
+		_dayNightCount.Text = $"{GlobalContext.GlobalUIInstance.AfterGameSwitcher.DayCount}/{GlobalContext.GlobalUIInstance.AfterGameSwitcher.NightCount}";
 	}
 
 	private void SetupModifiers(Theme theme)

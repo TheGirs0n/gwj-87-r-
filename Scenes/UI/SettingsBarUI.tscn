@@ -11,9 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_phv7t")
-_masterVolumeText = NodePath("TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer/RichTextLabel6")
-_sfxVolumeText = NodePath("TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer2/RichTextLabel5")
-_musicVolumeText = NodePath("TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer3/RichTextLabel4")
+_masterVolumeText = NodePath("TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer/RichTextLabel6")
+_sfxVolumeText = NodePath("TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2/RichTextLabel5")
+_musicVolumeText = NodePath("TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer3/RichTextLabel4")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -23,14 +23,14 @@ anchor_top = 0.05
 anchor_right = 0.7
 anchor_bottom = 0.7
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
-[node name="Sound" type="TabBar" parent="TabContainer"]
+[node name="UI_SETTINGS_SOUND_BAR_NAME" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,15 +42,15 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "UI_SETTINGS_BAR_SOUND_MASTER"
@@ -59,16 +59,16 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_777fb")
 
-[node name="HSlider" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HSlider" type="HSlider" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel6" type="RichTextLabel" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
@@ -76,10 +76,10 @@ text = "0%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "UI_SETTINGS_BAR_SOUND_SFX"
@@ -88,16 +88,16 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("1_777fb")
 
-[node name="HSlider" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="HSlider" type="HSlider" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
@@ -105,10 +105,10 @@ text = "0%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "UI_SETTINGS_BAR_SOUND_MUSIC"
@@ -117,16 +117,16 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 texture = ExtResource("1_777fb")
 
-[node name="HSlider" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="HSlider" type="HSlider" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
@@ -134,11 +134,12 @@ text = "0%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Display" type="TabBar" parent="TabContainer"]
+[node name="UI_SETTINGS_DISPLAY_BAR_NAME" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Display"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,15 +151,15 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Display/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Display/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Display/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "UI_SETTINGS_BAR_DISPLAY_WINDOW"
@@ -167,7 +168,7 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="TabContainer/Display/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 4
@@ -180,10 +181,10 @@ popup/item_2/id = 2
 popup/item_3/text = "Borderless Fullscreen"
 popup/item_3/id = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Display/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Display/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "UI_SETTINGS_BAR_DISPLAY_RESOLUTION"
@@ -192,7 +193,7 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OptionButton" type="OptionButton" parent="TabContainer/Display/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="OptionButton" type="OptionButton" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 3
@@ -203,12 +204,11 @@ popup/item_1/id = 1
 popup/item_2/text = "1920x1080"
 popup/item_2/id = 2
 
-[node name="Language" type="TabBar" parent="TabContainer"]
-visible = false
+[node name="UI_SETTINGS_LANGUAGE_BAR_NAME" type="TabBar" parent="TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Language"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/UI_SETTINGS_LANGUAGE_BAR_NAME"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -220,27 +220,36 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Language/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/UI_SETTINGS_LANGUAGE_BAR_NAME/MarginContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/Language/MarginContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/UI_SETTINGS_LANGUAGE_BAR_NAME/MarginContainer/HBoxContainer"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+text = "РУССКИЙ"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CheckButton" type="CheckButton" parent="TabContainer/Language/MarginContainer/HBoxContainer"]
+[node name="CheckButton" type="CheckButton" parent="TabContainer/UI_SETTINGS_LANGUAGE_BAR_NAME/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 action_mode = 0
 
-[node name="TextureRect2" type="TextureRect" parent="TabContainer/Language/MarginContainer/HBoxContainer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="TabContainer/UI_SETTINGS_LANGUAGE_BAR_NAME/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+text = "ENGLISH"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="value_changed" from="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="UpdateMasterVolume"]
-[connection signal="value_changed" from="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer2/HSlider" to="." method="UpdateSoundEffectVolume"]
-[connection signal="value_changed" from="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer3/HSlider" to="." method="UpdateMusicVolume"]
-[connection signal="item_selected" from="TabContainer/Display/MarginContainer/VBoxContainer/HBoxContainer/OptionButton" to="." method="SetWindowMode"]
-[connection signal="item_selected" from="TabContainer/Display/MarginContainer/VBoxContainer/HBoxContainer2/OptionButton" to="." method="SetResolutionMode"]
+[connection signal="value_changed" from="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer/HSlider" to="." method="UpdateMasterVolume"]
+[connection signal="value_changed" from="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2/HSlider" to="." method="UpdateSoundEffectVolume"]
+[connection signal="value_changed" from="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer3/HSlider" to="." method="UpdateMusicVolume"]
+[connection signal="item_selected" from="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer/OptionButton" to="." method="SetWindowMode"]
+[connection signal="item_selected" from="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2/OptionButton" to="." method="SetResolutionMode"]
+[connection signal="toggled" from="TabContainer/UI_SETTINGS_LANGUAGE_BAR_NAME/MarginContainer/HBoxContainer/CheckButton" to="." method="UpdateLanguage"]

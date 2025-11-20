@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class Tutorial : Node
 {
@@ -46,18 +45,14 @@ public partial class Tutorial : Node
 		switch (_currentState)
 		{
 			case 1:
-				_button.Theme = _buttonNightTheme;
-				
-				_background.Texture = _backgroundNight;
-				_main.Texture = _mainNight;
-				
-				_textFirst.Theme = _textNightTheme;
-				_textSecond.Theme = _textNightTheme;
-				_textThird.Theme = _textNightTheme;
+				SetupButton(_buttonNightTheme, false);
 
-				_texture1.Texture = _texture1Night;
-				_texture2.Texture = _texture2Night;
-				_texture3.Texture = _texture3Night;
+				SetupTextureBack(_backgroundNight, _mainNight);
+				
+				SetupTextTheme(_textNightTheme);
+				SetupTextDescription(false);
+				
+				SetupTextureMain(_texture1Night, _texture2Night, _texture3Night);
 				break;
 			case 2:
 				var scene = _mainScene.Instantiate<MainScene>();
@@ -71,17 +66,63 @@ public partial class Tutorial : Node
 	public void SetupTutorial()
 	{
 		_currentState = 0;
-		_button.Theme = _buttonDayTheme;
+		SetupButton(_buttonDayTheme, true);
+
+		SetupTextureBack(_backgroundDay, _mainDay);
+
+		SetupTextTheme(_textDayTheme);
+		SetupTextDescription(true);
 		
-		_background.Texture = _backgroundDay;
-		_main.Texture = _mainDay;
-				
-		_textFirst.Theme = _textDayTheme;
-		_textSecond.Theme = _textDayTheme;
-		_textThird.Theme = _textDayTheme;
-		
-		_texture1.Texture = _texture1Day;
-		_texture2.Texture = _texture2Day;
-		_texture3.Texture = _texture3Day;
+		SetupTextureMain(_texture1Day, _texture2Day, _texture3Day);
+	}
+
+	private void SetupButton(Theme theme, bool IsDay)
+	{
+		_button.Theme = theme;
+
+		if (IsDay == true)
+		{
+			_button.Text = Tr("TUTORIAL_BUTTON_1");
+		}
+		else
+		{
+			_button.Text = Tr("TUTORIAL_BUTTON_2");
+		}
+	}
+	
+	private void SetupTextureBack(CompressedTexture2D backgroundDay, CompressedTexture2D mainDay)
+	{
+		_background.Texture = backgroundDay;
+		_main.Texture = mainDay;
+	}
+
+	private void SetupTextTheme(Theme theme)
+	{
+		_textFirst.Theme = theme;
+		_textSecond.Theme = theme;
+		_textThird.Theme = theme;
+	}
+
+	private void SetupTextDescription(bool IsDay)
+	{
+		if (IsDay == true)
+		{
+			_textFirst.Text = Tr("TUTORIAL_CASE_1_1");
+			_textSecond.Text = Tr("TUTORIAL_CASE_1_2");
+			_textThird.Text = Tr("TUTORIAL_CASE_1_3");
+		}
+		else
+		{
+			_textFirst.Text = Tr("TUTORIAL_CASE_2_1");
+			_textSecond.Text = Tr("TUTORIAL_CASE_2_2");
+			_textThird.Text = Tr("TUTORIAL_CASE_2_3");
+		}
+	}
+
+	private void SetupTextureMain(CompressedTexture2D mainTexture1, CompressedTexture2D mainTexture2, CompressedTexture2D mainTexture3)
+	{
+		_texture1.Texture = mainTexture1;
+		_texture2.Texture = mainTexture2;
+		_texture3.Texture = mainTexture3;
 	}
 }
