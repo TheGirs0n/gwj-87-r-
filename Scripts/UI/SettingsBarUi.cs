@@ -3,13 +3,30 @@ using Godot;
 
 public partial class SettingsBarUi : Control
 {
+	[ExportGroup("Sound Sliders")]
+	[Export] private HSlider _masterSlider;
+	[Export] private HSlider _sfxSlider;
+	[Export] private HSlider _musicSlider;
+	
 	[ExportGroup("Text Numbers")] 
 	[Export] private RichTextLabel _masterVolumeText;
 	[Export] private RichTextLabel _sfxVolumeText;
 	[Export] private RichTextLabel _musicVolumeText;
 	
+	[ExportGroup("Options Button")]
+	[Export] private OptionButton _windowButton;
+	[Export] private OptionButton _resolutionButton;
+	
+	[ExportGroup("Language")]
+	[Export] private CheckButton _languageButton;
+	
 	#region Audio
 
+	private void LoadAudioSettings()
+	{
+		
+	}
+	
 	private void UpdateMasterVolume(float volume)
 	{
 		AudioServer.SetBusVolumeLinear(0, volume);

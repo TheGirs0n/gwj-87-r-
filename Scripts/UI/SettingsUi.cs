@@ -2,13 +2,10 @@ using Godot;
 
 public partial class SettingsUi : Control
 {
-    public override void _EnterTree()
-    {
-        GlobalContext.SettingsUiInstance = this;
-    }
+    [Export] private SettingsBarUi SettingsBar;
 
-    public void HideSettings()
+    public void LoadUserSettings()
     {
-        this.Visible = false;
+        
     }
 }

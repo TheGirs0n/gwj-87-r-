@@ -12,8 +12,8 @@ public partial class PauseMenu : Control
 
 	public void Settings()
 	{
-		GlobalContext.SettingsUiInstance.Visible = true;
-		GD.Print(GlobalContext.SettingsUiInstance.Visible);
+		//GlobalContext.SettingsUiInstance.Visible = true;
+		//GD.Print(GlobalContext.SettingsUiInstance.Visible);
 	}
 
 	public void ExitGame()

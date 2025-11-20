@@ -3,6 +3,7 @@ using Godot;
 public partial class MainMenuUi : Control
 {
 	[Export] private PackedScene _gameStory;
+	[Export] private PackedScene _gameSettings;
 	
 	public void StartGame()
 	{
@@ -13,8 +14,11 @@ public partial class MainMenuUi : Control
 
 	public void Settings()
 	{
-		GlobalContext.SettingsUiInstance.Visible = true;
-		GD.Print(GlobalContext.SettingsUiInstance.Visible);
+		var setting = _gameSettings.Instantiate<SettingsUi>();
+		setting.
+		GetTree().Root.AddChild(setting);
+		//GlobalContext.SettingsUiInstance.Visible = true;
+		//GD.Print(GlobalContext.SettingsUiInstance.Visible);
 	}
 	
 	public void ExitGame()

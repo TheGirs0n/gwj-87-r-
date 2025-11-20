@@ -9,5 +9,4 @@ public class GlobalContext
 	public static AudioManager AudioManagerInstance;
 	
 	public static GlobalUI GlobalUIInstance;
-	public static SettingsUi SettingsUiInstance;
 }
