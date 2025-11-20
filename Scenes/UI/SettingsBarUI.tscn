@@ -23,9 +23,10 @@ anchor_top = 0.05
 anchor_right = 0.7
 anchor_bottom = 0.7
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -52,7 +53,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Master"
+text = "UI_SETTINGS_BAR_SOUND_MASTER"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -81,7 +82,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Sound Effects"
+text = "UI_SETTINGS_BAR_SOUND_SFX"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -110,7 +111,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Sound/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Music"
+text = "UI_SETTINGS_BAR_SOUND_MUSIC"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -134,7 +135,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Display" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -161,7 +161,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Display/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Window mode"
+text = "UI_SETTINGS_BAR_DISPLAY_WINDOW"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -186,8 +186,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Display/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Screen Resolution
-"
+text = "UI_SETTINGS_BAR_DISPLAY_RESOLUTION"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1

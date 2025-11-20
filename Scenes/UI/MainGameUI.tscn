@@ -34,13 +34,13 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "TIME LEFT:"
+text = "UI_MAIN_TIMER_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "25"
+text = "UI_MAIN_TIMER_VALUE"
 horizontal_alignment = 1
 vertical_alignment = 1

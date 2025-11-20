@@ -40,7 +40,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
-text = "Pause"
+text = "UI_PAUSE_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -49,21 +49,21 @@ layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
 theme = ExtResource("2_n4i8v")
-text = "Continue"
+text = "UI_PAUSE_CONTINUE"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
 theme = ExtResource("2_n4i8v")
-text = "Settings"
+text = "UI_PAUSE_SETTINGS"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 3
 theme = ExtResource("2_n4i8v")
-text = "Exit"
+text = "UI_PAUSE_EXIT"
 
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="ContinueGame"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="Settings"]

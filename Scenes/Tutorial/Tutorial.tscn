@@ -55,7 +55,7 @@ anchor_right = 0.6
 anchor_bottom = 0.9
 theme = ExtResource("3_w7w38")
 action_mode = 0
-text = "Go on"
+text = "TUTORIAL_BUTTON_1"
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 1
@@ -104,21 +104,21 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-text = "Ядро вещества ведет себя по разному в зависимости от времени суток. С "
+text = "TUTORIAL_CASE_1_1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Background/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Для зарядки главного ядра используются ядра поменьше. "
+text = "TUTORIAL_CASE_1_2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Background/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "У каждого мини-ядра свой знак."
+text = "TUTORIAL_CASE_1_3"
 horizontal_alignment = 1
 vertical_alignment = 1
 

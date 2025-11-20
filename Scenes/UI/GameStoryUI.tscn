@@ -46,14 +46,14 @@ stretch_mode = 5
 [node name="RichTextLabel" type="RichTextLabel" parent="BackGround/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Ядро вещества x постоянно активно, необходима постоянная слежка"
+text = "STORY_CASE_1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="BackGround/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Нельзя допустить перенасыщения или потухание ядра"
+text = "STORY_CASE_2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -67,6 +67,6 @@ anchor_bottom = 0.9
 offset_right = 8.0
 offset_bottom = 8.0
 theme = ExtResource("4_bx1ub")
-text = "Go on"
+text = "STORY_BUTTON"
 
 [connection signal="pressed" from="BackGround/Button" to="." method="GoToMain"]

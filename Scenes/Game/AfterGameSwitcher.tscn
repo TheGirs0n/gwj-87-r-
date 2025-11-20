@@ -87,7 +87,7 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "DAY/NIGHT"
+text = "UI_SWITCHER_TIME_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
