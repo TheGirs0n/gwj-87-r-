@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://w2rahq7m5ans"]
 
 [ext_resource type="Script" uid="uid://nkyhysd6ye7g" path="res://Scripts/CoreTemplate/NegativeCore.cs" id="1_eek35"]
-[ext_resource type="Texture2D" uid="uid://dfh45qtijmp2" path="res://Sprites/MiniCore/NEGATIVE_MINI_CORE_DAY.png" id="2_4p6ey"]
-[ext_resource type="Texture2D" uid="uid://cejrwev4jfych" path="res://Sprites/MiniCore/NEGATIVE_MINI_CORE_NIGHT.png" id="3_caw4j"]
+[ext_resource type="Texture2D" uid="uid://313qfohfy21u" path="res://Sprites/MiniCore/белый минус.png" id="3_b4x58"]
 [ext_resource type="Material" uid="uid://cgi6rlu0mblyi" path="res://Resources/Particles/CoreDayParticles.tres" id="4_b4x58"]
 [ext_resource type="Material" uid="uid://b60a3im8f76eo" path="res://Resources/Particles/CoreNightParticles.tres" id="4_caw4j"]
+[ext_resource type="Texture2D" uid="uid://b7ku78rm4w1j2" path="res://Sprites/MiniCore/черный минус.png" id="6_0buet"]
 [ext_resource type="Texture2D" uid="uid://bb0qwdy3fqq7h" path="res://Sprites/MainCore/DAY_PARTICLES.png" id="6_b4x58"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4p6ey"]
@@ -20,14 +20,15 @@ CoreSpeed = 150.0
 PositiveScore = 10
 NegativeScore = -10
 CoreSprite = NodePath("CoreSprite")
-CoreDaySprite = ExtResource("3_caw4j")
-CoreNightSprite = ExtResource("2_4p6ey")
+CoreDaySprite = ExtResource("6_0buet")
+CoreNightSprite = ExtResource("3_b4x58")
 CoreParticles = NodePath("GPUParticles2D")
 CoreParticleDayProcessMaterial = ExtResource("4_b4x58")
 CoreParticleNightProcessMaterial = ExtResource("4_caw4j")
 
 [node name="CoreSprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_caw4j")
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("6_0buet")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4p6ey")

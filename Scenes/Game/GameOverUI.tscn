@@ -119,6 +119,7 @@ _data = {
 }
 
 [node name="GameOverUi" type="Control" node_paths=PackedStringArray("_richTextLabel", "_dayNightCountText", "_dayNightCount", "_speedMultiplayer", "_speedMultiplayerValue", "_spawnTime", "_spawnTimeValue", "_positiveScore", "_positiveScoreValue", "_negativeScore", "_negativeScoreValue", "_textureRect", "_buttonRestartGame", "_buttonMainMenu", "_animatePlayer")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

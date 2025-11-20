@@ -25,7 +25,7 @@ public partial class GlobalUI : Node
     public void TimeSwitcherUIOpen()
     {
         MainGameUi.Visible = false;
-        BackgroundLayer.Visible = false;
+        BackgroundLayer.Visible = true;
         AfterGameSwitcher.Visible = true;
         PauseMenuUi.Visible = false;
     }
