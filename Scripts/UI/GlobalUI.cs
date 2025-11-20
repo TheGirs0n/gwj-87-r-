@@ -19,6 +19,7 @@ public partial class GlobalUI : Node
         MainGameUi.Visible = true;
         BackgroundLayer.Visible = true;
         AfterGameSwitcher.Visible = false;
+        PauseMenuUi.Visible = false;
     }
 
     public void TimeSwitcherUIOpen()
@@ -26,5 +27,14 @@ public partial class GlobalUI : Node
         MainGameUi.Visible = false;
         BackgroundLayer.Visible = false;
         AfterGameSwitcher.Visible = true;
+        PauseMenuUi.Visible = false;
+    }
+
+    public void SettingsSceneUIOpen()
+    {
+        MainGameUi.Visible = true;
+        BackgroundLayer.Visible = true;
+        AfterGameSwitcher.Visible = false;
+        PauseMenuUi.Visible = false;
     }
 }

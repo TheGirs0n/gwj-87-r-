@@ -19,6 +19,18 @@ public partial class SettingsBarUi : Control
 	
 	[ExportGroup("Language")]
 	[Export] private CheckButton _languageButton;
+
+	public void RestoreDefaults()
+	{
+		
+	}
+	
+	public void LoadAllUserSettings()
+	{
+		LoadAudioSettings();
+		LoadDisplaySettings();
+		LoadLanguage();
+	}
 	
 	#region Audio
 
@@ -49,6 +61,11 @@ public partial class SettingsBarUi : Control
 
 	#region Display
 
+	private void LoadDisplaySettings()
+	{
+		
+	}
+	
 	private void SetWindowMode(int index)
 	{
 		switch (index)
@@ -88,6 +105,11 @@ public partial class SettingsBarUi : Control
 
 	#region Language
 
+	private void LoadLanguage()
+	{
+		
+	}
+	
 	private void UpdateLanguage(bool toggledOn)
 	{
 		if (toggledOn == true)

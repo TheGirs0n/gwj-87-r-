@@ -73,11 +73,13 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer3"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 theme = ExtResource("3_5c7k7")
 action_mode = 0
 text = "UI_SWITCHER_SWITCH_BUTTON"
+flat = true
+icon_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer3"]
 layout_mode = 2

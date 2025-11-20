@@ -2,11 +2,11 @@ using Godot;
 
 public partial class GoToTutorial : Control
 {
-	[Export] private PackedScene _tutorial;
+	[Export] public PackedScene Tutorial;
 
 	public void GoToMain()
 	{
-		var scene = _tutorial.Instantiate<Tutorial>();
+		var scene = Tutorial.Instantiate<Tutorial>();
 		scene.SetupTutorial();
 		GetTree().Root.AddChild(scene);
 		

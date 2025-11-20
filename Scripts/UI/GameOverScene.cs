@@ -37,24 +37,22 @@ public partial class GameOverScene : Control
 	[ExportGroup("AnimatePlayer")]
 	[Export] private AnimationPlayer _animatePlayer;
 	
-	[ExportGroup("Packed Scene")]
-	[Export] private PackedScene _tutorial;
-	[Export] private PackedScene _mainMenu;
+
 	
 	public void StartNewGame()
 	{
-		var tutor = _tutorial.Instantiate<Tutorial>();
-		tutor.SetupTutorial();
-		
-		GetTree().Root.AddChild(tutor);
-		this.QueueFree();
+		// var tutor = _tutorial.Instantiate<Tutorial>();
+		// tutor.SetupTutorial();
+		//
+		// GetTree().Root.AddChild(tutor);
+		// this.QueueFree();
 	}
 
 	public void MainMenu()
 	{
-		var menu = _mainMenu.Instantiate<MainMenuUi>();
-		GetTree().Root.AddChild(menu);
-		this.QueueFree();
+		// var menu = _mainMenu.Instantiate<MainMenuUi>();
+		// GetTree().Root.AddChild(menu);
+		// this.QueueFree();
 	}
 	
 	public void SetupScreenGameOver(GameOverType gameOverType, TimeType timeType)

@@ -58,7 +58,7 @@ public partial class MainGame : Node
         GlobalContext.GlobalUIInstance.PauseMenuUi.Visible = true;
     }
 
-    public void StartGame()
+    public void ContinueGame()
     {
         this.ProcessMode = ProcessModeEnum.Inherit;
     }

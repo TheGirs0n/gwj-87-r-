@@ -15,7 +15,7 @@ public partial class MainMenuUi : Control
 	public void Settings()
 	{
 		var setting = _gameSettings.Instantiate<SettingsUi>();
-		setting.
+		setting.LoadUserSettings();
 		GetTree().Root.AddChild(setting);
 		//GlobalContext.SettingsUiInstance.Visible = true;
 		//GD.Print(GlobalContext.SettingsUiInstance.Visible);

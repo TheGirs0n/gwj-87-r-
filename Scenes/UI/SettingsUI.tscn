@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlxr2qyuyp6xj"]
+[gd_scene load_steps=5 format=3 uid="uid://dlxr2qyuyp6xj"]
 
 [ext_resource type="Script" uid="uid://gx7pb1xf7xlv" path="res://Scripts/UI/SettingsUi.cs" id="1_0o640"]
 [ext_resource type="PackedScene" uid="uid://xv0xr5v5lqt2" path="res://Scenes/UI/SettingsBarUI.tscn" id="2_qep6s"]
 [ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="3_r8up1"]
+[ext_resource type="Texture2D" uid="uid://dbkjt78w5cmvg" path="res://Sprites/SettingsIcons/черная кнопка.png" id="4_ggxkl"]
 
 [node name="SettingsUi" type="Control" node_paths=PackedStringArray("SettingsBar")]
 layout_mode = 3
@@ -38,12 +39,21 @@ size_flags_stretch_ratio = 2.0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4
-anchor_top = 0.85
-anchor_right = 0.6
-anchor_bottom = 0.95
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -148.0
+offset_right = 185.0
+offset_bottom = -41.79706
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("3_r8up1")
-text = "Exit"
+text = "UI_PAUSE_EXIT"
+icon = ExtResource("4_ggxkl")
+flat = true
+icon_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="HideSettings"]
