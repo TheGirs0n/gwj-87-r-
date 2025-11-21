@@ -39,6 +39,7 @@ public partial class GameOverScene : Control
 	public void StartNewGame()
 	{
 		var gameOverScene = ResourceLoader.Load<PackedScene>("res://Scenes/Tutorial/Tutorial.tscn").Instantiate<Tutorial>();
+		GlobalContext.TimeRebuilderInstance.ResetTimeType();
 		GetTree().Root.AddChild(gameOverScene);
 		GlobalContext.MainSceneInstance.QueueFree();
 	}

@@ -17,7 +17,6 @@ config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 [autoload]
 
 TimeRebuilder="*res://Scenes/Game/TimeRebuilder.tscn"
-SpawnMiniCores="*res://Scripts/MainGame/SpawnMiniCores.cs"
 AudioManager="*res://Scenes/Game/AudioManager.tscn"
 SettingsManager="*res://Scenes/UI/SettingsManager.tscn"
 

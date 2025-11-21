@@ -120,7 +120,7 @@ public partial class MainGame : Node
         Intensity = 0.6f,
         Strength = 0.8f,
         Bloom = 0.3f,
-        BlendMode = Environment.GlowBlendModeEnum.Screen, // Screen
+        BlendMode = Environment.GlowBlendModeEnum.Screen, 
         HdrThreshold = 0.9f,
         HdrScale = 1.2f
     };
@@ -134,9 +134,9 @@ public partial class MainGame : Node
     
     private AdjustmentSettings _lightSceneAdjustments = new AdjustmentSettings {
         Enabled = true,
-        Brightness = 1.1f,
-        Contrast = 1.1f,
-        Saturation = 0.9f
+        Brightness = 1.0f,
+        Contrast = 1.0f,
+        Saturation = 1.0f
     };
     
     public void ApplyNightSceneSettings()

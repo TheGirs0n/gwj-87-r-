@@ -35,6 +35,11 @@ public partial class TimeRebuilder : Node
     {
         TimeType = TimeType == TimeType.DAY ? TimeType.NIGHT : TimeType.DAY;
     }
+
+    public void ResetTimeType()
+    {
+        TimeType = TimeType.DAY;
+    }
 }
 
 
