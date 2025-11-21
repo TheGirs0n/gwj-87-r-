@@ -14,8 +14,14 @@ public partial class SettingsUi : Control
     {
         this.QueueFree();
 
+        if (GlobalContext.MainMenuInstance != null)
+        {
+            GlobalContext.MainMenuInstance.SetUntransperentMenu();
+        }
+        
         if (GlobalContext.MainGameInstance != null)
         {
+            GlobalContext.MainGameInstance.SetUntransperentMenu();
             GlobalContext.GlobalUIInstance.CloseSettings();
         }
     }

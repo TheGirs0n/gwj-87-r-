@@ -11,7 +11,12 @@ public partial class MainGame : Node
     
     [ExportGroup("Environment")]
     [Export] private WorldEnvironment _worldEnvironment;
-
+        
+    [ExportGroup("Particles Main")]
+    [Export] private GpuParticles2D MainCoreParticles;
+    [Export] private ParticleProcessMaterial MainCoreDayParticlesMaterial;
+    [Export] private ParticleProcessMaterial MainCoreNightParticlesMaterial;
+    
     public bool IsSwitcherOpened = false;
     
     public override void _EnterTree()
@@ -54,8 +59,25 @@ public partial class MainGame : Node
     public void StopGame()
     {
         GlobalContext.GlobalUIInstance.OpenPause();
+        SetTransperentMenu();
     }
 
+    public void SetTransperentMenu()
+    {
+        GlobalContext.MainCoreInstance.Modulate = new Color(1, 1, 1, 0.75f);
+        GlobalContext.GlobalUIInstance.BackgroundLayer.BackgroundTexture.Modulate = new Color(1, 1, 1, 0.75f);
+        GlobalContext.GlobalUIInstance.BackgroundLayer.CoreCageBack.Modulate = new Color(1, 1, 1, 0.75f);
+        GlobalContext.GlobalUIInstance.BackgroundLayer.CoreCageFront.Modulate = new Color(1, 1, 1, 0.75f);
+    }
+
+    public void SetUntransperentMenu()
+    {
+        GlobalContext.MainCoreInstance.Modulate = new Color(1, 1, 1, 1);
+        GlobalContext.GlobalUIInstance.BackgroundLayer.BackgroundTexture.Modulate = new Color(1, 1, 1, 1);
+        GlobalContext.GlobalUIInstance.BackgroundLayer.CoreCageBack.Modulate = new Color(1, 1, 1, 1);
+        GlobalContext.GlobalUIInstance.BackgroundLayer.CoreCageFront.Modulate = new Color(1, 1, 1, 1);
+    }
+    
     public void ContinueGame()
     {
         this.ProcessMode = ProcessModeEnum.Inherit;
@@ -83,13 +105,12 @@ public partial class MainGame : Node
     
     #region Environment
     
-    // Пресеты для разных типов сцен
     private GlowSettings _darkSceneGlow = new GlowSettings {
         Enabled = true,
         Intensity = 1.2f,
         Strength = 1.2f,
         Bloom = 0.4f,
-        BlendMode = Environment.GlowBlendModeEnum.Softlight, // SoftLight
+        BlendMode = Environment.GlowBlendModeEnum.Softlight, 
         HdrThreshold = 0.8f,
         HdrScale = 1.2f
     };
@@ -117,15 +138,13 @@ public partial class MainGame : Node
         Contrast = 1.1f,
         Saturation = 0.9f
     };
-
-    // Применение настроек для темной сцены
+    
     public void ApplyNightSceneSettings()
     {
         if (_worldEnvironment?.Environment == null) return;
         
         var env = _worldEnvironment.Environment;
         
-        // Применяем только основные настройки Glow
         env.GlowEnabled = _darkSceneGlow.Enabled;
         env.GlowIntensity = _darkSceneGlow.Intensity;
         env.GlowStrength = _darkSceneGlow.Strength;
@@ -134,21 +153,20 @@ public partial class MainGame : Node
         env.GlowHdrThreshold = _darkSceneGlow.HdrThreshold;
         env.GlowHdrScale = _darkSceneGlow.HdrScale;
         
-        // Применяем Adjustments настройки
         env.AdjustmentEnabled = _darkSceneAdjustments.Enabled;
         env.AdjustmentBrightness = _darkSceneAdjustments.Brightness;
         env.AdjustmentContrast = _darkSceneAdjustments.Contrast;
         env.AdjustmentSaturation = _darkSceneAdjustments.Saturation;
+        
+        MainCoreParticles.ProcessMaterial = MainCoreDayParticlesMaterial;
     }
-
-    // Применение настроек для светлой сцены
+    
     public void ApplyLightSceneSettings()
     {
         if (_worldEnvironment?.Environment == null) return;
         
         var env = _worldEnvironment.Environment;
         
-        // Применяем только основные настройки Glow
         env.GlowEnabled = _lightSceneGlow.Enabled;
         env.GlowIntensity = _lightSceneGlow.Intensity;
         env.GlowStrength = _lightSceneGlow.Strength;
@@ -157,11 +175,12 @@ public partial class MainGame : Node
         env.GlowHdrThreshold = _lightSceneGlow.HdrThreshold;
         env.GlowHdrScale = _lightSceneGlow.HdrScale;
         
-        // Применяем Adjustments настройки
         env.AdjustmentEnabled = _lightSceneAdjustments.Enabled;
         env.AdjustmentBrightness = _lightSceneAdjustments.Brightness;
         env.AdjustmentContrast = _lightSceneAdjustments.Contrast;
         env.AdjustmentSaturation = _lightSceneAdjustments.Saturation;
+        
+        MainCoreParticles.ProcessMaterial = MainCoreNightParticlesMaterial;
     }
 
     public struct GlowSettings

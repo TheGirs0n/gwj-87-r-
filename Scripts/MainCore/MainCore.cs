@@ -20,11 +20,6 @@ public partial class MainCore : Node2D
     [Export] public CompressedTexture2D ProgressBarNightUnder;
     [Export] public CompressedTexture2D ProgressBarNightProgress;
     
-    [ExportGroup("Particles Main")]
-    [Export] private GpuParticles2D MainCoreParticles;
-    [Export] private ParticleProcessMaterial MainCoreDayParticlesMaterial;
-    [Export] private ParticleProcessMaterial MainCoreNightParticlesMaterial;
-    
     [ExportGroup("Particles Battery")]
     [Export] private GpuParticles2D MainCoreBatteryParticles;
     [Export] private ParticleProcessMaterial MainCoreBatteryDayParticlesMaterial;
@@ -70,14 +65,12 @@ public partial class MainCore : Node2D
                 MainCoreSprite.Texture = MainCoreDaySprite;
                 ProgressBar.TextureUnder = ProgressBarDayUnder;
                 ProgressBar.TextureProgress = ProgressBarDayProgress;
-                MainCoreParticles.ProcessMaterial = MainCoreDayParticlesMaterial;
                 MainCoreBatteryParticles.ProcessMaterial = MainCoreBatteryDayParticlesMaterial;
                 break;
             case TimeType.NIGHT:
                 MainCoreSprite.Texture = MainCoreNightSprite;
                 ProgressBar.TextureUnder = ProgressBarNightUnder;
                 ProgressBar.TextureProgress = ProgressBarNightProgress;
-                MainCoreParticles.ProcessMaterial = MainCoreNightParticlesMaterial;
                 MainCoreBatteryParticles.ProcessMaterial = MainCoreBatteryNightParticlesMaterial;
                 break;
         }

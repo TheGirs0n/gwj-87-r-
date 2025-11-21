@@ -10,8 +10,6 @@ public partial class MainGameUI : Control
     [Export] public Theme LabelsDayTheme;
     [Export] public Theme LabelsNightTheme;
     
-    
-    
     public void UpdateScoreText(int newTimeValue)
     {
         PlayerLeftTime.Text = newTimeValue.ToString();

@@ -7,6 +7,8 @@ public class GlobalContext
 	public static SpawnMiniCores SpawnMiniCoresInstance;
 	
 	public static AudioManager AudioManagerInstance;
+	public static SettingsManager SettingsManagerInstance;
 	
 	public static GlobalUI GlobalUIInstance;
+	public static MainMenuUi MainMenuInstance;
 }

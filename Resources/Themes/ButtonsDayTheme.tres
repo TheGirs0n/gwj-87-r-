@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://df1o5vwg2qt6q"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://df1o5vwg2qt6q"]
 
 [ext_resource type="FontFile" uid="uid://cqav5eyyyfmf5" path="res://Fonts/Cornerita-VF.ttf" id="1_lfp8t"]
 [ext_resource type="Texture2D" uid="uid://dbkjt78w5cmvg" path="res://Sprites/SettingsIcons/черная кнопка.png" id="2_lfp8t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lfp8t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvsyf"]
 bg_color = Color(0.23753929, 0.23753908, 0.23753908, 1)
@@ -41,5 +43,6 @@ Button/constants/outline_size = 3
 Button/font_sizes/font_size = 26
 Button/fonts/font = ExtResource("1_lfp8t")
 Button/icons/icon = ExtResource("2_lfp8t")
+Button/styles/focus = SubResource("StyleBoxEmpty_lfp8t")
 Button/styles/hover = SubResource("StyleBoxFlat_cvsyf")
 Button/styles/normal = SubResource("StyleBoxFlat_7jkbr")

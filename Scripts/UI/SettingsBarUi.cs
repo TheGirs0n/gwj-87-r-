@@ -3,124 +3,138 @@ using Godot;
 
 public partial class SettingsBarUi : Control
 {
-	[ExportGroup("Sound Sliders")]
-	[Export] private HSlider _masterSlider;
-	[Export] private HSlider _sfxSlider;
-	[Export] private HSlider _musicSlider;
-	
-	[ExportGroup("Text Numbers")] 
-	[Export] private RichTextLabel _masterVolumeText;
-	[Export] private RichTextLabel _sfxVolumeText;
-	[Export] private RichTextLabel _musicVolumeText;
-	
-	[ExportGroup("Options Button")]
-	[Export] private OptionButton _windowButton;
-	[Export] private OptionButton _resolutionButton;
-	
-	[ExportGroup("Language")]
-	[Export] private CheckButton _languageButton;
+    [ExportGroup("Sound Sliders")]
+    [Export] private HSlider _masterSlider;
+    [Export] private HSlider _sfxSlider;
+    [Export] private HSlider _musicSlider;
+    
+    [ExportGroup("Text Numbers")] 
+    [Export] private RichTextLabel _masterVolumeText;
+    [Export] private RichTextLabel _sfxVolumeText;
+    [Export] private RichTextLabel _musicVolumeText;
+    
+    [ExportGroup("Options Button")]
+    [Export] private OptionButton _windowButton;
+    [Export] private OptionButton _resolutionButton;
+    
+    [ExportGroup("Language")]
+    [Export] private CheckButton _languageButton;
+    
+    [ExportGroup("Control Buttons")]
+    [Export] private Button _applyButton;
+    [Export] private Button _restoreDefaultsButton;
 
-	public void RestoreDefaults()
-	{
-		
-	}
-	
-	public void LoadAllUserSettings()
-	{
-		LoadAudioSettings();
-		LoadDisplaySettings();
-		LoadLanguage();
-	}
-	
-	#region Audio
+    public override void _Ready()
+    {
+        LoadAllUserSettings();
+    }
+    
+    private void ApplyAndSaveSettings()
+    {
+        GlobalContext.SettingsManagerInstance.SaveSettings(
+            (float)_masterSlider.Value,
+            (float)_sfxSlider.Value,
+            (float)_musicSlider.Value,
+            _windowButton.Selected,
+            _resolutionButton.Selected,
+            _languageButton.ButtonPressed ? "en" : "ru"
+        );
+        
+        GD.Print("Settings applied and saved");
+    }
+    
+    public void RestoreDefaults()
+    {
+        GD.Print("Restoring default settings...");
+        
+        float defaultMasterVolume = 1.0f;
+        float defaultSfxVolume = 1.0f;
+        float defaultMusicVolume = 1.0f;
+        int defaultWindowMode = 0;
+        int defaultResolution = 0;
+        string defaultLanguage = "en";
+        
+        _masterSlider.Value = defaultMasterVolume;
+        _sfxSlider.Value = defaultSfxVolume;
+        _musicSlider.Value = defaultMusicVolume;
+        _windowButton.Select(defaultWindowMode);
+        _resolutionButton.Select(defaultResolution);
+        _languageButton.ButtonPressed = (defaultLanguage == "en");
+        
+        UpdateVolumeTexts();
+        
+        ApplyAndSaveSettings();
+        
+        GD.Print("Default settings restored and saved");
+    }
+    
+    public void LoadAllUserSettings()
+    {
+        LoadAudioSettings();
+        LoadDisplaySettings();
+        LoadLanguage();
+        UpdateVolumeTexts();
+    }
+    
+    #region Audio
 
-	private void LoadAudioSettings()
-	{
-		
-	}
-	
-	private void UpdateMasterVolume(float volume)
-	{
-		AudioServer.SetBusVolumeLinear(0, volume);
-		_masterVolumeText.Text = $"{Math.Round(volume, 1)}%";
-	}
+    private void LoadAudioSettings()
+    {
+        float masterVolume = GlobalContext.SettingsManagerInstance.GetMasterVolume();
+        float sfxVolume = GlobalContext.SettingsManagerInstance.GetSfxVolume();
+        float musicVolume = GlobalContext.SettingsManagerInstance.GetMusicVolume();
 
-	private void UpdateSoundEffectVolume(float volume)
-	{
-		AudioServer.SetBusVolumeLinear(1, volume);
-		_sfxVolumeText.Text = $"{Math.Round(volume, 1)}%";
-	}
-	
-	private void UpdateMusicVolume(float volume)
-	{
-		AudioServer.SetBusVolumeLinear(2, volume);
-		_musicVolumeText.Text = $"{Math.Round(volume, 1)}%";
-	}
-	
-	#endregion
+        _masterSlider.Value = masterVolume;
+        _sfxSlider.Value = sfxVolume;
+        _musicSlider.Value = musicVolume;
+    }
 
-	#region Display
+    private void UpdateVolumeTexts()
+    {
+        _masterVolumeText.Text = $"{Math.Round(_masterSlider.Value)}%";
+        _sfxVolumeText.Text = $"{Math.Round(_sfxSlider.Value)}%";
+        _musicVolumeText.Text = $"{Math.Round(_musicSlider.Value)}%";
+    }
+    
+    private void OnVolumeTextUpdate(double volume)
+    {
+        UpdateVolumeTexts();
+    }
+    
+    #endregion
 
-	private void LoadDisplaySettings()
-	{
-		
-	}
-	
-	private void SetWindowMode(int index)
-	{
-		switch (index)
-		{
-			case 0:
-				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
-				DisplayServer.WindowSetFlag(DisplayServer.WindowFlags.Borderless, false);
-				break;
-			case 1:
-				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
-				DisplayServer.WindowSetFlag(DisplayServer.WindowFlags.Borderless, false);
-				break;
-			case 2:
-				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
-				DisplayServer.WindowSetFlag(DisplayServer.WindowFlags.Borderless, true);
-				break;
-			case 3:
-				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
-				DisplayServer.WindowSetFlag(DisplayServer.WindowFlags.Borderless, true);
-				break;
-		}
-	}
+    #region Display
 
-	private static Vector2I[] _windowSizes =
-	[
-		new Vector2I(1280, 720),
-		new Vector2I(1600, 900),
-		new Vector2I(1920, 1080)
-	];
+    private void LoadDisplaySettings()
+    {
+        int windowMode = GlobalContext.SettingsManagerInstance.GetWindowMode();
+        int resolution = GlobalContext.SettingsManagerInstance.GetResolution();
 
-	private void SetResolutionMode(int index)
-	{
-		DisplayServer.WindowSetSize(_windowSizes[index]);
-	}
+        _windowButton.Select(windowMode);
+        _resolutionButton.Select(resolution);
+    }
 
-	#endregion
+    #endregion
 
-	#region Language
+    #region Language
 
-	private void LoadLanguage()
-	{
-		
-	}
-	
-	private void UpdateLanguage(bool toggledOn)
-	{
-		if (toggledOn == true)
-		{
-			TranslationServer.SetLocale("en");
-		}
-		else
-		{
-			TranslationServer.SetLocale("ru");
-		}
-	}
+    private void LoadLanguage()
+    {
+        string language = GlobalContext.SettingsManagerInstance.GetLanguage();
+        _languageButton.ButtonPressed = (language == "en");
+    }
 
-	#endregion
+    #endregion
+    
+    private void SaveAllSettings()
+    {
+        GlobalContext.SettingsManagerInstance.SaveSettings(
+            (float)_masterSlider.Value,
+            (float)_sfxSlider.Value,
+            (float)_musicSlider.Value,
+            _windowButton.Selected,
+            _resolutionButton.Selected,
+            _languageButton.ButtonPressed ? "en" : "ru"
+        );
+    }
 }

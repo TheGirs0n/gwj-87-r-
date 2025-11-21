@@ -71,6 +71,7 @@ local_coords = true
 process_material = ExtResource("10_75xtg")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 amount = 200
 texture = ExtResource("12_6fhku")
 lifetime = 2.0
