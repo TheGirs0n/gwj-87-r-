@@ -6,17 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://bhu845i7q64xf" path="res://Sprites/MainCore/шкала черн.png" id="4_75xtg"]
 [ext_resource type="Texture2D" uid="uid://bxhst6wlt6hcg" path="res://Sprites/MainCore/MAIN_CORE_CHARGE_FILL_DAY.png" id="5_75xtg"]
 [ext_resource type="Texture2D" uid="uid://c1o3bm8legbe2" path="res://Sprites/MainCore/шкала белая.png" id="6_jsnqc"]
-[ext_resource type="Material" uid="uid://d3k7dfxrr4v2e" path="res://Resources/Particles/MainCoreNightParticles.tres" id="7_xbel3"]
 [ext_resource type="Texture2D" uid="uid://cc5j1dklxefx2" path="res://Sprites/MainCore/MAIN_CORE_CHARGE_FILL_NIGHT.png" id="9_75xtg"]
 [ext_resource type="Material" uid="uid://btn0p31t056s2" path="res://Resources/Particles/MainCoreDayParticles.tres" id="9_ox375"]
 [ext_resource type="Material" uid="uid://b4r2cwxm2aws0" path="res://Resources/Particles/MainCoreBatteryDayParticles.tres" id="10_75xtg"]
+[ext_resource type="Texture2D" uid="uid://cd3mnumh8ndmx" path="res://Sprites/MainCore/подложка шкалы белая.png" id="10_tuxjx"]
 [ext_resource type="Material" uid="uid://c0267etr2cbgj" path="res://Resources/Particles/MainCoreBatteryNightParticles.tres" id="11_jsnqc"]
 [ext_resource type="Texture2D" uid="uid://bb0qwdy3fqq7h" path="res://Sprites/MainCore/DAY_PARTICLES.png" id="12_6fhku"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8cjy"]
 radius = 16.0
 
-[node name="MainCore" type="Area2D" node_paths=PackedStringArray("MainCoreSprite", "ProgressBar", "MainCoreParticles", "MainCoreBatteryParticles")]
+[node name="MainCore" type="Area2D" node_paths=PackedStringArray("MainCoreSprite", "ProgressBar", "MainCoreBatteryParticles")]
 scale = Vector2(9.5, 9.5)
 collision_layer = 2
 input_pickable = false
@@ -29,9 +29,6 @@ ProgressBarDayUnder = ExtResource("4_75xtg")
 ProgressBarDayProgress = ExtResource("9_75xtg")
 ProgressBarNightUnder = ExtResource("6_jsnqc")
 ProgressBarNightProgress = ExtResource("5_75xtg")
-MainCoreParticles = NodePath("GPUParticles2D")
-MainCoreDayParticlesMaterial = ExtResource("9_ox375")
-MainCoreNightParticlesMaterial = ExtResource("7_xbel3")
 MainCoreBatteryParticles = NodePath("ProgressBar/GPUParticles2D")
 MainCoreBatteryDayParticlesMaterial = ExtResource("10_75xtg")
 MainCoreBatteryNightParticlesMaterial = ExtResource("11_jsnqc")
@@ -50,12 +47,17 @@ limit_bottom = 250
 shape = SubResource("CircleShape2D_n8cjy")
 
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
-offset_right = 2560.0
-offset_bottom = 1440.0
+offset_left = 37.26316
+offset_top = -49.26316
+offset_right = 2597.2632
+offset_bottom = 1390.7368
+rotation = 1.5707964
+scale = Vector2(0.05, 0.05)
+value = 32.0
 fill_mode = 3
 texture_under = ExtResource("4_75xtg")
-texture_progress = ExtResource("9_75xtg")
-texture_progress_offset = Vector2(71, 0)
+texture_progress = ExtResource("10_tuxjx")
+texture_progress_offset = Vector2(1273, 27)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ProgressBar"]
 position = Vector2(1530.2632, 263.15784)
