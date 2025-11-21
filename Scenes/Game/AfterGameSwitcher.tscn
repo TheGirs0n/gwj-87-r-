@@ -44,30 +44,39 @@ texture = ExtResource("2_ixetq")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3
-anchor_top = 0.3
-anchor_right = 0.7
-anchor_bottom = 0.7
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -133.0
+offset_right = 160.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
+size_flags_stretch_ratio = 1.5
 alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
-text = "SPEED MULTIPLAYER"
+theme_override_font_sizes/normal_font_size = 26
+text = " "
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 26
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -84,20 +93,24 @@ icon_alignment = 1
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
+size_flags_stretch_ratio = 1.5
 alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 26
 text = "UI_SWITCHER_TIME_TEXT"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 26
 text = "0/0"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 

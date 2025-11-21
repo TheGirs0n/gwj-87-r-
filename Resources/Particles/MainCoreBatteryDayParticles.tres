@@ -9,8 +9,9 @@ curve = SubResource("Curve_tuxjx")
 
 [resource]
 particle_flag_disable_z = true
+emission_shape_scale = Vector3(100, 20, 1)
 emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
+emission_box_extents = Vector3(2.3, 3, 1)
 angle_min = -179.99998
 angle_max = 180.00002
 spread = 180.0
@@ -19,7 +20,7 @@ orbit_velocity_max = 0.050000098
 gravity = Vector3(0, 200, 0)
 tangential_accel_min = -5.000002
 tangential_accel_max = 4.9999976
-scale_min = 0.049999997
-scale_max = 0.08
+scale_min = 0.19999999
+scale_max = 0.29999998
 color = Color(0, 0, 0, 1)
 alpha_curve = SubResource("CurveTexture_75xtg")

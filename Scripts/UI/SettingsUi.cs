@@ -18,7 +18,6 @@ public partial class SettingsUi : Control
         }
         else if (GlobalContext.MainGameInstance != null)
         {
-            GlobalContext.MainGameInstance.SetUntransperentMenu();
             GlobalContext.GlobalUIInstance.CloseSettings();
         }
         

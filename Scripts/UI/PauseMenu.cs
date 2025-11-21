@@ -6,7 +6,6 @@ public partial class PauseMenu : Control
 	
 	public void ContinueGame()
 	{
-		GlobalContext.MainGameInstance.SetUntransperentMenu();
 		GlobalContext.MainGameInstance.ContinueGame();	
 		this.Visible = false;
 	}

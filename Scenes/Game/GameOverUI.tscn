@@ -1,14 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1w67xae0uwo8"]
+[gd_scene load_steps=11 format=3 uid="uid://d1w67xae0uwo8"]
 
 [ext_resource type="Script" uid="uid://drjda8uo6gq83" path="res://Scripts/UI/GameOverScene.cs" id="1_t0hjf"]
 [ext_resource type="Theme" uid="uid://c5sr6vimyjyi4" path="res://Resources/Themes/TextDayTheme.tres" id="2_po2jt"]
 [ext_resource type="Theme" uid="uid://bq8marwmvebko" path="res://Resources/Themes/TextNightTheme.tres" id="3_k746o"]
-[ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="4_ta5ry"]
-[ext_resource type="Texture2D" uid="uid://cp7gvfw15ong7" path="res://Sprites/Background/BACKGROUND_NIGHT.png" id="5_r3qpu"]
+[ext_resource type="Texture2D" uid="uid://drsvpglwox6nv" path="res://Sprites/MainCore/задник бел.png" id="4_po2jt"]
+[ext_resource type="Texture2D" uid="uid://dufqdxgurlkk8" path="res://Sprites/Background/задник черн.png" id="5_k746o"]
 [ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="6_jee4a"]
 [ext_resource type="Theme" uid="uid://d02rnrhk8v402" path="res://Resources/Themes/ButtonsNightTheme.tres" id="7_ajlo6"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lxswn"]
 
 [sub_resource type="Animation" id="Animation_k746o"]
 length = 0.001
@@ -74,8 +72,8 @@ _positiveScoreValue = NodePath("MarginContainer/HBoxContainer/VBoxContainer3/Pos
 _negativeScore = NodePath("MarginContainer/HBoxContainer/VBoxContainer3/NegativeScore")
 _negativeScoreValue = NodePath("MarginContainer/HBoxContainer/VBoxContainer3/NegativeScoreValue")
 _textureRect = NodePath("TextureRect")
-_textureDayRect = ExtResource("4_ta5ry")
-_textureNightRect = ExtResource("5_r3qpu")
+_textureDayRect = ExtResource("5_k746o")
+_textureNightRect = ExtResource("4_po2jt")
 _buttonRestartGame = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Restart")
 _buttonMainMenu = NodePath("MarginContainer/HBoxContainer/VBoxContainer/MainMenu")
 _buttonRestartDayTheme = ExtResource("6_jee4a")
@@ -83,14 +81,14 @@ _buttonRestartNightTheme = ExtResource("7_ajlo6")
 _animatePlayer = NodePath("AnimationPlayer")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color(0, 0, 0, 0.49803922)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_lxswn")
+texture = ExtResource("4_po2jt")
+expand_mode = 3
 
 [node name="GameStats" type="RichTextLabel" parent="."]
 layout_mode = 1

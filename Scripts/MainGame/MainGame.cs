@@ -69,23 +69,6 @@ public partial class MainGame : Node
     public void StopGame()
     {
         GlobalContext.GlobalUIInstance.OpenPause();
-        SetTransperentMenu();
-    }
-
-    public void SetTransperentMenu()
-    {
-        GlobalContext.MainCoreInstance.Modulate = new Color(1, 1, 1, 0.75f);
-        GlobalContext.GlobalUIInstance.BackgroundLayer.BackgroundTexture.Modulate = new Color(1, 1, 1, 0.75f);
-        GlobalContext.GlobalUIInstance.BackgroundLayer.CoreCageBack.Modulate = new Color(1, 1, 1, 0.75f);
-        GlobalContext.GlobalUIInstance.BackgroundLayer.CoreCageFront.Modulate = new Color(1, 1, 1, 0.75f);
-    }
-
-    public void SetUntransperentMenu()
-    {
-        GlobalContext.MainCoreInstance.Modulate = new Color(1, 1, 1, 1);
-        GlobalContext.GlobalUIInstance.BackgroundLayer.BackgroundTexture.Modulate = new Color(1, 1, 1, 1);
-        GlobalContext.GlobalUIInstance.BackgroundLayer.CoreCageBack.Modulate = new Color(1, 1, 1, 1);
-        GlobalContext.GlobalUIInstance.BackgroundLayer.CoreCageFront.Modulate = new Color(1, 1, 1, 1);
     }
     
     public void ContinueGame()

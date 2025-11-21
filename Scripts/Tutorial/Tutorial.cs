@@ -53,6 +53,7 @@ public partial class Tutorial : Node
 				SetupTextDescription(false);
 				
 				SetupTextureMain(_texture1Night, _texture2Night, _texture3Night);
+				_background.FlipH = true;
 				break;
 			case 2:
 				var scene = _mainScene.Instantiate<MainScene>();
