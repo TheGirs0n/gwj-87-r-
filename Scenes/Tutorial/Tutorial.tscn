@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy1e23s0djp7t"]
+[gd_scene load_steps=15 format=3 uid="uid://cy1e23s0djp7t"]
 
 [ext_resource type="Script" uid="uid://d34cjkhlb4w62" path="res://Scripts/Tutorial/Tutorial.cs" id="1_auiun"]
 [ext_resource type="Texture2D" uid="uid://cp7gvfw15ong7" path="res://Sprites/Background/BACKGROUND_NIGHT.png" id="1_thyfh"]
@@ -8,6 +8,12 @@
 [ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="3_w7w38"]
 [ext_resource type="Theme" uid="uid://c5sr6vimyjyi4" path="res://Resources/Themes/TextDayTheme.tres" id="6_1oc1e"]
 [ext_resource type="Theme" uid="uid://bq8marwmvebko" path="res://Resources/Themes/TextNightTheme.tres" id="7_tq6py"]
+[ext_resource type="Texture2D" uid="uid://16vwosmux4go" path="res://Sprites/MainCore/NIGHT_PARTICLES.png" id="9_vxw4a"]
+[ext_resource type="Texture2D" uid="uid://c47ecxkxvnn13" path="res://Sprites/MiniCore/черный плюс.png" id="10_7y28h"]
+[ext_resource type="Texture2D" uid="uid://b7ku78rm4w1j2" path="res://Sprites/MiniCore/черный минус.png" id="11_2kgik"]
+[ext_resource type="Texture2D" uid="uid://bb0qwdy3fqq7h" path="res://Sprites/MainCore/DAY_PARTICLES.png" id="12_44la1"]
+[ext_resource type="Texture2D" uid="uid://d310ktbys0bto" path="res://Sprites/MiniCore/белый плюс.png" id="13_1e0ns"]
+[ext_resource type="Texture2D" uid="uid://313qfohfy21u" path="res://Sprites/MiniCore/белый минус.png" id="14_48nna"]
 
 [node name="Tutorial" type="Control" node_paths=PackedStringArray("_button", "_background", "_main", "_textFirst", "_textSecond", "_textThird", "_texture1", "_texture2", "_texture3")]
 layout_mode = 3
@@ -35,6 +41,12 @@ _textNightTheme = ExtResource("7_tq6py")
 _texture1 = NodePath("Background/TextureRect/HBoxContainer/TextureRect")
 _texture2 = NodePath("Background/TextureRect/HBoxContainer/TextureRect2")
 _texture3 = NodePath("Background/TextureRect/HBoxContainer/TextureRect3")
+_texture1Day = ExtResource("9_vxw4a")
+_texture2Day = ExtResource("10_7y28h")
+_texture3Day = ExtResource("11_2kgik")
+_texture1Night = ExtResource("12_44la1")
+_texture2Night = ExtResource("13_1e0ns")
+_texture3Night = ExtResource("14_48nna")
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.78431374)
@@ -87,16 +99,21 @@ alignment = 1
 [node name="TextureRect" type="TextureRect" parent="Background/TextureRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+texture = ExtResource("9_vxw4a")
 stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="Background/TextureRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+texture = ExtResource("10_7y28h")
+expand_mode = 3
 stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="Background/TextureRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+texture = ExtResource("11_2kgik")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/TextureRect"]
