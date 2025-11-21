@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://df1o5vwg2qt6q"]
 
-[ext_resource type="SystemFont" uid="uid://dnd42e8liess7" path="res://Resources/Fonts/ButtonFont.tres" id="1_wht8u"]
+[ext_resource type="FontFile" uid="uid://cqav5eyyyfmf5" path="res://Fonts/Cornerita-VF.ttf" id="1_lfp8t"]
 [ext_resource type="Texture2D" uid="uid://dbkjt78w5cmvg" path="res://Sprites/SettingsIcons/черная кнопка.png" id="2_lfp8t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvsyf"]
@@ -32,7 +32,6 @@ corner_radius_bottom_left = 15
 anti_aliasing_size = 10.0
 
 [resource]
-default_base_scale = 0.67
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
@@ -40,7 +39,7 @@ Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/constants/icon_max_width = 300
 Button/constants/outline_size = 3
 Button/font_sizes/font_size = 26
-Button/fonts/font = ExtResource("1_wht8u")
+Button/fonts/font = ExtResource("1_lfp8t")
 Button/icons/icon = ExtResource("2_lfp8t")
 Button/styles/hover = SubResource("StyleBoxFlat_cvsyf")
 Button/styles/normal = SubResource("StyleBoxFlat_7jkbr")

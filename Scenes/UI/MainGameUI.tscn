@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://wfticmp1n3cj"]
 
 [ext_resource type="Script" uid="uid://c1njvm1i5vqr0" path="res://Scripts/UI/MainGameUI.cs" id="1_mqxno"]
-[ext_resource type="Theme" uid="uid://c22xi6n2330wy" path="res://Resources/Themes/MainCoreDayScoreText.tres" id="2_54g0v"]
-[ext_resource type="Theme" uid="uid://cvl53kyqwheed" path="res://Resources/Themes/MainCoreNightScoreText.tres" id="3_qie6y"]
+[ext_resource type="Theme" uid="uid://c5sr6vimyjyi4" path="res://Resources/Themes/TextDayTheme.tres" id="2_54g0v"]
+[ext_resource type="Theme" uid="uid://bq8marwmvebko" path="res://Resources/Themes/TextNightTheme.tres" id="3_qie6y"]
 
 [node name="MainGameUi" type="Control" node_paths=PackedStringArray("PlayerLeftTime", "PlayerLabelTime")]
 layout_mode = 3

@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://d02rnrhk8v402"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://d02rnrhk8v402"]
 
 [ext_resource type="Texture2D" uid="uid://cti8bybf015w7" path="res://Sprites/SettingsIcons/кнопка белая.png" id="1_bxbes"]
+[ext_resource type="FontFile" uid="uid://cqav5eyyyfmf5" path="res://Fonts/Cornerita-VF.ttf" id="1_wsum8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvsyf"]
 bg_color = Color(0.45452422, 0.45452428, 0.45452422, 1)
@@ -38,6 +39,7 @@ Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/constants/icon_max_width = 300
 Button/constants/outline_size = 3
 Button/font_sizes/font_size = 23
+Button/fonts/font = ExtResource("1_wsum8")
 Button/icons/icon = ExtResource("1_bxbes")
 Button/styles/hover = SubResource("StyleBoxFlat_cvsyf")
 Button/styles/normal = SubResource("StyleBoxFlat_7jkbr")
