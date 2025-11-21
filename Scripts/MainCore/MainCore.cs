@@ -35,9 +35,15 @@ public partial class MainCore : Node2D
         ProgressBar.MaxValue = MaxScore;
     }
 
+    public override void _ExitTree()
+    {
+        GlobalContext.MainCoreInstance = null;
+    }
+
     public void UpdateScore(float score)
     {
         CurrentScore += score;
+        
         if (CurrentScore <= MinScore)
         {
             CurrentScore = MinScore;
@@ -48,15 +54,12 @@ public partial class MainCore : Node2D
             CurrentScore = MaxScore;
             GlobalContext.MainGameInstance.GameOver(GameOverType.MAX_CHARGE);
         }
-        
-        UpdateScoreText();
+        else
+        {
+            UpdateScoreText();
+        }
     }
 
-    public void ResetBatteryCharge()
-    {
-        CurrentScore = InitialScore;
-    }
-    
     public void RebuildForCurrentTimeType(TimeType timeType)
     {
         switch (timeType)

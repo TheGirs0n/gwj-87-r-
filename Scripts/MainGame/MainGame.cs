@@ -28,6 +28,11 @@ public partial class MainGame : Node
     {
         GlobalContext.MainGameInstance = this;
     }
+    
+    public override void _ExitTree()
+    {
+        GlobalContext.MainGameInstance = null;
+    }
 
     public void ResetGame()
     {

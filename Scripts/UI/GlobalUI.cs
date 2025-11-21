@@ -14,6 +14,11 @@ public partial class GlobalUI : Node
     {
         GlobalContext.GlobalUIInstance = this;
     }
+    
+    public override void _ExitTree()
+    {
+        GlobalContext.GlobalUIInstance = null;
+    }
 
     public void MainSceneUIOpen()
     {

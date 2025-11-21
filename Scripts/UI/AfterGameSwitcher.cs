@@ -26,6 +26,11 @@ public partial class AfterGameSwitcher : Control
 	{
 		GlobalContext.GlobalUIInstance.AfterGameSwitcher = this;
 	}
+	
+	public override void _ExitTree()
+	{
+		GlobalContext.GlobalUIInstance.AfterGameSwitcher = null;
+	}
 
 	public void SwitchDayTime()
 	{

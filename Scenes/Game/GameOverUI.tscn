@@ -46,7 +46,7 @@ _data = {
 &"showWindow": SubResource("Animation_po2jt")
 }
 
-[node name="GameOverUi" type="Control" node_paths=PackedStringArray("_richTextLabel", "_lostCauseText", "_lostCause", "_dayNightCountText", "_dayNightCount", "_speedMultiplayer", "_speedMultiplayerValue", "_spawnTime", "_spawnTimeValue", "_positiveScore", "_positiveScoreValue", "_negativeScore", "_negativeScoreValue", "_textureRect", "_buttonRestartGame", "_buttonMainMenu", "_animatePlayer")]
+[node name="GameOverUi" type="Control" node_paths=PackedStringArray("_richTextLabel", "_lostCauseText", "_lostCause", "_gameStatsText", "_dayNightCountText", "_dayNightCount", "_speedMultiplayer", "_speedMultiplayerValue", "_spawnTime", "_spawnTimeValue", "_positiveScore", "_positiveScoreValue", "_negativeScore", "_negativeScoreValue", "_textureRect", "_buttonRestartGame", "_buttonMainMenu", "_animatePlayer")]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
@@ -60,8 +60,9 @@ script = ExtResource("1_t0hjf")
 _richTextLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/LostCause")
 _lostCauseText = NodePath("MarginContainer/HBoxContainer/VBoxContainer/LostCauseText")
 _lostCause = NodePath("MarginContainer/HBoxContainer/VBoxContainer/LostCause")
-_textDayLabel = ExtResource("2_po2jt")
-_textNightLabel = ExtResource("3_k746o")
+_gameStatsText = NodePath("GameStats")
+_textDayLabel = ExtResource("3_k746o")
+_textNightLabel = ExtResource("2_po2jt")
 _dayNightCountText = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/DayNightText")
 _dayNightCount = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/DayNightCount")
 _speedMultiplayer = NodePath("MarginContainer/HBoxContainer/VBoxContainer3/SpeedMultiplayer")
@@ -99,6 +100,7 @@ offset_top = 50.0
 offset_bottom = 81.0
 grow_horizontal = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "UI_GAME_OVER_STATISTIC_TEXT"
 fit_content = true
 horizontal_alignment = 1
@@ -128,6 +130,7 @@ alignment = 1
 [node name="DayNightText" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "UI_GAME_OVER_TIME_COUNT_TEXT"
 fit_content = true
 horizontal_alignment = 1
@@ -136,6 +139,7 @@ vertical_alignment = 1
 [node name="DayNightCount" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "0/0"
 fit_content = true
 horizontal_alignment = 1
@@ -151,6 +155,7 @@ alignment = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "UI_GAME_OVER_DEATH_CAUSE_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -159,6 +164,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "UI_GAME_OVER_DEATH_CAUSE_1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -188,6 +194,7 @@ alignment = 1
 [node name="SpeedMultiplayer" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "UI_GAME_OVER_SPEED_MULTIPLAYER_TEXT"
 fit_content = true
 horizontal_alignment = 1
@@ -196,6 +203,7 @@ vertical_alignment = 1
 [node name="SpeedMultiplayerValue" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "0"
 fit_content = true
 horizontal_alignment = 1
@@ -204,6 +212,7 @@ vertical_alignment = 1
 [node name="SpawnTime" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "UI_GAME_OVER_SPAWN_TIME_TEXT"
 fit_content = true
 horizontal_alignment = 1
@@ -212,6 +221,7 @@ vertical_alignment = 1
 [node name="SpawnTimeValue" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "0"
 fit_content = true
 horizontal_alignment = 1
@@ -220,6 +230,7 @@ vertical_alignment = 1
 [node name="PositiveScore" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "UI_GAME_OVER_MINUS_POSITIVE_TEXT"
 fit_content = true
 horizontal_alignment = 1
@@ -228,6 +239,7 @@ vertical_alignment = 1
 [node name="PositiveScoreValue" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "0"
 fit_content = true
 horizontal_alignment = 1
@@ -236,6 +248,7 @@ vertical_alignment = 1
 [node name="NegativeScore" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "UI_GAME_OVER_PLUS_NEGATIVE_TEXT"
 fit_content = true
 horizontal_alignment = 1
@@ -244,6 +257,7 @@ vertical_alignment = 1
 [node name="NegativeScoreValue" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_k746o")
+theme_override_font_sizes/normal_font_size = 32
 text = "0"
 fit_content = true
 horizontal_alignment = 1

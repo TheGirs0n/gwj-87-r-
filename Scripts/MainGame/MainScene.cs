@@ -7,4 +7,9 @@ public partial class MainScene : Node
 		GlobalContext.MainSceneInstance = this;
 		GlobalContext.TimeRebuilderInstance.RebuildForCurrentTimeType(TimeType.DAY);
 	}
+
+	public override void _ExitTree()
+	{
+		GlobalContext.MainSceneInstance = null;
+	}
 }

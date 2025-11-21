@@ -19,13 +19,11 @@ public partial class SettingsManager : Node
         
 		if (error != Error.Ok)
 		{
-			GD.Print("No settings file found, using defaults");
 			ApplyDefaultSettings();
 			return;
 		}
 
 		ApplySettingsFromConfig();
-		GD.Print("Settings loaded successfully at startup");
 	}
 	
 	private void ApplySettingsFromConfig()

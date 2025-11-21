@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://daqssjebuyvaw" path="res://Scripts/UI/MainMenuUi.cs" id="1_35rqa"]
 [ext_resource type="PackedScene" uid="uid://sbi8k0du20la" path="res://Scenes/UI/GameStoryUI.tscn" id="2_18ijf"]
 [ext_resource type="PackedScene" uid="uid://dlxr2qyuyp6xj" path="res://Scenes/UI/SettingsUI.tscn" id="3_0ydmw"]
-[ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="3_8koeu"]
-[ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="5_0ydmw"]
+[ext_resource type="Texture2D" uid="uid://dojef4cetnqiu" path="res://Sprites/Background/главное меню.png" id="4_0ydmw"]
+[ext_resource type="Theme" uid="uid://d02rnrhk8v402" path="res://Resources/Themes/ButtonsNightTheme.tres" id="4_8koeu"]
 
 [node name="MainMenuUI" type="Control"]
 layout_mode = 3
@@ -27,7 +27,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 mouse_behavior_recursive = 1
-texture = ExtResource("3_8koeu")
+texture = ExtResource("4_0ydmw")
+expand_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -39,19 +40,23 @@ anchor_bottom = 0.3
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.8
-anchor_right = 1.0
-anchor_bottom = 0.9
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -184.0
+offset_right = 370.0
+offset_bottom = 184.0
+grow_vertical = 2
 theme_override_constants/separation = 25
 alignment = 1
 
 [node name="StartGame" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_0ydmw")
+theme = ExtResource("4_8koeu")
 action_mode = 0
 text = "START_GAME"
 flat = true
@@ -60,7 +65,7 @@ icon_alignment = 1
 [node name="Settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_0ydmw")
+theme = ExtResource("4_8koeu")
 action_mode = 0
 text = "SETTINGS"
 flat = true
@@ -69,7 +74,7 @@ icon_alignment = 1
 [node name="ExitGame" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_0ydmw")
+theme = ExtResource("4_8koeu")
 action_mode = 0
 text = "EXIT"
 flat = true

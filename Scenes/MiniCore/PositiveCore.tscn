@@ -13,18 +13,19 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_13i7q"]
 radius = 18.0
 
-[node name="PositiveCore" type="CharacterBody2D" node_paths=PackedStringArray("CoreSprite", "CoreParticles")]
+[node name="PositiveCore" type="CharacterBody2D" node_paths=PackedStringArray("CoreSprite", "CoreParticles", "CoreAudio")]
 collision_mask = 2
 script = ExtResource("1_75438")
 CoreSpeed = 150.0
-PositiveScore = 10
-NegativeScore = -10
+PositiveScore = 10.0
+NegativeScore = -10.0
 CoreSprite = NodePath("CoreSprite")
 CoreDaySprite = ExtResource("6_x1t6p")
 CoreNightSprite = ExtResource("3_fswgx")
 CoreParticles = NodePath("GPUParticles2D")
 CoreParticleDayProcessMaterial = ExtResource("4_13i7q")
 CoreParticleNightProcessMaterial = ExtResource("5_fswgx")
+CoreAudio = NodePath("AudioStreamPlayer2D")
 
 [node name="CoreSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.06, 0.06)
@@ -50,6 +51,8 @@ bus = &"SFX"
 
 [node name="EntryCore" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="Area2D" to="." method="EnterCore"]
 [connection signal="input_event" from="Area2D" to="." method="MouseInputEvent"]

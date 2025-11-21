@@ -10,6 +10,11 @@ public partial class MainMenuUi : Control
 		GlobalContext.MainMenuInstance = this;
 	}
 
+	public override void _ExitTree()
+	{
+		GlobalContext.MainMenuInstance = null;
+	}
+	
 	public void StartGame()
 	{
 		var scene = _gameStory.Instantiate();

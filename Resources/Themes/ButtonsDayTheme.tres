@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://df1o5vwg2qt6q"]
 
 [ext_resource type="FontFile" uid="uid://cqav5eyyyfmf5" path="res://Fonts/Cornerita-VF.ttf" id="1_lfp8t"]
-[ext_resource type="Texture2D" uid="uid://dbkjt78w5cmvg" path="res://Sprites/SettingsIcons/черная кнопка.png" id="2_lfp8t"]
+[ext_resource type="Texture2D" uid="uid://cti8bybf015w7" path="res://Sprites/SettingsIcons/кнопка белая.png" id="2_lfp8t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lfp8t"]
 
@@ -37,7 +37,11 @@ anti_aliasing_size = 10.0
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(0.35686275, 0.35686275, 0.35686275, 1)
 Button/constants/icon_max_width = 300
 Button/constants/outline_size = 3
 Button/font_sizes/font_size = 26
