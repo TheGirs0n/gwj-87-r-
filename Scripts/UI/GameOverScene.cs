@@ -4,6 +4,8 @@ public partial class GameOverScene : Control
 {
 	[ExportGroup("Text")] 
 	[Export] private RichTextLabel _richTextLabel;
+	[Export] private RichTextLabel _lostCauseText;
+	[Export] private RichTextLabel _lostCause;
 	[Export] private Theme _textDayLabel;
 	[Export] private Theme _textNightLabel;
 	
@@ -91,6 +93,8 @@ public partial class GameOverScene : Control
 	private void SetupTexture(Theme theme, CompressedTexture2D texture)
 	{
 		_richTextLabel.Theme = theme;
+		_lostCauseText.Theme = theme;
+		_lostCause.Theme = theme;
 		_textureRect.Texture = texture;
 	}
 

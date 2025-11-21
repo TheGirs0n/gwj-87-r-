@@ -63,13 +63,13 @@ public partial class MainCore : Node2D
         {
             case TimeType.DAY:
                 MainCoreSprite.Texture = MainCoreDaySprite;
-                ProgressBar.TextureUnder = ProgressBarDayUnder;
+                ProgressBar.TextureOver = ProgressBarDayUnder;
                 ProgressBar.TextureProgress = ProgressBarDayProgress;
                 MainCoreBatteryParticles.ProcessMaterial = MainCoreBatteryDayParticlesMaterial;
                 break;
             case TimeType.NIGHT:
                 MainCoreSprite.Texture = MainCoreNightSprite;
-                ProgressBar.TextureUnder = ProgressBarNightUnder;
+                ProgressBar.TextureOver = ProgressBarNightUnder;
                 ProgressBar.TextureProgress = ProgressBarNightProgress;
                 MainCoreBatteryParticles.ProcessMaterial = MainCoreBatteryNightParticlesMaterial;
                 break;

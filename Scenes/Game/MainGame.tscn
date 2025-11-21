@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://danf8100yrw1x"]
+[gd_scene load_steps=18 format=3 uid="uid://danf8100yrw1x"]
 
 [ext_resource type="Script" uid="uid://b8vy2fwa6sda2" path="res://Scripts/MainGame/MainGame.cs" id="1_2akhy"]
 [ext_resource type="PackedScene" uid="uid://81jpjo61homb" path="res://Scenes/MainCore/MainCore.tscn" id="1_v4ctl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://468l7pe0g1m0" path="res://Scenes/Game/SpawnMiniCores.tscn" id="2_u6ljv"]
 [ext_resource type="Material" uid="uid://btn0p31t056s2" path="res://Resources/Particles/MainCoreDayParticles.tres" id="2_x4otc"]
 [ext_resource type="Texture2D" uid="uid://dufqdxgurlkk8" path="res://Sprites/Background/задник черн.png" id="5_1605l"]
+[ext_resource type="Material" uid="uid://cqqdfvtedoutq" path="res://Resources/Particles/MainGameBackNightParticles.tres" id="5_ujj40"]
 [ext_resource type="Texture2D" uid="uid://spuky8e0ookt" path="res://Sprites/MainCore/зад часть реактора.png" id="6_5t1aa"]
 [ext_resource type="Texture2D" uid="uid://ce7ycv2nd47qn" path="res://Sprites/MainCore/зад реактора черн.png" id="7_1605l"]
 [ext_resource type="Texture2D" uid="uid://lbqraqjwgltl" path="res://Sprites/MainCore/перед реактора черн.png" id="8_5jl82"]
@@ -13,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bb0qwdy3fqq7h" path="res://Sprites/MainCore/DAY_PARTICLES.png" id="9_f5t76"]
 [ext_resource type="Material" uid="uid://d3k7dfxrr4v2e" path="res://Resources/Particles/MainCoreNightParticles.tres" id="10_f5t76"]
 [ext_resource type="Texture2D" uid="uid://drsvpglwox6nv" path="res://Sprites/MainCore/задник бел.png" id="11_fgqmo"]
+[ext_resource type="Material" uid="uid://bq0o2i8o4yhao" path="res://Resources/Particles/MainGameBackDayParticles.tres" id="12_fgqmo"]
 
 [sub_resource type="Sky" id="Sky_wn6li"]
 
@@ -32,15 +34,18 @@ fog_depth_begin = 265.3
 fog_depth_end = 878.1
 adjustment_enabled = true
 
-[node name="MainGame" type="Node" node_paths=PackedStringArray("_timer", "_miniCoresPool", "_spawnMiniCores", "_worldEnvironment", "MainCoreParticles")]
+[node name="MainGame" type="Node" node_paths=PackedStringArray("_timer", "_miniCoresPool", "_spawnMiniCores", "_worldEnvironment", "MainCoreParticles", "MainCoreBaackParticles")]
 script = ExtResource("1_2akhy")
 _timer = NodePath("Timer")
 _miniCoresPool = NodePath("SpawnMiniCores/MiniCores")
 _spawnMiniCores = NodePath("SpawnMiniCores")
 _worldEnvironment = NodePath("WorldEnvironment")
 MainCoreParticles = NodePath("BackgroundLayer2/GPUParticles2D")
-MainCoreDayParticlesMaterial = ExtResource("10_f5t76")
-MainCoreNightParticlesMaterial = ExtResource("2_x4otc")
+MainCoreDayParticlesMaterial = ExtResource("2_x4otc")
+MainCoreNightParticlesMaterial = ExtResource("10_f5t76")
+MainCoreBaackParticles = NodePath("BackgroundLayer2/GPUParticles2D2")
+MainCoreBackDayParticlesMaterial = ExtResource("12_fgqmo")
+MainCoreBackNightParticlesMaterial = ExtResource("5_ujj40")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("BackgroundTexture", "CoreCageBack", "CoreCageFront")]
 layer = -2
@@ -110,6 +115,17 @@ mouse_behavior_recursive = 1
 texture = ExtResource("8_f5t76")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="BackgroundLayer2"]
+position = Vector2(572.00006, 339.00003)
+scale = Vector2(7.45, 7.45)
+amount = 350
+texture = ExtResource("9_f5t76")
+lifetime = 30.0
+preprocess = 5.0
+speed_scale = 0.04
+local_coords = true
+process_material = ExtResource("12_fgqmo")
 
 [node name="MainCore" parent="." instance=ExtResource("1_v4ctl")]
 scale = Vector2(9, 9)

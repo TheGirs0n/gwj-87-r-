@@ -17,6 +17,11 @@ public partial class MainGame : Node
     [Export] private ParticleProcessMaterial MainCoreDayParticlesMaterial;
     [Export] private ParticleProcessMaterial MainCoreNightParticlesMaterial;
     
+    [ExportGroup("Particles Back")]
+    [Export] private GpuParticles2D MainCoreBaackParticles;
+    [Export] private ParticleProcessMaterial MainCoreBackDayParticlesMaterial;
+    [Export] private ParticleProcessMaterial MainCoreBackNightParticlesMaterial;
+    
     public bool IsSwitcherOpened = false;
     
     public override void _EnterTree()
@@ -158,7 +163,8 @@ public partial class MainGame : Node
         env.AdjustmentContrast = _darkSceneAdjustments.Contrast;
         env.AdjustmentSaturation = _darkSceneAdjustments.Saturation;
         
-        MainCoreParticles.ProcessMaterial = MainCoreDayParticlesMaterial;
+        MainCoreParticles.ProcessMaterial = MainCoreNightParticlesMaterial;
+        MainCoreBaackParticles.ProcessMaterial = MainCoreBackNightParticlesMaterial;
     }
     
     public void ApplyLightSceneSettings()
@@ -180,7 +186,8 @@ public partial class MainGame : Node
         env.AdjustmentContrast = _lightSceneAdjustments.Contrast;
         env.AdjustmentSaturation = _lightSceneAdjustments.Saturation;
         
-        MainCoreParticles.ProcessMaterial = MainCoreNightParticlesMaterial;
+        MainCoreParticles.ProcessMaterial = MainCoreDayParticlesMaterial;
+        MainCoreBaackParticles.ProcessMaterial = MainCoreBackDayParticlesMaterial;
     }
 
     public struct GlowSettings

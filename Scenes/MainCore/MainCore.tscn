@@ -24,10 +24,10 @@ MainCoreSprite = NodePath("Sprite2D")
 MainCoreDaySprite = ExtResource("3_dcaak")
 MainCoreNightSprite = ExtResource("2_51ihd")
 ProgressBar = NodePath("ProgressBar")
-ProgressBarDayUnder = ExtResource("4_75xtg")
-ProgressBarDayProgress = ExtResource("10_tuxjx")
-ProgressBarNightUnder = ExtResource("6_jsnqc")
-ProgressBarNightProgress = ExtResource("7_pqnpq")
+ProgressBarDayUnder = ExtResource("6_jsnqc")
+ProgressBarDayProgress = ExtResource("7_pqnpq")
+ProgressBarNightUnder = ExtResource("4_75xtg")
+ProgressBarNightProgress = ExtResource("10_tuxjx")
 MainCoreBatteryParticles = NodePath("ProgressBar/GPUParticles2D")
 MainCoreBatteryDayParticlesMaterial = ExtResource("10_75xtg")
 MainCoreBatteryNightParticlesMaterial = ExtResource("11_jsnqc")
@@ -46,15 +46,14 @@ limit_bottom = 250
 shape = SubResource("CircleShape2D_n8cjy")
 
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 19.0
-offset_top = 16.0
-offset_right = 2579.0
-offset_bottom = 1456.0
+offset_left = 18.5
+offset_top = 10.0
+offset_right = 2578.5
+offset_bottom = 1450.0
 rotation = 1.5707964
 scale = Vector2(0.03, 0.03)
+value = 55.0
 fill_mode = 3
-texture_over = ExtResource("4_75xtg")
-texture_progress = ExtResource("7_pqnpq")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ProgressBar"]
 position = Vector2(1530.2632, 263.15784)
