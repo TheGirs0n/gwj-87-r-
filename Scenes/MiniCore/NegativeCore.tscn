@@ -53,6 +53,7 @@ bus = &"SFX"
 bus = &"SFX"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="EnterCore"]
 [connection signal="input_event" from="Area2D" to="." method="MouseInputEvent"]

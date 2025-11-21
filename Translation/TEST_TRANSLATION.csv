@@ -1,18 +1,18 @@
 ﻿key;ru;en
-START_GAME;Начать игру;Start Game
-SETTINGS;Настройки;Settings
-EXIT;Выход;Exit
-STORY_CASE_1;Ядро вещества x постоянно активно, необходима постоянная слежка;STORY_CASE_1
-STORY_CASE_2;Нельзя допустить перенасыщения или потухание ядра;STORY_CASE_2
-STORY_BUTTON;Вперед;Go on
-TUTORIAL_CASE_1_1;Ядро вещества ведет себя по разному в зависимости от времени суток. С ;TUTORIAL_CASE_1_1
-TUTORIAL_CASE_1_2;Для зарядки главного ядра используются ядра поменьше. ;TUTORIAL_CASE_1_2
-TUTORIAL_CASE_1_3;У каждого мини-ядра свой знак.;TUTORIAL_CASE_1_3
-TUTORIAL_BUTTON_1;Вперед;Go on
-TUTORIAL_CASE_2_1;Хз, тут думаем;TUTORIAL_CASE_2_1
-TUTORIAL_CASE_2_2;Для зарядки главного ядра используются ядра поменьше. ;TUTORIAL_CASE_2_2
-TUTORIAL_CASE_2_3;У каждого мини-ядра свой знак.;TUTORIAL_CASE_2_3
-TUTORIAL_BUTTON_2;ПОЕХАЛИ;WORK
+START_GAME;НАЧАТЬ ИГРУ;START GAME
+SETTINGS;НАСТРОЙКИ;SETTINGS
+EXIT;ВЫХОД;EXIT
+STORY_CASE_1;ЯДРО ВЕЩЕСТВА ***** ОБЛАДАЕТ УСТОЙЧИВОЙ АКТИВНОСТЬЮ И НУЖДАЕТСЯ В ПОСТОЯННОМ МОНИТОРИНГЕ;THE CORE OF THE SUBSTANCE ***** IS ACTIVE AND NEEDS CONSTANT MONITORING
+STORY_CASE_2;КРИТИЧЕСКИ ВАЖНО ПОДДЕРЖИВАТЬ АКТИВНОСТЬ ЯДРА В СТАБИЛЬНОМ ДИАПАЗОНЕ, НЕ ДОПУСКАЯ ЕГО ПЕРЕГРУЗКИ ИЛИ РАЗРЯДКИ;IT IS CRITICAL TO MAINTAIN THE ACTIVITY OF THE CORE IN A STABLE RANGE, WITHOUT OVERLOADING OR UNLOADING
+STORY_BUTTON;ДАЛЬШЕ;GO ON
+TUTORIAL_CASE_1_1;ЯДРО ВЕЩЕСТВА ВЕДЕТ СЕБЯ ПО РАЗНОМУ В ЗАВИСИМОСТИ ОТ ВРЕМЕНИ СУТОК;THE SUBSTANCE’S CORE BEHAVES DIFFERENTLY DEPENDING ON THE TIME OF DAY
+TUTORIAL_CASE_1_2;ДЛЯ ПОДДЕРЖАНИЯ СТАБИЛЬНОЙ АКТИВНОСТИ ГЛАВНОГО ЯДРА ИСПОЛЬЗУЮТСЯ ВСПОМОГАТЕЛЬНЫЕ ЯДРА;SUPPORT CORES ARE USED TO MAINTAIN STABLE CORE ACTIVITY
+TUTORIAL_CASE_1_3;ДНЁМ ГЛАВНОМУ ЯДРУ НЕОБХОДИМО ПОСТАВЛЯТЬ ПОЛОЖИТЕЛЬНЫЕ ЗАРЯДЫ, А НОЧЬЮ - ОТРИЦАТЕЛЬНЫЕ;DURING THE DAY, THE MAIN CORE MUST BE SUPPLIED WITH POSITIVE CHARGES, AND AT NIGHT - NEGATIVE
+TUTORIAL_BUTTON_1;ДАЛЬШЕ;GO ON
+TUTORIAL_CASE_2_1;ВОТ ТАК НАСТУПАЕТ ПРОЦЕСС ИЗМЕНЕНИЯ ВРЕМЕНИ СУТОК;THE PROCESS OF CHANGING THE TIME OF DAY IS DONE LIKE THIS.
+TUTORIAL_CASE_2_2;…;…
+TUTORIAL_CASE_2_3;АХ ДА, ЗАБЫЛИ УПОМЯНУТЬ. ДНЁМ УНИЧТОЖЕНИЕ ОТРИЦАТЕЛЬНЫХ ЗАРЯДОВ ДАЁТ НАМ ЭНЕРГИЮ, А НОЧЬЮ ТО ЖЕ САМОЕ ДЕЛАЮТ ПОЛОЖИТЕЛЬНЫЕ.;OH, YES, WE FORGOT TO MENTION. DURING THE DAY, ELIMINATING NEGATIVE CHARGES GIVES US ENERGY, BUT AT NIGHT, THE POSITIVE ONES DO THE SAME.
+TUTORIAL_BUTTON_2;ПОЕХАЛИ;GET TO WORK
 UI_MAIN_TIMER_TEXT;ОСТАВШЕЕСЯ ВРЕМЯ:;TIME LEFT:
 UI_SWITCHER_MOD_TEXT_1;МИНУС ПОЛОЖИТЕЛЬНЫЕ;MINUS POSITIVE
 UI_SWITCHER_MOD_TEXT_2;ПЛЮС НЕГАТИВНЫЕ;PLUS NEGATIVE
@@ -27,7 +27,7 @@ UI_PAUSE_EXIT;ВЫХОД;EXIT
 UI_SETTINGS_TEXT;НАСТРОЙКИ;OPTIONS
 UI_SETTINGS_EXIT;ВЫХОД;EXIT
 UI_SETTINGS_APPLY;ПРИМЕНИТЬ;APPLY
-UI_SETTINGS_RESTORE;ПО УМОЛЧАНИЮ;RESTORE DEFAULTS
+UI_SETTINGS_RESTORE;ПО УМОЛЧАНИЮ;DEFAULTS
 UI_SETTINGS_SOUND_BAR_NAME;ЗВУК;SOUND
 UI_SETTINGS_DISPLAY_BAR_NAME;ЭКРАН;DISPLAY
 UI_SETTINGS_LANGUAGE_BAR_NAME;ЯЗЫК;LANGUAGE
@@ -35,11 +35,11 @@ UI_SETTINGS_BAR_SOUND_MASTER;ОБЩАЯ ГРОМКОСТЬ;MASTER VOLUME
 UI_SETTINGS_BAR_SOUND_SFX;ЗВУКОВЫЕ ЭФФЕКТЫ;SOUND EFFECTS
 UI_SETTINGS_BAR_SOUND_MUSIC;ГРОМКОСТЬ МУЗЫКИ;MUSIC VOLUME
 UI_SETTINGS_BAR_DISPLAY_WINDOW;РЕЖИМ ОКНА;WINDOW MODE
-UI_SETTINGS_BAR_DISPLAY_RESOLUTION;РАЗРЕШЕНИЕ ЭКРАНА;SCREE RESOLUTION
+UI_SETTINGS_BAR_DISPLAY_RESOLUTION;РАЗРЕШЕНИЕ ЭКРАНА;SCREEN RESOLUTION
 UI_GAME_OVER_DEATH_CAUSE_TEXT;ПРИЧИНА ПРОИГРЫША;LOSE CAUSE
 UI_GAME_OVER_STATISTIC_TEXT;ИГРОВАЯ СТАТИСТИКА;GAME STATS
-UI_GAME_OVER_DEATH_CAUSE_1;ПЕРЕНАПРЯЖЕНИЕ ЯДРА;CORE OVERCHARGE
-UI_GAME_OVER_DEATH_CAUSE_2;ПОТУХАНИЕ ЯДРА;CORE DISEASED
+UI_GAME_OVER_DEATH_CAUSE_1;ПЕРЕГРУЗКА ЯДРА;CORE OVERCHARGE
+UI_GAME_OVER_DEATH_CAUSE_2;РАЗРЯДКА ЯДРА;DISCHARGE
 UI_GAME_OVER_TIME_COUNT_TEXT;ДЕНЬ/НОЧЬ;DAY/NIGHT
 UI_GAME_OVER_RESTART_BUTTON;НАЧАТЬ ЗАНОВО;RESTART GAME
 UI_GAME_OVER_MAIN_MENU_BUTTON;В ГЛАВНОЕ МЕНЮ;GO TO MAIN MENU

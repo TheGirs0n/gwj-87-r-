@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy1e23s0djp7t"]
+[gd_scene load_steps=17 format=3 uid="uid://cy1e23s0djp7t"]
 
 [ext_resource type="Script" uid="uid://d34cjkhlb4w62" path="res://Scripts/Tutorial/Tutorial.cs" id="1_auiun"]
 [ext_resource type="Texture2D" uid="uid://cp7gvfw15ong7" path="res://Sprites/Background/BACKGROUND_NIGHT.png" id="1_thyfh"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="3_0yr2e"]
 [ext_resource type="Theme" uid="uid://d02rnrhk8v402" path="res://Resources/Themes/ButtonsNightTheme.tres" id="3_n3ycm"]
 [ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="3_w7w38"]
+[ext_resource type="Texture2D" uid="uid://drsvpglwox6nv" path="res://Sprites/MainCore/задник бел.png" id="5_2kgik"]
 [ext_resource type="Theme" uid="uid://c5sr6vimyjyi4" path="res://Resources/Themes/TextDayTheme.tres" id="6_1oc1e"]
+[ext_resource type="Texture2D" uid="uid://dufqdxgurlkk8" path="res://Sprites/Background/задник черн.png" id="6_44la1"]
 [ext_resource type="Theme" uid="uid://bq8marwmvebko" path="res://Resources/Themes/TextNightTheme.tres" id="7_tq6py"]
 [ext_resource type="Texture2D" uid="uid://16vwosmux4go" path="res://Sprites/MainCore/NIGHT_PARTICLES.png" id="9_vxw4a"]
 [ext_resource type="Texture2D" uid="uid://c47ecxkxvnn13" path="res://Sprites/MiniCore/черный плюс.png" id="10_7y28h"]
@@ -28,8 +30,8 @@ _button = NodePath("Background/Button")
 _buttonDayTheme = ExtResource("3_w7w38")
 _buttonNightTheme = ExtResource("3_n3ycm")
 _background = NodePath("Background")
-_backgroundDay = ExtResource("3_0yr2e")
-_backgroundNight = ExtResource("1_thyfh")
+_backgroundDay = ExtResource("5_2kgik")
+_backgroundNight = ExtResource("6_44la1")
 _main = NodePath("Background/TextureRect")
 _mainDay = ExtResource("3_0yr2e")
 _mainNight = ExtResource("1_thyfh")
@@ -56,7 +58,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_thyfh")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Button" type="Button" parent="Background"]
 layout_mode = 1
@@ -83,7 +86,7 @@ anchors_preset = -1
 anchor_left = 0.2
 anchor_top = 0.1
 anchor_right = 0.8
-anchor_bottom = 0.75
+anchor_bottom = 0.8
 size_flags_horizontal = 3
 texture = ExtResource("3_0yr2e")
 
@@ -119,8 +122,9 @@ stretch_mode = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/TextureRect"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.05
 anchor_top = 0.4
-anchor_right = 1.0
+anchor_right = 0.95
 anchor_bottom = 0.95
 theme_override_constants/separation = 25
 alignment = 1
@@ -128,7 +132,6 @@ alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="Background/TextureRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
 text = "TUTORIAL_CASE_1_1"
 horizontal_alignment = 1
 vertical_alignment = 1

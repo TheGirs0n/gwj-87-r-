@@ -1,12 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://81jpjo61homb"]
+[gd_scene load_steps=10 format=3 uid="uid://81jpjo61homb"]
 
 [ext_resource type="Script" uid="uid://d4f5f7im7tg0o" path="res://Scripts/MainCore/MainCore.cs" id="1_n1loq"]
-[ext_resource type="Texture2D" uid="uid://h3q485p71upd" path="res://Sprites/MainCore/MAIN_CORE_DAY.png" id="2_51ihd"]
-[ext_resource type="Texture2D" uid="uid://ryhavjgtw4un" path="res://Sprites/MainCore/MAIN_CORE_NIGHT.png" id="3_dcaak"]
 [ext_resource type="Texture2D" uid="uid://bhu845i7q64xf" path="res://Sprites/MainCore/шкала черн.png" id="4_75xtg"]
 [ext_resource type="Texture2D" uid="uid://c1o3bm8legbe2" path="res://Sprites/MainCore/шкала белая.png" id="6_jsnqc"]
 [ext_resource type="Texture2D" uid="uid://br4efnhsfaam0" path="res://Sprites/MainCore/подложка шкалы черная.png" id="7_pqnpq"]
-[ext_resource type="Material" uid="uid://btn0p31t056s2" path="res://Resources/Particles/MainCoreDayParticles.tres" id="9_ox375"]
 [ext_resource type="Material" uid="uid://b4r2cwxm2aws0" path="res://Resources/Particles/MainCoreBatteryDayParticles.tres" id="10_75xtg"]
 [ext_resource type="Texture2D" uid="uid://cd3mnumh8ndmx" path="res://Sprites/MainCore/подложка шкалы белая.png" id="10_tuxjx"]
 [ext_resource type="Material" uid="uid://c0267etr2cbgj" path="res://Resources/Particles/MainCoreBatteryNightParticles.tres" id="11_jsnqc"]
@@ -15,26 +12,19 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_n8cjy"]
 radius = 16.0
 
-[node name="MainCore" type="Area2D" node_paths=PackedStringArray("MainCoreSprite", "ProgressBar", "MainCoreBatteryParticles")]
+[node name="MainCore" type="Area2D" node_paths=PackedStringArray("ProgressBar", "MainCoreBatteryParticles")]
 scale = Vector2(9.5, 9.5)
 collision_layer = 2
 input_pickable = false
 script = ExtResource("1_n1loq")
-MainCoreSprite = NodePath("Sprite2D")
-MainCoreDaySprite = ExtResource("3_dcaak")
-MainCoreNightSprite = ExtResource("2_51ihd")
 ProgressBar = NodePath("ProgressBar")
-ProgressBarDayUnder = ExtResource("6_jsnqc")
+ProgressBarDayOver = ExtResource("6_jsnqc")
 ProgressBarDayProgress = ExtResource("7_pqnpq")
-ProgressBarNightUnder = ExtResource("4_75xtg")
+ProgressBarNightOver = ExtResource("4_75xtg")
 ProgressBarNightProgress = ExtResource("10_tuxjx")
 MainCoreBatteryParticles = NodePath("ProgressBar/GPUParticles2D")
 MainCoreBatteryDayParticlesMaterial = ExtResource("10_75xtg")
 MainCoreBatteryNightParticlesMaterial = ExtResource("11_jsnqc")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("3_dcaak")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = -195
@@ -52,8 +42,9 @@ offset_right = 2578.5
 offset_bottom = 1450.0
 rotation = 1.5707964
 scale = Vector2(0.03, 0.03)
-value = 55.0
 fill_mode = 3
+texture_over = ExtResource("6_jsnqc")
+texture_progress = ExtResource("7_pqnpq")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ProgressBar"]
 position = Vector2(1530.2632, 263.15784)
@@ -67,16 +58,6 @@ randomness = 0.5
 visibility_rect = Rect2(-20, -20, 17, 85)
 local_coords = true
 process_material = ExtResource("10_75xtg")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-visible = false
-amount = 200
-texture = ExtResource("12_6fhku")
-lifetime = 2.0
-preprocess = 5.0
-speed_scale = 1.5
-local_coords = true
-process_material = ExtResource("9_ox375")
 
 [node name="MinChargeCap" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"

@@ -152,6 +152,10 @@ public partial class MainGame : Node
     public void ApplyNightSceneSettings()
     {
         if (_worldEnvironment?.Environment == null) return;
+                
+        MainCoreParticles.ProcessMaterial = MainCoreNightParticlesMaterial;
+        MainCoreBaackParticles.ProcessMaterial = MainCoreBackNightParticlesMaterial;
+        MainCoreBaackParticles.Restart();
         
         var env = _worldEnvironment.Environment;
         
@@ -167,14 +171,15 @@ public partial class MainGame : Node
         env.AdjustmentBrightness = _darkSceneAdjustments.Brightness;
         env.AdjustmentContrast = _darkSceneAdjustments.Contrast;
         env.AdjustmentSaturation = _darkSceneAdjustments.Saturation;
-        
-        MainCoreParticles.ProcessMaterial = MainCoreNightParticlesMaterial;
-        MainCoreBaackParticles.ProcessMaterial = MainCoreBackNightParticlesMaterial;
     }
     
     public void ApplyLightSceneSettings()
     {
         if (_worldEnvironment?.Environment == null) return;
+        
+        MainCoreParticles.ProcessMaterial = MainCoreDayParticlesMaterial;
+        MainCoreBaackParticles.ProcessMaterial = MainCoreBackDayParticlesMaterial;
+        MainCoreBaackParticles.Restart();
         
         var env = _worldEnvironment.Environment;
         
@@ -190,9 +195,6 @@ public partial class MainGame : Node
         env.AdjustmentBrightness = _lightSceneAdjustments.Brightness;
         env.AdjustmentContrast = _lightSceneAdjustments.Contrast;
         env.AdjustmentSaturation = _lightSceneAdjustments.Saturation;
-        
-        MainCoreParticles.ProcessMaterial = MainCoreDayParticlesMaterial;
-        MainCoreBaackParticles.ProcessMaterial = MainCoreBackDayParticlesMaterial;
     }
 
     public struct GlowSettings

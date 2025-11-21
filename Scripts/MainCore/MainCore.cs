@@ -7,17 +7,14 @@ public partial class MainCore : Node2D
     [Export] public float MinScore = 0;
     [Export] public float MaxScore = 100;
     public float CurrentScore;
-
-    [ExportGroup("SpriteSetting")]
-    [Export] public Sprite2D MainCoreSprite;
-    [Export] public CompressedTexture2D MainCoreDaySprite;
-    [Export] public CompressedTexture2D MainCoreNightSprite;
     
     [ExportGroup("ProgressBar")]
     [Export] public TextureProgressBar ProgressBar;
-    [Export] public CompressedTexture2D ProgressBarDayUnder;
+    //[Export] public CompressedTexture2D ProgressBarDayUnder;
+    [Export] public CompressedTexture2D ProgressBarDayOver;
     [Export] public CompressedTexture2D ProgressBarDayProgress;
-    [Export] public CompressedTexture2D ProgressBarNightUnder;
+    //[Export] public CompressedTexture2D ProgressBarNightUnder;
+    [Export] public CompressedTexture2D ProgressBarNightOver;
     [Export] public CompressedTexture2D ProgressBarNightProgress;
     
     [ExportGroup("Particles Battery")]
@@ -43,7 +40,7 @@ public partial class MainCore : Node2D
     public void UpdateScore(float score)
     {
         CurrentScore += score;
-        
+        GD.Print("Score: " + CurrentScore);
         if (CurrentScore <= MinScore)
         {
             CurrentScore = MinScore;
@@ -65,14 +62,14 @@ public partial class MainCore : Node2D
         switch (timeType)
         {
             case TimeType.DAY:
-                MainCoreSprite.Texture = MainCoreDaySprite;
-                ProgressBar.TextureOver = ProgressBarDayUnder;
+                //ProgressBar.TextureUnder = ProgressBarDayUnder;
+                ProgressBar.TextureOver = ProgressBarDayOver;
                 ProgressBar.TextureProgress = ProgressBarDayProgress;
                 MainCoreBatteryParticles.ProcessMaterial = MainCoreBatteryDayParticlesMaterial;
                 break;
             case TimeType.NIGHT:
-                MainCoreSprite.Texture = MainCoreNightSprite;
-                ProgressBar.TextureOver = ProgressBarNightUnder;
+                //ProgressBar.TextureUnder = ProgressBarNightUnder;
+                ProgressBar.TextureOver = ProgressBarNightOver;
                 ProgressBar.TextureProgress = ProgressBarNightProgress;
                 MainCoreBatteryParticles.ProcessMaterial = MainCoreBatteryNightParticlesMaterial;
                 break;
