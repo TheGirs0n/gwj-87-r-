@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck7i4sfaktyt2"]
+[gd_scene load_steps=5 format=3 uid="uid://ck7i4sfaktyt2"]
 
 [ext_resource type="Script" uid="uid://c08ghuatacn0f" path="res://Scripts/UI/PauseMenu.cs" id="1_eod5q"]
+[ext_resource type="PackedScene" uid="uid://dlxr2qyuyp6xj" path="res://Scenes/UI/SettingsUI.tscn" id="2_2bpff"]
 [ext_resource type="Texture2D" uid="uid://eo88w0gyshs4" path="res://Sprites/Background/BACKGROUND_DAY.png" id="2_238ko"]
 [ext_resource type="Theme" uid="uid://d02rnrhk8v402" path="res://Resources/Themes/ButtonsNightTheme.tres" id="2_n4i8v"]
 
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eod5q")
+SettingsScene = ExtResource("2_2bpff")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.40832946, 0.40832946, 0.40832946, 1)
@@ -28,11 +30,17 @@ texture = ExtResource("2_238ko")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4
-anchor_top = 0.1
-anchor_right = 0.6
-anchor_bottom = 0.8
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -208.0
+offset_right = 160.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 25
 alignment = 1
 

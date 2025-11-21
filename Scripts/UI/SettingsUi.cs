@@ -13,5 +13,10 @@ public partial class SettingsUi : Control
     public void HideSettings()
     {
         this.QueueFree();
+
+        if (GlobalContext.MainGameInstance != null)
+        {
+            GlobalContext.GlobalUIInstance.CloseSettings();
+        }
     }
 }

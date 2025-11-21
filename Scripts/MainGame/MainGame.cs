@@ -1,17 +1,16 @@
-﻿
-using Godot;
+﻿using Godot;
 
 public partial class MainGame : Node
 {
-    [ExportGroup("GameOverScene")]
-    [Export] private PackedScene _gameOverScene;
-    
     [ExportGroup("Timer")]
     [Export] private Timer _timer;
     
     [ExportGroup("Mini Cores")]
     [Export] private Node _miniCoresPool;
     [Export] private SpawnMiniCores _spawnMiniCores;
+    
+    [ExportGroup("Environment")]
+    [Export] private WorldEnvironment _worldEnvironment;
 
     public bool IsSwitcherOpened = false;
     
@@ -54,8 +53,7 @@ public partial class MainGame : Node
 
     public void StopGame()
     {
-        this.ProcessMode = ProcessModeEnum.Disabled;
-        GlobalContext.GlobalUIInstance.PauseMenuUi.Visible = true;
+        GlobalContext.GlobalUIInstance.OpenPause();
     }
 
     public void ContinueGame()
@@ -65,10 +63,127 @@ public partial class MainGame : Node
 
     public void GameOver(GameOverType gameOverType)
     {
-        var scene = _gameOverScene.Instantiate<GameOverScene>();
-        scene.SetupScreenGameOver(gameOverType, GlobalContext.TimeRebuilderInstance.TimeType);
-        GlobalContext.MainSceneInstance.QueueFree();
+        GlobalContext.GlobalUIInstance.GameOverUI.SetupScreenGameOver(gameOverType, GlobalContext.TimeRebuilderInstance.TimeType);
+        GlobalContext.GlobalUIInstance.OpenGameOverUI();
+        GlobalContext.MainGameInstance.QueueFree();
     }
+
+    public void RebuildForCurrentTimeType(TimeType timeType)
+    {
+        switch (timeType)
+        {
+            case TimeType.DAY:
+                ApplyLightSceneSettings();
+                break;
+            case TimeType.NIGHT:
+                ApplyNightSceneSettings();
+                break;
+        }
+    }
+    
+    #region Environment
+    
+    // Пресеты для разных типов сцен
+    private GlowSettings _darkSceneGlow = new GlowSettings {
+        Enabled = true,
+        Intensity = 1.2f,
+        Strength = 1.2f,
+        Bloom = 0.4f,
+        BlendMode = Environment.GlowBlendModeEnum.Softlight, // SoftLight
+        HdrThreshold = 0.8f,
+        HdrScale = 1.2f
+    };
+    
+    private GlowSettings _lightSceneGlow = new GlowSettings {
+        Enabled = true,
+        Intensity = 0.6f,
+        Strength = 0.8f,
+        Bloom = 0.3f,
+        BlendMode = Environment.GlowBlendModeEnum.Screen, // Screen
+        HdrThreshold = 0.9f,
+        HdrScale = 1.2f
+    };
+    
+    private AdjustmentSettings _darkSceneAdjustments = new AdjustmentSettings {
+        Enabled = true,
+        Brightness = 1.0f,
+        Contrast = 1.3f,
+        Saturation = 1.1f
+    };
+    
+    private AdjustmentSettings _lightSceneAdjustments = new AdjustmentSettings {
+        Enabled = true,
+        Brightness = 1.1f,
+        Contrast = 1.1f,
+        Saturation = 0.9f
+    };
+
+    // Применение настроек для темной сцены
+    public void ApplyNightSceneSettings()
+    {
+        if (_worldEnvironment?.Environment == null) return;
+        
+        var env = _worldEnvironment.Environment;
+        
+        // Применяем только основные настройки Glow
+        env.GlowEnabled = _darkSceneGlow.Enabled;
+        env.GlowIntensity = _darkSceneGlow.Intensity;
+        env.GlowStrength = _darkSceneGlow.Strength;
+        env.GlowBloom = _darkSceneGlow.Bloom;
+        env.GlowBlendMode = _darkSceneGlow.BlendMode;
+        env.GlowHdrThreshold = _darkSceneGlow.HdrThreshold;
+        env.GlowHdrScale = _darkSceneGlow.HdrScale;
+        
+        // Применяем Adjustments настройки
+        env.AdjustmentEnabled = _darkSceneAdjustments.Enabled;
+        env.AdjustmentBrightness = _darkSceneAdjustments.Brightness;
+        env.AdjustmentContrast = _darkSceneAdjustments.Contrast;
+        env.AdjustmentSaturation = _darkSceneAdjustments.Saturation;
+    }
+
+    // Применение настроек для светлой сцены
+    public void ApplyLightSceneSettings()
+    {
+        if (_worldEnvironment?.Environment == null) return;
+        
+        var env = _worldEnvironment.Environment;
+        
+        // Применяем только основные настройки Glow
+        env.GlowEnabled = _lightSceneGlow.Enabled;
+        env.GlowIntensity = _lightSceneGlow.Intensity;
+        env.GlowStrength = _lightSceneGlow.Strength;
+        env.GlowBloom = _lightSceneGlow.Bloom;
+        env.GlowBlendMode = _lightSceneGlow.BlendMode;
+        env.GlowHdrThreshold = _lightSceneGlow.HdrThreshold;
+        env.GlowHdrScale = _lightSceneGlow.HdrScale;
+        
+        // Применяем Adjustments настройки
+        env.AdjustmentEnabled = _lightSceneAdjustments.Enabled;
+        env.AdjustmentBrightness = _lightSceneAdjustments.Brightness;
+        env.AdjustmentContrast = _lightSceneAdjustments.Contrast;
+        env.AdjustmentSaturation = _lightSceneAdjustments.Saturation;
+    }
+
+    public struct GlowSettings
+    {
+        public bool Enabled;
+        public float Intensity;
+        public float Strength;
+        public float Bloom;
+        public Environment.GlowBlendModeEnum BlendMode;
+        public float HdrThreshold;
+        public float HdrScale;
+    }
+
+    public struct AdjustmentSettings
+    {
+        public bool Enabled;
+        public float Brightness;
+        public float Contrast;
+        public float Saturation;
+    }
+    
+    #endregion
 }
 
 public enum GameOverType

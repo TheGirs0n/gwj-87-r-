@@ -4,8 +4,6 @@ public partial class GameOverScene : Control
 {
 	[ExportGroup("Text")] 
 	[Export] private RichTextLabel _richTextLabel;
-	[Export] private string _minChargeText;
-	[Export] private string _maxChargeText;
 	[Export] private Theme _textDayLabel;
 	[Export] private Theme _textNightLabel;
 	
@@ -33,10 +31,13 @@ public partial class GameOverScene : Control
 	[Export] private Button _buttonMainMenu;
 	[Export] private Theme _buttonRestartDayTheme;
 	[Export] private Theme _buttonRestartNightTheme;
+
+	[ExportGroup("Scenes")] 
+	[Export] private PackedScene _mainMenu;
+	//[Export] private PackedScene _tutorial;
 	
-	[ExportGroup("AnimatePlayer")]
+	[ExportGroup("Animatable Player")]
 	[Export] private AnimationPlayer _animatePlayer;
-	
 
 	
 	public void StartNewGame()
@@ -50,20 +51,22 @@ public partial class GameOverScene : Control
 
 	public void MainMenu()
 	{
-		// var menu = _mainMenu.Instantiate<MainMenuUi>();
-		// GetTree().Root.AddChild(menu);
-		// this.QueueFree();
+		var menu = _mainMenu.Instantiate<MainMenuUi>();
+		GetTree().Root.AddChild(menu);
+		this.QueueFree();
 	}
 	
 	public void SetupScreenGameOver(GameOverType gameOverType, TimeType timeType)
 	{
+		GD.Print("Game Over");
+		_animatePlayer.Play("showWindow");
 		switch (gameOverType)
 		{
 			case GameOverType.MAX_CHARGE:
-				_richTextLabel.Text = _minChargeText;
+				_richTextLabel.Text = Tr("UI_GAME_OVER_DEATH_CAUSE_1");
 				break;
 			case GameOverType.MIN_CHARGE:
-				_richTextLabel.Text = _maxChargeText;
+				_richTextLabel.Text = Tr("UI_GAME_OVER_DEATH_CAUSE_2");
 				break;
 		}
 
@@ -89,7 +92,6 @@ public partial class GameOverScene : Control
 				break;
 		}
 		
-		_animatePlayer.Play("playOver");
 	}
 
 	private void SetupTexture(Theme theme, CompressedTexture2D texture)

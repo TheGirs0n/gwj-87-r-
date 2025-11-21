@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://danf8100yrw1x"]
+[gd_scene load_steps=15 format=3 uid="uid://danf8100yrw1x"]
 
 [ext_resource type="Script" uid="uid://b8vy2fwa6sda2" path="res://Scripts/MainGame/MainGame.cs" id="1_2akhy"]
 [ext_resource type="PackedScene" uid="uid://81jpjo61homb" path="res://Scenes/MainCore/MainCore.tscn" id="1_v4ctl"]
-[ext_resource type="PackedScene" uid="uid://d1w67xae0uwo8" path="res://Scenes/Game/GameOverUI.tscn" id="2_5jl82"]
 [ext_resource type="Script" uid="uid://c1qnvim27nxq8" path="res://Scripts/UI/BackgroundLayer.cs" id="2_nl514"]
 [ext_resource type="PackedScene" uid="uid://468l7pe0g1m0" path="res://Scenes/Game/SpawnMiniCores.tscn" id="2_u6ljv"]
 [ext_resource type="Texture2D" uid="uid://2rcglox5c8ot" path="res://Sprites/Background/задник бел.png" id="4_jt8oo"]
@@ -11,13 +10,34 @@
 [ext_resource type="Texture2D" uid="uid://ce7ycv2nd47qn" path="res://Sprites/MainCore/зад реактора черн.png" id="7_1605l"]
 [ext_resource type="Texture2D" uid="uid://lbqraqjwgltl" path="res://Sprites/MainCore/перед реактора черн.png" id="8_5jl82"]
 [ext_resource type="Texture2D" uid="uid://bccf68kqfut1w" path="res://Sprites/MainCore/перед реактора.png" id="8_f5t76"]
+[ext_resource type="Texture2D" uid="uid://bb0qwdy3fqq7h" path="res://Sprites/MainCore/DAY_PARTICLES.png" id="9_f5t76"]
+[ext_resource type="Material" uid="uid://d3k7dfxrr4v2e" path="res://Resources/Particles/MainCoreNightParticles.tres" id="10_f5t76"]
 
-[node name="MainGame" type="Node" node_paths=PackedStringArray("_timer", "_miniCoresPool", "_spawnMiniCores")]
+[sub_resource type="Sky" id="Sky_wn6li"]
+
+[sub_resource type="Environment" id="Environment_5t1aa"]
+background_mode = 3
+sky = SubResource("Sky_wn6li")
+tonemap_mode = 3
+glow_enabled = true
+glow_bloom = 0.05
+glow_hdr_threshold = 0.25
+glow_hdr_scale = 0.75
+fog_mode = 1
+fog_light_energy = 0.73
+fog_sun_scatter = 0.2
+fog_density = 0.619
+fog_height = 26.14
+fog_depth_begin = 265.3
+fog_depth_end = 878.1
+adjustment_enabled = true
+
+[node name="MainGame" type="Node" node_paths=PackedStringArray("_timer", "_miniCoresPool", "_spawnMiniCores", "_worldEnvironment")]
 script = ExtResource("1_2akhy")
-_gameOverScene = ExtResource("2_5jl82")
 _timer = NodePath("Timer")
 _miniCoresPool = NodePath("SpawnMiniCores/MiniCores")
 _spawnMiniCores = NodePath("SpawnMiniCores")
+_worldEnvironment = NodePath("WorldEnvironment")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("BackgroundTexture", "CoreCageBack", "CoreCageFront")]
 layer = -2
@@ -51,6 +71,17 @@ autostart = true
 
 [node name="BackgroundLayer2" type="CanvasLayer" parent="."]
 layer = -1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BackgroundLayer2"]
+position = Vector2(258, 294)
+scale = Vector2(9.5, 9.5)
+amount = 200
+texture = ExtResource("9_f5t76")
+lifetime = 2.0
+preprocess = 5.0
+speed_scale = 1.5
+local_coords = true
+process_material = ExtResource("10_f5t76")
 
 [node name="BackCage" type="TextureRect" parent="BackgroundLayer2"]
 offset_right = 2560.0
@@ -86,3 +117,6 @@ SpawnOffset = 0.0
 MainGameTimer = NodePath("../Timer")
 
 [node name="MiniCores" type="Node" parent="SpawnMiniCores"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5t1aa")

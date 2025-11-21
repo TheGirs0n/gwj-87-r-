@@ -10,116 +10,44 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lxswn"]
 
-[sub_resource type="Animation" id="Animation_6l5i3"]
+[sub_resource type="Animation" id="Animation_po2jt"]
+resource_name = "showWindow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k746o"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.49803922)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/RichTextLabel:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Restart:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/MainMenu:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_x0rts"]
-resource_name = "playOver"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0.49803922), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/RichTextLabel:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Restart:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/MainMenu:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l68lt"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ta5ry"]
 _data = {
-&"RESET": SubResource("Animation_6l5i3"),
-&"playOver": SubResource("Animation_x0rts")
+&"RESET": SubResource("Animation_k746o"),
+&"showWindow": SubResource("Animation_po2jt")
 }
 
 [node name="GameOverUi" type="Control" node_paths=PackedStringArray("_richTextLabel", "_dayNightCountText", "_dayNightCount", "_speedMultiplayer", "_speedMultiplayerValue", "_spawnTime", "_spawnTimeValue", "_positiveScore", "_positiveScoreValue", "_negativeScore", "_negativeScoreValue", "_textureRect", "_buttonRestartGame", "_buttonMainMenu", "_animatePlayer")]
-visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,8 +58,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_t0hjf")
 _richTextLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/RichTextLabel")
-_minChargeText = "MIN_CHARGE"
-_maxChargeText = "MAX_CHARGE"
 _textDayLabel = ExtResource("2_po2jt")
 _textNightLabel = ExtResource("3_k746o")
 _dayNightCountText = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/DayNightText")
@@ -162,11 +88,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("PlaceholderTexture2D_lxswn")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_l68lt")
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -290,6 +211,23 @@ vertical_alignment = 1
 [node name="NegativeScoreValue" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 text = "0"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ta5ry")
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 50.0
+offset_bottom = 81.0
+grow_horizontal = 2
+text = "UI_GAME_OVER_STATISTIC_TEXT"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
