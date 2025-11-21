@@ -91,7 +91,6 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="BackgroundLayer2"]
-visible = false
 position = Vector2(258, 295)
 scale = Vector2(7.45, 7.45)
 amount = 400
@@ -129,7 +128,6 @@ local_coords = true
 process_material = ExtResource("12_fgqmo")
 
 [node name="MainCore" parent="." instance=ExtResource("1_v4ctl")]
-visible = false
 scale = Vector2(9, 9)
 
 [node name="SpawnMiniCores" parent="." node_paths=PackedStringArray("NodesPool", "MainGameTimer") instance=ExtResource("2_u6ljv")]
