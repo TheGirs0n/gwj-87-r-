@@ -26,8 +26,11 @@ public partial class GameOverScene : Control
 	
 	[ExportGroup("Texture")]
 	[Export] private TextureRect _textureRect;
+	[Export] private TextureRect _textureRect2;
 	[Export] private CompressedTexture2D _textureDayRect;
 	[Export] private CompressedTexture2D _textureNightRect;
+	[Export] private CompressedTexture2D _textureDayRect2;
+	[Export] private CompressedTexture2D _textureNightRect2;
 	
 	[ExportGroup("Button")]
 	[Export] private Button _buttonRestartGame;
@@ -70,20 +73,20 @@ public partial class GameOverScene : Control
 		switch (timeType)
 		{
 			case TimeType.DAY:
-				SetupTexture(_textDayLabel, _textureDayRect);
+				SetupTexture(_textDayLabel, _textureDayRect, _textureDayRect2);
 
 				SetupButtons(_buttonRestartDayTheme);
 
-				SetupDayNight(_textDayLabel);
+				SetupDayNight(_textNightLabel);
 				
 				SetupModifiers(_textDayLabel);
 				break;
 			case TimeType.NIGHT:
-				SetupTexture(_textNightLabel, _textureNightRect);
+				SetupTexture(_textNightLabel, _textureNightRect, _textureNightRect2);
 
 				SetupButtons(_buttonRestartNightTheme);
 				
-				SetupDayNight(_textNightLabel);
+				SetupDayNight(_textDayLabel);
 				
 				SetupModifiers(_textNightLabel);
 				break;
@@ -91,13 +94,14 @@ public partial class GameOverScene : Control
 		
 	}
 
-	private void SetupTexture(Theme theme, CompressedTexture2D texture)
+	private void SetupTexture(Theme theme, CompressedTexture2D texture, CompressedTexture2D texture2)
 	{
 		_richTextLabel.Theme = theme;
 		_lostCauseText.Theme = theme;
 		_lostCause.Theme = theme;
 		_gameStatsText.Theme = theme;
 		_textureRect.Texture = texture;
+		_textureRect2.Texture = texture2;
 	}
 
 	private void SetupButtons(Theme theme)
