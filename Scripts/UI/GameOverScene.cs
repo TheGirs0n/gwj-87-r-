@@ -31,10 +31,6 @@ public partial class GameOverScene : Control
 	[Export] private Button _buttonMainMenu;
 	[Export] private Theme _buttonRestartDayTheme;
 	[Export] private Theme _buttonRestartNightTheme;
-
-	[ExportGroup("Scenes")] 
-	[Export] private PackedScene _mainMenu;
-	//[Export] private PackedScene _tutorial;
 	
 	[ExportGroup("Animatable Player")]
 	[Export] private AnimationPlayer _animatePlayer;
@@ -42,23 +38,20 @@ public partial class GameOverScene : Control
 	
 	public void StartNewGame()
 	{
-		// var tutor = _tutorial.Instantiate<Tutorial>();
-		// tutor.SetupTutorial();
-		//
-		// GetTree().Root.AddChild(tutor);
-		// this.QueueFree();
+		var gameOverScene = ResourceLoader.Load<PackedScene>("res://Scenes/Tutorial/Tutorial.tscn").Instantiate<Tutorial>();
+		GetTree().Root.AddChild(gameOverScene);
+		GlobalContext.MainSceneInstance.QueueFree();
 	}
 
 	public void MainMenu()
 	{
-		var menu = _mainMenu.Instantiate<MainMenuUi>();
-		GetTree().Root.AddChild(menu);
-		this.QueueFree();
+		var gameOverScene = ResourceLoader.Load<PackedScene>("res://Scenes/UI/MainMenuUI.tscn").Instantiate<MainMenuUi>();
+		GetTree().Root.AddChild(gameOverScene);
+		GlobalContext.MainSceneInstance.QueueFree();
 	}
 	
 	public void SetupScreenGameOver(GameOverType gameOverType, TimeType timeType)
 	{
-		GD.Print("Game Over");
 		_animatePlayer.Play("showWindow");
 		switch (gameOverType)
 		{
@@ -117,18 +110,18 @@ public partial class GameOverScene : Control
 	{
 		_speedMultiplayer.Theme = theme;
 		_speedMultiplayerValue.Theme = theme;
-		_speedMultiplayerValue.Text = GlobalContext.SpawnMiniCoresInstance.MiniCoreSpeedMultiplier.ToString();
+		_speedMultiplayerValue.Text = GlobalContext.SpawnMiniCoresInstance.MiniCoreSpeedMultiplier.ToString("F2");
 		
 		_spawnTime.Theme = theme;
 		_spawnTimeValue.Theme = theme;
-		_spawnTimeValue.Text = GlobalContext.SpawnMiniCoresInstance.SpawnTimer.WaitTime.ToString();
+		_spawnTimeValue.Text = GlobalContext.SpawnMiniCoresInstance.SpawnTimer.WaitTime.ToString("F2");
 		
 		_positiveScore.Theme = theme;
 		_positiveScoreValue.Theme = theme;
-		_positiveScoreValue.Text = GlobalContext.SpawnMiniCoresInstance.MiniCorePositiveScore.ToString();
+		_positiveScoreValue.Text = GlobalContext.SpawnMiniCoresInstance.MiniCorePositiveScore.ToString("F2");
 		
 		_negativeScore.Theme = theme;
 		_negativeScoreValue.Theme = theme;
-		_negativeScoreValue.Text = GlobalContext.SpawnMiniCoresInstance.MiniCoreNegativeScore.ToString();
+		_negativeScoreValue.Text = GlobalContext.SpawnMiniCoresInstance.MiniCoreNegativeScore.ToString("F2");
 	}
 }

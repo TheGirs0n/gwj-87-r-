@@ -65,7 +65,7 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 

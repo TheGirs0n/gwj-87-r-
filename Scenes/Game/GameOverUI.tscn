@@ -57,7 +57,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_t0hjf")
-_richTextLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/RichTextLabel")
+_richTextLabel = NodePath("MarginContainer/HBoxContainer/VBoxContainer/RichTextLabel2")
 _textDayLabel = ExtResource("2_po2jt")
 _textNightLabel = ExtResource("3_k746o")
 _dayNightCountText = NodePath("MarginContainer/HBoxContainer/VBoxContainer2/DayNightText")
@@ -131,6 +131,13 @@ theme_override_constants/separation = 15
 alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "UI_GAME_OVER_DEATH_CAUSE_TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "UI_GAME_OVER_DEATH_CAUSE_1"

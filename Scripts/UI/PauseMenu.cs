@@ -2,7 +2,6 @@ using Godot;
 
 public partial class PauseMenu : Control
 {
-	[Export] public PackedScene MainMenuScene;
 	[Export] public PackedScene SettingsScene;
 	
 	public void ContinueGame()
@@ -17,13 +16,12 @@ public partial class PauseMenu : Control
 		scene.LoadUserSettings();
 		GlobalContext.GlobalUIInstance.AddChild(scene);
 		GlobalContext.GlobalUIInstance.SettingsSceneUIOpen();
-		//GlobalContext.SettingsUiInstance.Visible = true;
-		//GD.Print(GlobalContext.SettingsUiInstance.Visible);
 	}
 
 	public void ExitGame()
 	{
-		var scene = MainMenuScene.Instantiate<MainMenuUi>();
+		var gameOverScene = ResourceLoader.Load<PackedScene>("res://Scenes/UI/MainMenuUI.tscn").Instantiate<MainMenuUi>();
+		GetTree().Root.AddChild(gameOverScene);
 		GlobalContext.MainSceneInstance.QueueFree();
 	}
 }
