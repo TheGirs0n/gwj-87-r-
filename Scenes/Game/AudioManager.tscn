@@ -22,13 +22,13 @@ bus = &"SFX"
 
 [node name="MiniCoresEntry" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0wxlo")
-volume_db = -70.0
+volume_db = -65.0
 max_polyphony = 50
 bus = &"SFX"
 
 [node name="MiniCoresDestroy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ewcld")
-volume_db = -70.0
+volume_db = -65.0
 pitch_scale = 0.4
 max_polyphony = 50
 bus = &"SFX"

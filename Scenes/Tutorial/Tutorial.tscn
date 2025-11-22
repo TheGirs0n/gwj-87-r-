@@ -81,6 +81,7 @@ flat = true
 icon_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
+self_modulate = Color(1, 1, 1, 0.49803922)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
