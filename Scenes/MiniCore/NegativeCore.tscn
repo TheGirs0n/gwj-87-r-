@@ -13,7 +13,7 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_caw4j"]
 radius = 18.0
 
-[node name="NegativeCore" type="CharacterBody2D" node_paths=PackedStringArray("CoreSprite", "CoreParticles", "CoreAudio")]
+[node name="NegativeCore" type="CharacterBody2D" node_paths=PackedStringArray("CoreSprite", "CoreParticles")]
 collision_mask = 2
 script = ExtResource("1_eek35")
 CoreSpeed = 150.0
@@ -25,7 +25,6 @@ CoreNightSprite = ExtResource("3_b4x58")
 CoreParticles = NodePath("GPUParticles2D")
 CoreParticleDayProcessMaterial = ExtResource("4_b4x58")
 CoreParticleNightProcessMaterial = ExtResource("4_caw4j")
-CoreAudio = NodePath("AudioStreamPlayer2D")
 
 [node name="CoreSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.06, 0.06)
@@ -50,9 +49,6 @@ process_material = ExtResource("4_caw4j")
 bus = &"SFX"
 
 [node name="EntryCore" type="AudioStreamPlayer2D" parent="."]
-bus = &"SFX"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="EnterCore"]

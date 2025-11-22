@@ -17,11 +17,6 @@ public abstract partial class CoreTemplate : CharacterBody2D
 	[Export] public ParticleProcessMaterial CoreParticleDayProcessMaterial;
 	[Export] public ParticleProcessMaterial CoreParticleNightProcessMaterial;
 	
-	[ExportGroup("Audio")]
-	[Export] private AudioStreamPlayer2D CoreAudio;
-	[Export] private AudioStreamMP3 CoreEntrySound;
-	[Export] private AudioStreamMP3 CoreDestroySound;
-	
 	protected MainCore _targetMainCore;
 	public float SpeedMultiplier = 1f;
 	public float ScoreFromDestroy;
@@ -46,7 +41,7 @@ public abstract partial class CoreTemplate : CharacterBody2D
 		if (mainCore == _targetMainCore)
 		{
 			_targetMainCore.UpdateScore(ScoreFromEntry);
-			PlaySound(CoreEntrySound);
+			GlobalContext.AudioManagerInstance.PlayCoreEntrySound();
 			this.QueueFree();
 		}
 	}
@@ -54,7 +49,7 @@ public abstract partial class CoreTemplate : CharacterBody2D
 	public void DestroyCore()
 	{
 		_targetMainCore.UpdateScore(ScoreFromDestroy);
-		PlaySound(CoreDestroySound);
+		GlobalContext.AudioManagerInstance.PlayCoreDestroySound();
 		this.QueueFree();
 	}
 
@@ -71,12 +66,6 @@ public abstract partial class CoreTemplate : CharacterBody2D
 	public void UpdateNegativeScore(float newNegativeScore)
 	{
 		NegativeScore = newNegativeScore;
-	}
-
-	private void PlaySound(AudioStreamMP3 stream)
-	{
-		CoreAudio.Stream = stream;
-		CoreAudio.Play();
 	}
 }
 

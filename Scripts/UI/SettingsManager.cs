@@ -139,12 +139,10 @@ public partial class SettingsManager : Node
 		if (error == Error.Ok)
 		{
 			ApplySettings(masterVolume, sfxVolume, musicVolume, windowMode, resolution, language);
-			GD.Print("Settings saved and applied");
 		}
 		else
 		{
 			GD.PrintErr($"Failed to save settings: {error}");
 		}
-
 	}
 }

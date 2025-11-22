@@ -32,6 +32,7 @@ project/assembly_name="GWJ_87(R)"
 [file_customization]
 
 folder_colors={
+"res://Audio/": "purple",
 "res://Fonts/": "red",
 "res://Resources/": "orange",
 "res://Scenes/": "yellow",

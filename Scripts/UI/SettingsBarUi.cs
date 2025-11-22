@@ -39,14 +39,10 @@ public partial class SettingsBarUi : Control
             _resolutionButton.Selected,
             _languageButton.ButtonPressed ? "en" : "ru"
         );
-        
-        GD.Print("Settings applied and saved");
     }
     
     public void RestoreDefaults()
     {
-        GD.Print("Restoring default settings...");
-        
         float defaultMasterVolume = 1.0f;
         float defaultSfxVolume = 1.0f;
         float defaultMusicVolume = 1.0f;
@@ -64,8 +60,6 @@ public partial class SettingsBarUi : Control
         UpdateVolumeTexts();
         
         ApplyAndSaveSettings();
-        
-        GD.Print("Default settings restored and saved");
     }
     
     public void LoadAllUserSettings()

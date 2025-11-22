@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dubpcv52yvbsx"]
+[gd_scene load_steps=7 format=3 uid="uid://dubpcv52yvbsx"]
 
 [ext_resource type="Script" uid="uid://daqssjebuyvaw" path="res://Scripts/UI/MainMenuUi.cs" id="1_35rqa"]
 [ext_resource type="PackedScene" uid="uid://sbi8k0du20la" path="res://Scenes/UI/GameStoryUI.tscn" id="2_18ijf"]
 [ext_resource type="PackedScene" uid="uid://dlxr2qyuyp6xj" path="res://Scenes/UI/SettingsUI.tscn" id="3_0ydmw"]
 [ext_resource type="Texture2D" uid="uid://dojef4cetnqiu" path="res://Sprites/Background/главное меню.png" id="4_0ydmw"]
 [ext_resource type="Theme" uid="uid://d02rnrhk8v402" path="res://Resources/Themes/ButtonsNightTheme.tres" id="4_8koeu"]
+[ext_resource type="Theme" uid="uid://c5sr6vimyjyi4" path="res://Resources/Themes/TextDayTheme.tres" id="6_ge181"]
 
 [node name="MainMenuUI" type="Control"]
 layout_mode = 3
@@ -79,6 +80,69 @@ action_mode = 0
 text = "EXIT"
 flat = true
 icon_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.2
+anchor_right = 0.95
+anchor_bottom = 0.8
+offset_left = 38.799988
+offset_top = -9.600006
+offset_right = 38.799927
+offset_bottom = -9.599976
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_ge181")
+theme_override_font_sizes/normal_font_size = 30
+text = "Авторы игры"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_ge181")
+theme_override_constants/paragraph_separation = 5
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[color=white]Геймдизайн/Программирование[/color] 
+Тлеумбетов Тимур"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_ge181")
+theme_override_constants/paragraph_separation = 5
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[color=white]Визуал/UI[/color]
+Софья Никитина"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_ge181")
+theme_override_constants/paragraph_separation = 5
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[color=white]Audio/Music[/color]
+Павел Железко"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/StartGame" to="." method="StartGame"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="Settings"]

@@ -1,15 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7v4bl8t5hhp0"]
+[gd_scene load_steps=5 format=3 uid="uid://c7v4bl8t5hhp0"]
 
 [ext_resource type="Script" uid="uid://x2rqcikow3uf" path="res://Scripts/MainGame/AudioManager.cs" id="1_28rc6"]
+[ext_resource type="AudioStream" uid="uid://duypvy4mf221b" path="res://Audio/Sphere_Consume.wav" id="2_0wxlo"]
+[ext_resource type="AudioStream" uid="uid://buvxpkrfuqn3h" path="res://Audio/OmniSphere.mp3" id="2_ewcld"]
+[ext_resource type="AudioStream" uid="uid://baebghqeu8n8r" path="res://Audio/Rounds_Destroyed.wav" id="3_ewcld"]
 
-[node name="AudioStreamPlayer" type="Node"]
+[node name="AudioStreamPlayer" type="Node" node_paths=PackedStringArray("_miniCoreEntrySound", "_miniCoreDestroySound")]
 script = ExtResource("1_28rc6")
+_miniCoreEntrySound = NodePath("MiniCoresEntry")
+_miniCoreDestroySound = NodePath("MiniCoresDestroy")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-bus = &"Music"
-
-[node name="MenuBackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ewcld")
+volume_db = -75.0
+pitch_scale = 0.75
+autoplay = true
 bus = &"Music"
 
 [node name="ButtonPressSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="MiniCoresEntry" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0wxlo")
+volume_db = -80.0
+max_polyphony = 50
+bus = &"SFX"
+
+[node name="MiniCoresDestroy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ewcld")
+volume_db = -80.0
+pitch_scale = 0.4
+max_polyphony = 50
 bus = &"SFX"
