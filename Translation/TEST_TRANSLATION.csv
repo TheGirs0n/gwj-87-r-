@@ -47,3 +47,10 @@ UI_GAME_OVER_SPEED_MULTIPLAYER_TEXT;МНОЖИТЕЛЬ СКОРОСТИ;SPEED MU
 UI_GAME_OVER_SPAWN_TIME_TEXT;ВРЕМЯ ПОЯВЛЕНИЯ;SPAWN TIME
 UI_GAME_OVER_MINUS_POSITIVE_TEXT;КОЛ-ВО ПОЛОЖИТЕЛЬНЫХ ОЧКОВ;POSITIVE SCORE
 UI_GAME_OVER_PLUS_NEGATIVE_TEXT;КОЛ-ВО ОТРИЦАТЕЛЬНЫХ ОЧКОВ;NEGATIVE SCORE
+UI_CREDITS_TEXT;АВТОРЫ ИГРЫ;GAME AUTHORS
+UI_CREDITS_FIRST_TEXT;[color=white]ГЕЙМДИЗАЙН/ПРОГРАММИРОВАНИЕ[/color];[color=white]GAMEDESIGN/PROGRAMMING[/color]
+UI_CREDITS_FIRST_NAME;ТЛЕУМБЕТОВ ТИМУР; TLEUMBETOV TIMUR
+UI_CREDITS_SECOND_TEXT;[color=white]ВИЗУАЛ[/color];[color=white]VISUAL[/color]
+UI_CREDITS_SECOND_NAME; НИКИТИНА СОФЬЯ; NIKITINA SOFYA
+UI_CREDITS_THIRD_TEXT;[color=white]МУЗЫКА/ЗВУКИ[/color];[color=white]MUSIC/SOUNDS[/color]
+UI_CREDITS_THIRD_NAME; ЖЕЛЕЗКО ПАВЕЛ;ZHELEZKO PAVEL
