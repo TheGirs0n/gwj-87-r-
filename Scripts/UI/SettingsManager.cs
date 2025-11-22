@@ -28,10 +28,10 @@ public partial class SettingsManager : Node
 	
 	private void ApplySettingsFromConfig()
 	{
-		float masterVolume = (float)_configFile.GetValue("audio", "master_volume", 1.0f);
-		float sfxVolume = (float)_configFile.GetValue("audio", "sfx_volume", 1.0f);
-		float musicVolume = (float)_configFile.GetValue("audio", "music_volume", 1.0f);
-		int windowMode = (int)_configFile.GetValue("video", "window_mode", 0);
+		float masterVolume = (float)_configFile.GetValue("audio", "master_volume", 50f);
+		float sfxVolume = (float)_configFile.GetValue("audio", "sfx_volume", 50f);
+		float musicVolume = (float)_configFile.GetValue("audio", "music_volume", 50f);
+		int windowMode = (int)_configFile.GetValue("video", "window_mode", 1);
 		int resolutionIndex = (int)_configFile.GetValue("video", "resolution", 0);
 		string language = (string)_configFile.GetValue("gameplay", "language", "en");
 
@@ -40,7 +40,7 @@ public partial class SettingsManager : Node
 	
 	private void ApplyDefaultSettings()
 	{
-		ApplySettings(1.0f, 1.0f, 1.0f, 0, 0, "en");
+		ApplySettings(50f, 50f, 50f, 1, 0, "en");
 	}
 	
 	public void ApplySettings(float masterVolume, float sfxVolume, float musicVolume, 
@@ -51,7 +51,7 @@ public partial class SettingsManager : Node
 		AudioServer.SetBusVolumeDb(2, Mathf.LinearToDb(musicVolume));
 		
 		ApplyWindowMode(windowMode);
-		ApplyResolution(resolution);
+		ApplyResolution(resolution, windowMode);
 		
 		TranslationServer.SetLocale(language);
 	}
@@ -62,35 +62,47 @@ public partial class SettingsManager : Node
 		{
 			case 0:
 				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
-				DisplayServer.WindowSetFlag(DisplayServer.WindowFlags.Borderless, false);
 				break;
-			case 1:
+
+			case 1: 
 				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
 				DisplayServer.WindowSetFlag(DisplayServer.WindowFlags.Borderless, false);
-				break;
-			case 2:
-				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
-				DisplayServer.WindowSetFlag(DisplayServer.WindowFlags.Borderless, true);
-				break;
-			case 3:
-				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Fullscreen);
-				DisplayServer.WindowSetFlag(DisplayServer.WindowFlags.Borderless, true);
+				CenterWindow();
 				break;
 		}
 	}
 	
-	private void ApplyResolution(int index)
+	private void ApplyResolution(int index, int windowMode)
 	{
-		Vector2I[] resolutions = {
-			new Vector2I(1280, 720),
-			new Vector2I(1600, 900),
-			new Vector2I(1920, 1080)
+		Vector2I[] resolutions =
+		{
+			new(1280, 720),
+			new(1366, 768),
+			new(1600, 900),
+			new(1920, 1080)
 		};
 
-		if (index >= 0 && index < resolutions.Length)
-		{
-			DisplayServer.WindowSetSize(resolutions[index]);
-		}
+		if (windowMode != 1) 
+			return; 
+
+		if (index < 0 || index >= resolutions.Length)
+			return;
+
+		DisplayServer.WindowSetSize(resolutions[index]);
+		CenterWindow();
+	}
+	
+	private void CenterWindow()
+	{
+		Vector2I screen = DisplayServer.ScreenGetSize();
+		Vector2I win = DisplayServer.WindowGetSize();
+
+		Vector2I center = new Vector2I(
+			(screen.X - win.X) / 2,
+			(screen.Y - win.Y) / 2
+		);
+
+		DisplayServer.WindowSetPosition(center);
 	}
 	
 	public float GetMasterVolume()

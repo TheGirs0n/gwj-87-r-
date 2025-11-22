@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://xv0xr5v5lqt2"]
 
-[ext_resource type="Texture2D" uid="uid://urbihws1nw3l" path="res://Sprites/SettingsIcons/SOUND_ICON.png" id="1_777fb"]
 [ext_resource type="Script" uid="uid://cku31n6fhrot8" path="res://Scripts/UI/SettingsBarUi.cs" id="1_phv7t"]
 [ext_resource type="Theme" uid="uid://bq8marwmvebko" path="res://Resources/Themes/TextNightTheme.tres" id="2_f3bj5"]
+[ext_resource type="Theme" uid="uid://xkg6bwqlflhy" path="res://Resources/Themes/SettingsBarUITheme.tres" id="2_trrsk"]
 [ext_resource type="Theme" uid="uid://d02rnrhk8v402" path="res://Resources/Themes/ButtonsNightTheme.tres" id="4_qru8y"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("_masterSlider", "_sfxSlider", "_musicSlider", "_masterVolumeText", "_sfxVolumeText", "_musicVolumeText", "_windowButton", "_resolutionButton", "_languageButton")]
@@ -30,10 +30,12 @@ anchor_left = 0.3
 anchor_top = 0.05
 anchor_right = 0.7
 anchor_bottom = 0.7
+theme = ExtResource("2_trrsk")
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="UI_SETTINGS_SOUND_BAR_NAME" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -69,7 +71,6 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_777fb")
 
 [node name="MasterSlider" type="HSlider" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -100,7 +101,6 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("1_777fb")
 
 [node name="SFXSlider" type="HSlider" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -131,7 +131,6 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-texture = ExtResource("1_777fb")
 
 [node name="MusicSlider" type="HSlider" parent="TabContainer/UI_SETTINGS_SOUND_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
@@ -148,7 +147,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UI_SETTINGS_DISPLAY_BAR_NAME" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -185,15 +183,12 @@ vertical_alignment = 1
 [node name="WindowButton" type="OptionButton" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 4
-popup/item_0/text = "Fullscreen"
+selected = 0
+item_count = 2
+popup/item_0/text = "UI_SETTINGS_BAR_DISPLAY_WINDOW_FIRST"
 popup/item_0/id = 0
-popup/item_1/text = "Windowed"
+popup/item_1/text = "UI_SETTINGS_BAR_DISPLAY_WINDOW_SECOND"
 popup/item_1/id = 1
-popup/item_2/text = "Borderless Windowed"
-popup/item_2/id = 2
-popup/item_3/text = "Borderless Fullscreen"
-popup/item_3/id = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -211,13 +206,16 @@ vertical_alignment = 1
 [node name="ResolutionButton" type="OptionButton" parent="TabContainer/UI_SETTINGS_DISPLAY_BAR_NAME/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 3
+selected = 0
+item_count = 4
 popup/item_0/text = "1280x720"
 popup/item_0/id = 0
-popup/item_1/text = "1600x900"
+popup/item_1/text = "1366×768"
 popup/item_1/id = 1
-popup/item_2/text = "1920x1080"
+popup/item_2/text = "1600x900"
 popup/item_2/id = 2
+popup/item_3/text = "1920x1080"
+popup/item_3/id = 3
 
 [node name="UI_SETTINGS_LANGUAGE_BAR_NAME" type="TabBar" parent="TabContainer"]
 visible = false

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GWJ_87(R)"
-run/main_scene="uid://dubpcv52yvbsx"
+run/main_scene="uid://2xths1pssx66"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 
 [autoload]

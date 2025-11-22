@@ -43,10 +43,10 @@ public partial class SettingsBarUi : Control
     
     public void RestoreDefaults()
     {
-        float defaultMasterVolume = 1.0f;
-        float defaultSfxVolume = 1.0f;
-        float defaultMusicVolume = 1.0f;
-        int defaultWindowMode = 0;
+        float defaultMasterVolume = 50f;
+        float defaultSfxVolume = 50f;
+        float defaultMusicVolume = 50f;
+        int defaultWindowMode = 1;
         int defaultResolution = 0;
         string defaultLanguage = "en";
         
