@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://81jpjo61homb"]
+[gd_scene load_steps=9 format=3 uid="uid://81jpjo61homb"]
 
 [ext_resource type="Script" uid="uid://d4f5f7im7tg0o" path="res://Scripts/MainCore/MainCore.cs" id="1_n1loq"]
+[ext_resource type="Texture2D" uid="uid://dx7jm6l26db7u" path="res://Sprites/MainCore/под белую рамку.png" id="2_fgwsc"]
 [ext_resource type="Texture2D" uid="uid://bhu845i7q64xf" path="res://Sprites/MainCore/шкала черн.png" id="4_75xtg"]
+[ext_resource type="Texture2D" uid="uid://c2sew6bwy7f1b" path="res://Sprites/MainCore/под черную рамку.png" id="5_n5hl6"]
 [ext_resource type="Texture2D" uid="uid://c1o3bm8legbe2" path="res://Sprites/MainCore/шкала белая.png" id="6_jsnqc"]
 [ext_resource type="Texture2D" uid="uid://br4efnhsfaam0" path="res://Sprites/MainCore/подложка шкалы черная.png" id="7_pqnpq"]
 [ext_resource type="Texture2D" uid="uid://cd3mnumh8ndmx" path="res://Sprites/MainCore/подложка шкалы белая.png" id="10_tuxjx"]
@@ -15,10 +17,12 @@ collision_layer = 2
 input_pickable = false
 script = ExtResource("1_n1loq")
 ProgressBar = NodePath("ProgressBar")
+ProgressBarDayUnder = ExtResource("10_tuxjx")
 ProgressBarDayOver = ExtResource("6_jsnqc")
-ProgressBarDayProgress = ExtResource("7_pqnpq")
+ProgressBarDayProgress = ExtResource("2_fgwsc")
+ProgressBarNightUnder = ExtResource("7_pqnpq")
 ProgressBarNightOver = ExtResource("4_75xtg")
-ProgressBarNightProgress = ExtResource("10_tuxjx")
+ProgressBarNightProgress = ExtResource("5_n5hl6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = -195
@@ -37,9 +41,11 @@ offset_bottom = 1455.0
 rotation = 1.5707964
 scale = Vector2(0.03, 0.03)
 size_flags_horizontal = 3
+value = 100.0
 fill_mode = 3
-texture_over = ExtResource("6_jsnqc")
-texture_progress = ExtResource("7_pqnpq")
+texture_under = ExtResource("7_pqnpq")
+texture_over = ExtResource("4_75xtg")
+texture_progress = ExtResource("5_n5hl6")
 
 [node name="MinChargeCap" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"

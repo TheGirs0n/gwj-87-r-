@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cy1e23s0djp7t" path="res://Scenes/Tutorial/Tutorial.tscn" id="2_bx1ub"]
 [ext_resource type="Texture2D" uid="uid://cp7gvfw15ong7" path="res://Sprites/Background/BACKGROUND_NIGHT.png" id="3_rf0ur"]
 [ext_resource type="Theme" uid="uid://df1o5vwg2qt6q" path="res://Resources/Themes/ButtonsDayTheme.tres" id="4_bx1ub"]
+[ext_resource type="Texture2D" uid="uid://b3rmfxyybl7uw" path="res://Sprites/MiniCore/ярлык.png" id="4_dlfi1"]
 [ext_resource type="Theme" uid="uid://bq8marwmvebko" path="res://Resources/Themes/TextNightTheme.tres" id="4_ku2l5"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yg3hv"]
 
 [node name="GameStoryUi" type="Control"]
 layout_mode = 3
@@ -42,7 +41,8 @@ alignment = 1
 [node name="StoryTexture" type="TextureRect" parent="BackGround/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = SubResource("PlaceholderTexture2D_yg3hv")
+texture = ExtResource("4_dlfi1")
+expand_mode = 3
 stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="BackGround/VBoxContainer"]

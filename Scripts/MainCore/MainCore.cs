@@ -10,10 +10,10 @@ public partial class MainCore : Node2D
     
     [ExportGroup("ProgressBar")]
     [Export] public TextureProgressBar ProgressBar;
-    //[Export] public CompressedTexture2D ProgressBarDayUnder;
+    [Export] public CompressedTexture2D ProgressBarDayUnder;
     [Export] public CompressedTexture2D ProgressBarDayOver;
     [Export] public CompressedTexture2D ProgressBarDayProgress;
-    //[Export] public CompressedTexture2D ProgressBarNightUnder;
+    [Export] public CompressedTexture2D ProgressBarNightUnder;
     [Export] public CompressedTexture2D ProgressBarNightOver;
     [Export] public CompressedTexture2D ProgressBarNightProgress;
     
@@ -56,12 +56,12 @@ public partial class MainCore : Node2D
         switch (timeType)
         {
             case TimeType.DAY:
-                //ProgressBar.TextureUnder = ProgressBarDayUnder;
+                ProgressBar.TextureUnder = ProgressBarDayUnder;
                 ProgressBar.TextureOver = ProgressBarDayOver;
                 ProgressBar.TextureProgress = ProgressBarDayProgress;
                 break;
             case TimeType.NIGHT:
-                //ProgressBar.TextureUnder = ProgressBarNightUnder;
+                ProgressBar.TextureUnder = ProgressBarNightUnder;
                 ProgressBar.TextureOver = ProgressBarNightOver;
                 ProgressBar.TextureProgress = ProgressBarNightProgress;
                 break;
