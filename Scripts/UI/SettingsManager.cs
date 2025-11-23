@@ -107,22 +107,22 @@ public partial class SettingsManager : Node
 	
 	public float GetMasterVolume()
 	{
-		return (float)_configFile.GetValue("audio", "master_volume", 1.0f);
+		return (float)_configFile.GetValue("audio", "master_volume", 50f);
 	}
 
 	public float GetSfxVolume()
 	{
-		return (float)_configFile.GetValue("audio", "sfx_volume", 1.0f);
+		return (float)_configFile.GetValue("audio", "sfx_volume", 50f);
 	}
 
 	public float GetMusicVolume()
 	{
-		return (float)_configFile.GetValue("audio", "music_volume", 1.0f);
+		return (float)_configFile.GetValue("audio", "music_volume", 50f);
 	}
 
 	public int GetWindowMode()
 	{
-		return (int)_configFile.GetValue("video", "window_mode", 0);
+		return (int)_configFile.GetValue("video", "window_mode", 1);
 	}
 
 	public int GetResolution()

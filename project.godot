@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="GWJ_87(R)"
+config/name="Unstable Core"
 run/main_scene="uid://2xths1pssx66"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
-config/icon="uid://b3rmfxyybl7uw"
+config/icon="uid://dcrytf8ofiswj"
 
 [autoload]
 
